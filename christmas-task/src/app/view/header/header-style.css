@@ -1,0 +1,60 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 0 100px;
+  background-color: #121c1e;
+}
+
+.navigation { 
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  height: 100%; 
+}
+
+.logoImg:hover,
+.navigation-item:hover {
+  filter: invert(41%) sepia(96%) saturate(306%) hue-rotate(141deg) brightness(96%) contrast(99%);
+  cursor: pointer;
+}
+
+.logoImg{
+  height: 80px;
+}
+
+.title {
+  display: none;
+}
+
+
+.header-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.favorite-container{
+   display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 48px;
+  height: 60px;
+  background: url('../../../assets/svg/ball-2.svg') no-repeat center;
+  background-size: 48px 60px;
+}
+
+.favorite-count {
+  margin-top: 15px;
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-color: #278D9F;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+}
