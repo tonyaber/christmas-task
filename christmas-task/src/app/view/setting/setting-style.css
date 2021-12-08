@@ -2,5 +2,61 @@
   box-sizing: border-box;
   width: 100%;
   padding: 0 100px;
-  
+
+}
+.setting {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-value,
+.filter-range ,
+.sort {
+  width: 33%;
+  background-color: rgba(31, 112, 127, .3);
+  border-radius: 10px;
+}
+
+button {
+  color: inherit;
+  text-transform: inherit;
+  background-color: transparent;
+  border:transparent;
+}
+
+.name{
+  text-transform: none;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+.form button {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+
+.round{
+  background-image: url('../../../assets/svg/ball.svg');
+}
+
+.bell{
+  background-image: url('../../../assets/svg/bell.svg');
+}
+
+.cone {
+  background-image: url('../../../assets/svg/cone.svg');
+}
+
+.snowflake {
+  background-image: url('../../../assets/svg/snowflake.svg');
+}
+
+.figurine{
+  background-image: url('../../../assets/svg/toy.svg');
 }
