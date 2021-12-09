@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-.form,
+.shape,
 .color {
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@
   gap: 10px;
 }
 
-.form label,
+.shape label,
 .color label {
   width: 40px;
   height: 40px;
@@ -46,7 +46,7 @@
   position: relative;
 }
 
-.form span{
+.shape span{
   background-size: 40px 40px; 
 }
 
@@ -60,7 +60,7 @@
   text-transform: none;
 }
 
-.form input[type="checkbox"]:checked + span{
+.shape input[type="checkbox"]:checked + span{
   filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
 }
 
