@@ -4,7 +4,7 @@
     "name": "Большой шар с рисунком",
     "count": "2",
     "year": "1960",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -14,7 +14,7 @@
     "name": "Зелёный шар с цветами",
     "count": "5",
     "year": "2000",
-    "shape": "шар",
+    "shape": "round",
     "color": "зелёный",
     "size": "большой",
     "favorite": false
@@ -24,7 +24,7 @@
     "name": "Красный матовый шар",
     "count": "3",
     "year": "1990",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -34,7 +34,7 @@
     "name": "Сосулька красная",
     "count": "2",
     "year": "1980",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -44,7 +44,7 @@
     "name": "Красный виноград",
     "count": "4",
     "year": "1980",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "красный",
     "size": "средний",
     "favorite": true
@@ -54,7 +54,7 @@
     "name": "Красный шар с рисунком",
     "count": "6",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -64,7 +64,7 @@
     "name": "Молочно-белый шар",
     "count": "12",
     "year": "1960",
-    "shape": "шар",
+    "shape": "round",
     "color": "белый",
     "size": "средний",
     "favorite": true
@@ -74,7 +74,7 @@
     "name": "Красный шар",
     "count": "10",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -84,7 +84,7 @@
     "name": "Колокольчик старинный",
     "count": "2",
     "year": "1950",
-    "shape": "колокольчик",
+    "shape": "bell",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -94,7 +94,7 @@
     "name": "Белый шар ретро",
     "count": "7",
     "year": "1960",
-    "shape": "шар",
+    "shape": "round",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -104,7 +104,7 @@
     "name": "Шишка еловая белая",
     "count": "11",
     "year": "1960",
-    "shape": "шишка",
+    "shape": "cone",
     "color": "белый",
     "size": "малый",
     "favorite": false
@@ -114,7 +114,7 @@
     "name": "Белый шар с цветами",
     "count": "5",
     "year": "1980",
-    "shape": "шар",
+    "shape": "round",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -124,7 +124,7 @@
     "name": "Шар расписной Река",
     "count": "3",
     "year": "1970",
-    "shape": "шар",
+    "shape": "round",
     "color": "синий",
     "size": "большой",
     "favorite": true
@@ -134,7 +134,7 @@
     "name": "Шар расписной Деревня",
     "count": "4",
     "year": "1970",
-    "shape": "шар",
+    "shape": "round",
     "color": "синий",
     "size": "большой",
     "favorite": true
@@ -144,7 +144,7 @@
     "name": "Колокольчик расписной",
     "count": "3",
     "year": "1970",
-    "shape": "колокольчик",
+    "shape": "bell",
     "color": "синий",
     "size": "средний",
     "favorite": false
@@ -154,7 +154,7 @@
     "name": "Шишка расписная Пейзаж",
     "count": "3",
     "year": "1970",
-    "shape": "шишка",
+    "shape": "cone",
     "color": "синий",
     "size": "средний",
     "favorite": true
@@ -164,7 +164,7 @@
     "name": "Шишка расписная",
     "count": "7",
     "year": "1970",
-    "shape": "шишка",
+    "shape": "cone",
     "color": "красный",
     "size": "средний",
     "favorite": false
@@ -174,7 +174,7 @@
     "name": "Желтый шар с бантом",
     "count": "2",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -184,7 +184,7 @@
     "name": "Желтый шар с паетками",
     "count": "12",
     "year": "1980",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -194,7 +194,7 @@
     "name": "Красный шар с бантом",
     "count": "8",
     "year": "1950",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "средний",
     "favorite": true
@@ -204,7 +204,7 @@
     "name": "Красный шар с звёздами",
     "count": "4",
     "year": "1970",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": true
@@ -214,7 +214,7 @@
     "name": "Шишка еловая золотая",
     "count": "11",
     "year": "1990",
-    "shape": "шишка",
+    "shape": "cone",
     "color": "желтый",
     "size": "малый",
     "favorite": false
@@ -224,7 +224,7 @@
     "name": "Колокольчик старинный",
     "count": "9",
     "year": "1950",
-    "shape": "колокольчик",
+    "shape": "bell",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -234,7 +234,7 @@
     "name": "Снежинка изящная",
     "count": "1",
     "year": "1940",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -244,7 +244,7 @@
     "name": "Розовый шар с блёстками",
     "count": "12",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -254,7 +254,7 @@
     "name": "Рубиново-золотой шар",
     "count": "8",
     "year": "1960",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -264,7 +264,7 @@
     "name": "Красный шар с узором",
     "count": "4",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -274,7 +274,7 @@
     "name": "Бордовый шар с узором",
     "count": "10",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -284,7 +284,7 @@
     "name": "Старинный шар с цветами",
     "count": "5",
     "year": "1950",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": true
@@ -294,7 +294,7 @@
     "name": "Старинный шар с узором",
     "count": "8",
     "year": "1950",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": true
@@ -304,7 +304,7 @@
     "name": "Красный шар с блёстками",
     "count": "8",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -314,7 +314,7 @@
     "name": "Синий шар Вселенная",
     "count": "11",
     "year": "1970",
-    "shape": "шар",
+    "shape": "round",
     "color": "синий",
     "size": "большой",
     "favorite": false
@@ -324,7 +324,7 @@
     "name": "Синий шар со снежинкой",
     "count": "6",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "синий",
     "size": "средний",
     "favorite": false
@@ -334,7 +334,7 @@
     "name": "Зелёный  шар с узором",
     "count": "8",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "зелёный",
     "size": "большой",
     "favorite": false
@@ -344,7 +344,7 @@
     "name": "Фигурка Лис в шарфе",
     "count": "8",
     "year": "1950",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "желтый",
     "size": "средний",
     "favorite": true
@@ -354,7 +354,7 @@
     "name": "Сиреневый шар Метель",
     "count": "1",
     "year": "2000",
-    "shape": "шар",
+    "shape": "round",
     "color": "синий",
     "size": "большой",
     "favorite": false
@@ -364,7 +364,7 @@
     "name": "Зелёный  шар Метель",
     "count": "6",
     "year": "2000",
-    "shape": "шар",
+    "shape": "round",
     "color": "зелёный",
     "size": "большой",
     "favorite": false
@@ -374,7 +374,7 @@
     "name": "Голубой  шар Метель",
     "count": "6",
     "year": "2000",
-    "shape": "шар",
+    "shape": "round",
     "color": "синий",
     "size": "большой",
     "favorite": false
@@ -384,7 +384,7 @@
     "name": "Красная снежинка",
     "count": "6",
     "year": "1990",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -394,7 +394,7 @@
     "name": "Снежинка золотая",
     "count": "12",
     "year": "2020",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -404,7 +404,7 @@
     "name": "Снежинка арктическая",
     "count": "11",
     "year": "2020",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -414,7 +414,7 @@
     "name": "Зелёный шар",
     "count": "10",
     "year": "1980",
-    "shape": "шар",
+    "shape": "round",
     "color": "зелёный",
     "size": "средний",
     "favorite": false
@@ -424,7 +424,7 @@
     "name": "Снежинка двухцветная",
     "count": "6",
     "year": "1960",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -434,7 +434,7 @@
     "name": "Фигурка Ангела",
     "count": "11",
     "year": "1940",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "красный",
     "size": "средний",
     "favorite": true
@@ -444,7 +444,7 @@
     "name": "Снежинка новогодняя",
     "count": "1",
     "year": "1980",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -454,7 +454,7 @@
     "name": "Фигурка Мухомор",
     "count": "10",
     "year": "1950",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "красный",
     "size": "малый",
     "favorite": false
@@ -464,7 +464,7 @@
     "name": "Фигурка Колодец",
     "count": "6",
     "year": "1950",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "красный",
     "size": "малый",
     "favorite": false
@@ -474,7 +474,7 @@
     "name": "Желтый шар с бантом",
     "count": "6",
     "year": "1960",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -484,7 +484,7 @@
     "name": "Снежинка с бирюзой",
     "count": "4",
     "year": "1980",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -494,7 +494,7 @@
     "name": "Колокольчик большой",
     "count": "3",
     "year": "2020",
-    "shape": "колокольчик",
+    "shape": "bell",
     "color": "красный",
     "size": "большой",
     "favorite": false
@@ -504,7 +504,7 @@
     "name": "Шишка с изморозью",
     "count": "12",
     "year": "1970",
-    "shape": "шишка",
+    "shape": "cone",
     "color": "красный",
     "size": "малый",
     "favorite": false
@@ -514,7 +514,7 @@
     "name": "Красный шар с надписью",
     "count": "12",
     "year": "1990",
-    "shape": "шар",
+    "shape": "round",
     "color": "красный",
     "size": "большой",
     "favorite": true
@@ -524,7 +524,7 @@
     "name": "Снежинка серебристая",
     "count": "6",
     "year": "2020",
-    "shape": "снежинка",
+    "shape": "snowflake",
     "color": "белый",
     "size": "большой",
     "favorite": false
@@ -534,7 +534,7 @@
     "name": "Зелёный шар с рисунком",
     "count": "6",
     "year": "2010",
-    "shape": "шар",
+    "shape": "round",
     "color": "зелёный",
     "size": "большой",
     "favorite": false
@@ -544,7 +544,7 @@
     "name": "Пряничный домик",
     "count": "1",
     "year": "1940",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "желтый",
     "size": "большой",
     "favorite": false
@@ -554,7 +554,7 @@
     "name": "Пряничный теремок",
     "count": "1",
     "year": "1940",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "желтый",
     "size": "малый",
     "favorite": false
@@ -564,7 +564,7 @@
     "name": "Пряничная избушка",
     "count": "1",
     "year": "1940",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "желтый",
     "size": "средний",
     "favorite": false
@@ -574,7 +574,7 @@
     "name": "Фигурка белого медведя",
     "count": "2",
     "year": "1980",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "белый",
     "size": "средний",
     "favorite": false
@@ -584,7 +584,7 @@
     "name": "Желтый шар с надписью",
     "count": "10",
     "year": "1990",
-    "shape": "шар",
+    "shape": "round",
     "color": "желтый",
     "size": "средний",
     "favorite": false
@@ -594,7 +594,7 @@
     "name": "Фигурка Голубь",
     "count": "12",
     "year": "1940",
-    "shape": "фигурка",
+    "shape": "figurine",
     "color": "белый",
     "size": "средний",
     "favorite": true

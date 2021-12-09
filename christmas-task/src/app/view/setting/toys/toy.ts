@@ -3,16 +3,34 @@ import { IToy } from '../../../../dto';
 import style from '../setting-style.css'
 
 export default class ToyItem extends Control{
-  constructor(parentNode: HTMLElement, toy:IToy) {
+  title: Control<HTMLHeadingElement>;
+  img: Control<HTMLImageElement>;
+  description: Control<HTMLElement>;
+  count: Control<HTMLElement>;
+  year: Control<HTMLElement>;
+  form: Control<HTMLElement>;
+  color: Control<HTMLElement>;
+  size: Control<HTMLElement>;
+  
+  constructor(parentNode: HTMLElement) {
     super(parentNode, 'div', style['toy-item']);
-    const title = new Control(this.node, 'h4', '', toy.name);
-    const img = new Control<HTMLImageElement>(this.node, 'img', style['toy-img']);
-    img.node.src = `assets/toys/${toy.num}.png`;
-    const description = new Control(this.node, 'div');
-    const count = new Control(description.node, 'p', '', `Count: ${toy.count}`)
-    const year = new Control(description.node, 'p', '', `Year: ${toy.year}`);
-    const form = new Control(description.node, 'p', '', `Form: ${toy.shape}`);
-    const color = new Control(description.node, 'p', '', `Color: ${toy.color}`);
-    const size = new Control(description.node, 'p', '', `Size: ${toy.size}`);
+    this.title = new Control<HTMLHeadingElement>(this.node, 'h4',);
+    this.img = new Control<HTMLImageElement>(this.node, 'img', style['toy-img']);
+    this.description = new Control(this.node, 'div');
+    this.count = new Control(this.description.node, 'p')
+    this.year = new Control(this.description.node, 'p');
+    this.form = new Control(this.description.node, 'p');
+    this.color = new Control(this.description.node, 'p');
+    this.size = new Control(this.description.node, 'p');
+  }
+
+  update(toy: IToy) {
+    this.title.node.textContent = toy.name;
+    this.img.node.src = `assets/toys/${toy.num}.png`;
+    this.count.node.textContent = `Count: ${toy.count}`
+    this.year.node.textContent = `Year: ${toy.year}`
+    this.form.node.textContent = `Form: ${toy.shape}`
+    this.color.node.textContent = `Color: ${toy.color}`
+    this.size.node.textContent = `Size: ${toy.size}`
   }
 }
