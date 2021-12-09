@@ -18,27 +18,63 @@
   border-radius: 10px;
 }
 
-button {
-  color: inherit;
-  text-transform: inherit;
-  background-color: transparent;
-  border:transparent;
+.setting input[type="checkbox"]{
+  display: none;
+}
+
+.setting span{
+  position: absolute;
+  left: 0; 
+  top: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+}
+
+.form,
+.color {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.form label,
+.color label {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: relative;
+}
+
+.form span{
+  background-size: 40px 40px; 
+}
+
+.color span{
+ margin: 5px;
+ width: 30px;
+ height: 30px;
 }
 
 .name{
   text-transform: none;
 }
 
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
+.form input[type="checkbox"]:checked + span{
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
 }
-.form button {
-  width: 40px;
-  height: 40px;
-  background-size: 40px 40px;
+
+.color input[type="checkbox"]:checked + span::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    width: 6px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
 }
 
 .round{
@@ -59,4 +95,39 @@ button {
 
 .figurine{
   background-image: url('../../../assets/svg/toy.svg');
+}
+
+.white {
+  background-color: #fff;
+}
+.yellow{
+  background-color: #FDD700;
+}
+
+.red{
+  background-color: #FD0000;
+}
+.blue{
+  background-color: #2199EB;
+}
+.green{
+  background-color: #08AA05;
+}
+
+.toys{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.toy-item{
+  border: 1px solid #278D9F;
+  border-radius: 5px;
+  background-color:rgba(31, 112, 127, .3);
+}
+
+.toy-img{
+  width: 90px;
+  height: 112px;
+  object-fit: contain;
 }

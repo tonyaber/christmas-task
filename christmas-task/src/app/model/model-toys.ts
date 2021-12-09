@@ -9,6 +9,13 @@ export default class ModelToys{
   setAllToys() {
     fetch('../data/data.json')
       .then(json => json.json())
+      .then(res => {
+        for (const key in res) {
+          res[key]['year'] = Number(res[key]['year']);
+          res[key]['count'] = Number(res[key]['count']);
+        }
+        return res;
+      })
       .then(res=>this.toys = res)
   }
 

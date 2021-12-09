@@ -4,7 +4,7 @@ import FilterValue from './filter-value/filter-value';
 import FilterRange from './filter-range/filter-range';
 import Sort from './sort/sort';
 import ModelToys from '../../model/model-toys';
-import Toys from './toys/toys';
+import ToysList from './toys/toys-list';
 
 export default class SettingPage extends Control {
   model: ModelToys;
@@ -20,6 +20,6 @@ export default class SettingPage extends Control {
 
     const sort = new Sort(setting.node);
 
-    const toys = new Toys(this.node, this.model);
+    const toys = new ToysList(this.node, this.model);
   }
 }

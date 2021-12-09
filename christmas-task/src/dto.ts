@@ -9,7 +9,7 @@ export interface IToy{
   num: string;
   shape: string;
   size: string;
-  year: string;
+  year: number;
 }
 
 export interface IMainConstructor{
