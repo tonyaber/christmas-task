@@ -20,28 +20,29 @@ export default class ModelSort{
     return this.filtersToys;
   }
   
-  filtersData(key: string, value: string | boolean, toys: IToy[]) {
-    let newToys: IToy[] = [];
+  filtersDataByValue(key: string, value: string, toys: IToy[]) {
     if (value === 'favorite') {
-      newToys = toys.filter(item => item[key as keyof IToy]===true)
+      return toys.filter(item => item[key as keyof IToy]===true)
     } else {
-      newToys = toys.filter(item => item[key as keyof IToy]===value)
-    }    
-    return newToys;
+      return toys.filter(item => item[key as keyof IToy]===value)
+    }
   }  
+
+  filtersDataByRange(key: string, from: number, to: number, toys: IToy[]) {
+    return toys.filter(item => item[key as keyof IToy] >= from && item[key as keyof IToy] <= to);
+  }
   
   changeData(filters:Record<string, Record<string, boolean>>, range: Record<string, Record<string, number>>) {
     this.filtersToys =[];
     let arrayWithFilters:IToy[] = this.toys;
-    
-    const checkedFilters = [];
+  
     for (let key in filters) {
       let arrayArrayWithAllFilters: IToy[] = [];
       let isFilter = false;
       for (let value in filters[key]) {
         if (filters[key][value]) {
           isFilter = true;
-          arrayArrayWithAllFilters = arrayArrayWithAllFilters.concat(this.filtersData(key,value, arrayWithFilters));
+          arrayArrayWithAllFilters = arrayArrayWithAllFilters.concat(this.filtersDataByValue(key,value, arrayWithFilters));
         }
       }
       if (isFilter) {
@@ -49,7 +50,14 @@ export default class ModelSort{
       }
       
     }   
+    for (let key in range) {
+      arrayWithFilters = this.filtersDataByRange(key, range[key]['from'], range[key]['to'], arrayWithFilters);
+    }
+
+
     this.filtersToys = arrayWithFilters;
+
+
 
 
     this.onUpdate.emit();

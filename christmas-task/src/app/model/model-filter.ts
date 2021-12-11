@@ -32,8 +32,8 @@ export default class ModelFilter{
     }
     this.range = {
       'count': {
-        main: 0,
-        max: 12
+        from: 0,
+        to: 12
       },
       'year': {
         from:1940,
@@ -65,6 +65,7 @@ export default class ModelFilter{
         'to':to,
       }
     }
+     this.onUpdate.emit();
   }
 
 }
