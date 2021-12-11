@@ -32,12 +32,12 @@ export default class ModelFilter{
     }
     this.range = {
       'count': {
-        from: 0,
-        to: 12
+        'from': 0,
+        'to': 12
       },
       'year': {
-        from:1940,
-        to:2020
+        'from':1940,
+        'to':2020
       }
     }
     

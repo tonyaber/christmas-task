@@ -1,7 +1,7 @@
  [
   {
     "num": "1",
-    "name": "Большой шар с рисунком",
+    "name": "Large ball with a drawing",
     "count": "2",
     "year": "1960",
     "shape": "round",
@@ -11,7 +11,7 @@
   },
   {
     "num": "2",
-    "name": "Зелёный шар с цветами",
+    "name": "Green ball with flowers",
     "count": "5",
     "year": "2000",
     "shape": "round",
@@ -21,7 +21,7 @@
   },
   {
     "num": "3",
-    "name": "Красный матовый шар",
+    "name": "Red matte ball",
     "count": "3",
     "year": "1990",
     "shape": "round",
@@ -31,7 +31,7 @@
   },
   {
     "num": "4",
-    "name": "Сосулька красная",
+    "name": "Icicle red",
     "count": "2",
     "year": "1980",
     "shape": "figurine",
@@ -41,7 +41,7 @@
   },
   {
     "num": "5",
-    "name": "Красный виноград",
+    "name": "Red grapes",
     "count": "4",
     "year": "1980",
     "shape": "figurine",
@@ -51,7 +51,7 @@
   },
   {
     "num": "6",
-    "name": "Красный шар с рисунком",
+    "name": "Red ball with pattern",
     "count": "6",
     "year": "2010",
     "shape": "round",
@@ -61,7 +61,7 @@
   },
   {
     "num": "7",
-    "name": "Молочно-белый шар",
+    "name": "Milky white ball",
     "count": "12",
     "year": "1960",
     "shape": "round",
@@ -71,7 +71,7 @@
   },
   {
     "num": "8",
-    "name": "Красный шар",
+    "name": "Red ball",
     "count": "10",
     "year": "2010",
     "shape": "round",
@@ -81,7 +81,7 @@
   },
   {
     "num": "9",
-    "name": "Колокольчик старинный",
+    "name": "Bell vintage",
     "count": "2",
     "year": "1950",
     "shape": "bell",
@@ -91,7 +91,7 @@
   },
   {
     "num": "10",
-    "name": "Белый шар ретро",
+    "name": "White ball retro",
     "count": "7",
     "year": "1960",
     "shape": "round",
@@ -101,7 +101,7 @@
   },
   {
     "num": "11",
-    "name": "Шишка еловая белая",
+    "name": "White spruce cone",
     "count": "11",
     "year": "1960",
     "shape": "cone",
@@ -111,7 +111,7 @@
   },
   {
     "num": "12",
-    "name": "Белый шар с цветами",
+    "name": "White ball with flowers",
     "count": "5",
     "year": "1980",
     "shape": "round",
@@ -121,7 +121,7 @@
   },
   {
     "num": "13",
-    "name": "Шар расписной Река",
+    "name": "Painted ball River",
     "count": "3",
     "year": "1970",
     "shape": "round",
@@ -131,7 +131,7 @@
   },
   {
     "num": "14",
-    "name": "Шар расписной Деревня",
+    "name": "Painted ball Village",
     "count": "4",
     "year": "1970",
     "shape": "round",
@@ -141,7 +141,7 @@
   },
   {
     "num": "15",
-    "name": "Колокольчик расписной",
+    "name": "Painted bell",
     "count": "3",
     "year": "1970",
     "shape": "bell",
@@ -151,7 +151,7 @@
   },
   {
     "num": "16",
-    "name": "Шишка расписная Пейзаж",
+    "name": "Painted pine cone",
     "count": "3",
     "year": "1970",
     "shape": "cone",
@@ -161,7 +161,7 @@
   },
   {
     "num": "17",
-    "name": "Шишка расписная",
+    "name": "Painted pine cone",
     "count": "7",
     "year": "1970",
     "shape": "cone",
@@ -171,7 +171,7 @@
   },
   {
     "num": "18",
-    "name": "Желтый шар с бантом",
+    "name": "Yellow ball with bow",
     "count": "2",
     "year": "2010",
     "shape": "round",
@@ -181,7 +181,7 @@
   },
   {
     "num": "19",
-    "name": "Желтый шар с паетками",
+    "name": "Yellow ball with sequins",
     "count": "12",
     "year": "1980",
     "shape": "round",
@@ -191,7 +191,7 @@
   },
   {
     "num": "20",
-    "name": "Красный шар с бантом",
+    "name": "Red ball with bow",
     "count": "8",
     "year": "1950",
     "shape": "round",
@@ -201,7 +201,7 @@
   },
   {
     "num": "21",
-    "name": "Красный шар с звёздами",
+    "name": "Red ball with stars",
     "count": "4",
     "year": "1970",
     "shape": "round",
@@ -211,7 +211,7 @@
   },
   {
     "num": "22",
-    "name": "Шишка еловая золотая",
+    "name": "Golden spruce cone",
     "count": "11",
     "year": "1990",
     "shape": "cone",
@@ -221,7 +221,7 @@
   },
   {
     "num": "23",
-    "name": "Колокольчик старинный",
+    "name": "Bell vintage",
     "count": "9",
     "year": "1950",
     "shape": "bell",
@@ -231,7 +231,7 @@
   },
   {
     "num": "24",
-    "name": "Снежинка изящная",
+    "name": "Snowflake graceful",
     "count": "1",
     "year": "1940",
     "shape": "snowflake",
@@ -241,7 +241,7 @@
   },
   {
     "num": "25",
-    "name": "Розовый шар с блёстками",
+    "name": "Pink ball with sequins",
     "count": "12",
     "year": "2010",
     "shape": "round",
@@ -251,7 +251,7 @@
   },
   {
     "num": "26",
-    "name": "Рубиново-золотой шар",
+    "name": "Ruby gold ball",
     "count": "8",
     "year": "1960",
     "shape": "round",
@@ -261,7 +261,7 @@
   },
   {
     "num": "27",
-    "name": "Красный шар с узором",
+    "name": "Red ball with pattern",
     "count": "4",
     "year": "2010",
     "shape": "round",
@@ -271,7 +271,7 @@
   },
   {
     "num": "28",
-    "name": "Бордовый шар с узором",
+    "name": "Burgundy ball with a pattern",
     "count": "10",
     "year": "2010",
     "shape": "round",
@@ -281,7 +281,7 @@
   },
   {
     "num": "29",
-    "name": "Старинный шар с цветами",
+    "name": "Vintage balloon with flowers",
     "count": "5",
     "year": "1950",
     "shape": "round",
@@ -291,7 +291,7 @@
   },
   {
     "num": "30",
-    "name": "Старинный шар с узором",
+    "name": "Vintage ball with pattern",
     "count": "8",
     "year": "1950",
     "shape": "round",
@@ -301,7 +301,7 @@
   },
   {
     "num": "31",
-    "name": "Красный шар с блёстками",
+    "name": "Red ball with sequins",
     "count": "8",
     "year": "2010",
     "shape": "round",
@@ -311,7 +311,7 @@
   },
   {
     "num": "32",
-    "name": "Синий шар Вселенная",
+    "name": "Blue ball Universe",
     "count": "11",
     "year": "1970",
     "shape": "round",
@@ -321,7 +321,7 @@
   },
   {
     "num": "33",
-    "name": "Синий шар со снежинкой",
+    "name": "Blue ball with a snowflake",
     "count": "6",
     "year": "2010",
     "shape": "round",
@@ -331,7 +331,7 @@
   },
   {
     "num": "34",
-    "name": "Зелёный  шар с узором",
+    "name": "Green ball with a pattern",
     "count": "8",
     "year": "2010",
     "shape": "round",
@@ -341,7 +341,7 @@
   },
   {
     "num": "35",
-    "name": "Фигурка Лис в шарфе",
+    "name": "Figurine Fox in a scarf",
     "count": "8",
     "year": "1950",
     "shape": "figurine",
@@ -351,7 +351,7 @@
   },
   {
     "num": "36",
-    "name": "Сиреневый шар Метель",
+    "name": "Lilac Ball Snowstorm",
     "count": "1",
     "year": "2000",
     "shape": "round",
@@ -361,7 +361,7 @@
   },
   {
     "num": "37",
-    "name": "Зелёный  шар Метель",
+    "name": "Green Ball Snowstorm",
     "count": "6",
     "year": "2000",
     "shape": "round",
@@ -371,7 +371,7 @@
   },
   {
     "num": "38",
-    "name": "Голубой  шар Метель",
+    "name": "Blue Ball Snowstorm",
     "count": "6",
     "year": "2000",
     "shape": "round",
@@ -381,7 +381,7 @@
   },
   {
     "num": "39",
-    "name": "Красная снежинка",
+    "name": "Red snowflake",
     "count": "6",
     "year": "1990",
     "shape": "snowflake",
@@ -391,7 +391,7 @@
   },
   {
     "num": "40",
-    "name": "Снежинка золотая",
+    "name": "Gold snowflake",
     "count": "12",
     "year": "2020",
     "shape": "snowflake",
@@ -401,7 +401,7 @@
   },
   {
     "num": "41",
-    "name": "Снежинка арктическая",
+    "name": "Arctic snowflake",
     "count": "11",
     "year": "2020",
     "shape": "snowflake",
@@ -411,7 +411,7 @@
   },
   {
     "num": "42",
-    "name": "Зелёный шар",
+    "name": "Green ball",
     "count": "10",
     "year": "1980",
     "shape": "round",
@@ -421,7 +421,7 @@
   },
   {
     "num": "43",
-    "name": "Снежинка двухцветная",
+    "name": "Snowflake two-color",
     "count": "6",
     "year": "1960",
     "shape": "snowflake",
@@ -431,7 +431,7 @@
   },
   {
     "num": "44",
-    "name": "Фигурка Ангела",
+    "name": "Angel figurine",
     "count": "11",
     "year": "1940",
     "shape": "figurine",
@@ -441,7 +441,7 @@
   },
   {
     "num": "45",
-    "name": "Снежинка новогодняя",
+    "name": "Snowflake Christmas",
     "count": "1",
     "year": "1980",
     "shape": "snowflake",
@@ -451,7 +451,7 @@
   },
   {
     "num": "46",
-    "name": "Фигурка Мухомор",
+    "name": "Amanita figurine",
     "count": "10",
     "year": "1950",
     "shape": "figurine",
@@ -461,7 +461,7 @@
   },
   {
     "num": "47",
-    "name": "Фигурка Колодец",
+    "name": "Figurine Well",
     "count": "6",
     "year": "1950",
     "shape": "figurine",
@@ -471,7 +471,7 @@
   },
   {
     "num": "48",
-    "name": "Желтый шар с бантом",
+    "name": "Yellow ball with bow",
     "count": "6",
     "year": "1960",
     "shape": "round",
@@ -481,7 +481,7 @@
   },
   {
     "num": "49",
-    "name": "Снежинка с бирюзой",
+    "name": "Snowflake with turquoise",
     "count": "4",
     "year": "1980",
     "shape": "snowflake",
@@ -491,7 +491,7 @@
   },
   {
     "num": "50",
-    "name": "Колокольчик большой",
+    "name": "Bell big",
     "count": "3",
     "year": "2020",
     "shape": "bell",
@@ -501,7 +501,7 @@
   },
   {
     "num": "51",
-    "name": "Шишка с изморозью",
+    "name": "Cone with rime",
     "count": "12",
     "year": "1970",
     "shape": "cone",
@@ -511,7 +511,7 @@
   },
   {
     "num": "52",
-    "name": "Красный шар с надписью",
+    "name": "Red ball with the inscription",
     "count": "12",
     "year": "1990",
     "shape": "round",
@@ -521,7 +521,7 @@
   },
   {
     "num": "53",
-    "name": "Снежинка серебристая",
+    "name": "Snowflake silvery",
     "count": "6",
     "year": "2020",
     "shape": "snowflake",
@@ -531,7 +531,7 @@
   },
   {
     "num": "54",
-    "name": "Зелёный шар с рисунком",
+    "name": "Green ball with a pattern",
     "count": "6",
     "year": "2010",
     "shape": "round",
@@ -541,7 +541,7 @@
   },
   {
     "num": "55",
-    "name": "Пряничный домик",
+    "name": "Gingerbread house",
     "count": "1",
     "year": "1940",
     "shape": "figurine",
@@ -551,7 +551,7 @@
   },
   {
     "num": "56",
-    "name": "Пряничный теремок",
+    "name": "Gingerbread house",
     "count": "1",
     "year": "1940",
     "shape": "figurine",
@@ -561,7 +561,7 @@
   },
   {
     "num": "57",
-    "name": "Пряничная избушка",
+    "name": "Gingerbread hut",
     "count": "1",
     "year": "1940",
     "shape": "figurine",
@@ -571,7 +571,7 @@
   },
   {
     "num": "58",
-    "name": "Фигурка белого медведя",
+    "name": "Figurine of a polar bear",
     "count": "2",
     "year": "1980",
     "shape": "figurine",
@@ -581,7 +581,7 @@
   },
   {
     "num": "59",
-    "name": "Желтый шар с надписью",
+    "name": "Yellow balloon with the inscription",
     "count": "10",
     "year": "1990",
     "shape": "round",
@@ -591,7 +591,7 @@
   },
   {
     "num": "60",
-    "name": "Фигурка Голубь",
+    "name": "Figurine Dove",
     "count": "12",
     "year": "1940",
     "shape": "figurine",

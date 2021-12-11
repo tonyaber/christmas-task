@@ -54,12 +54,7 @@ export default class ModelSort{
       arrayWithFilters = this.filtersDataByRange(key, range[key]['from'], range[key]['to'], arrayWithFilters);
     }
 
-
     this.filtersToys = arrayWithFilters;
-
-
-
-
     this.onUpdate.emit();
   }
 }
