@@ -1,16 +1,16 @@
 import Control from "../../../common/control";
-import style from './setting-style.css';
+
 
 export default class CheckBox extends Control{
-  onChangeFilter: (name: string)=>void;
+  onChangeFilter: (isChecked: boolean)=>void;
   
-  constructor(parentNode: HTMLElement, name: string) {
+  constructor(parentNode: HTMLElement, className: string) {
     super(parentNode, 'label');
     const checkBox = new Control<HTMLInputElement>(this.node, 'input');
     checkBox.node.type = 'checkbox';
     checkBox.node.onchange = () => {
-       this.onChangeFilter(name);
+       this.onChangeFilter(checkBox.node.checked);
     }
-    const span = new Control(this.node, 'span',  style[name]);
+    const span = new Control(this.node, 'span', className);
   }
 }

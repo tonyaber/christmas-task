@@ -15,11 +15,11 @@ export default class SettingPage extends Control {
 
     const setting = new Control(this.node, 'div', style.setting);
 
-    const filterValue = new FilterValue(setting.node, this.model);
+    const filterValue = new FilterValue(setting.node, this.model.modelFilter);
     const filterRange = new FilterRange(setting.node);
 
     const sort = new Sort(setting.node);
 
-    const toys = new ToysList(this.node, this.model);
+    const toys = new ToysList(this.node, this.model.modelSort);
   }
 }

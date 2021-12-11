@@ -1,19 +1,31 @@
-import { IToy } from '../../dto';
+import { IToy, IFilter } from '../../dto';
 import Signal from '../../common/signal';
 import ModelFilter from './model-filter';
+import ModelSort from './model-sort';
 export default class ModelToys{
   toys: IToy[];
   allToys: IToy[]
   onUpdate: Signal<void> = new Signal();
-  filters: { shape: { round: boolean; bell: boolean; cone: boolean; snowflake: boolean; figurine: boolean; }; color: { white: boolean; yellow: boolean; red: boolean; blue: boolean; green: boolean; }; size: { small: boolean; middle: boolean; big: boolean; }; favorite: boolean; };
+  filters: Record<string, Record<string, boolean>>;
+  modelFilter: ModelFilter;
+  modelSort: ModelSort;
   
   constructor() {
     this.toys = [];
-    const modelFilter = new ModelFilter();
-    this.filters = modelFilter.getFilters();
-    
+
+    this.modelFilter = new ModelFilter();
+    this.modelFilter.onUpdate.add(
+      () => {      
+        this.modelSort.changeSort( this.modelFilter.filters);
+      }
+    );
+
+    this.modelSort = new ModelSort();
+    this.filters = this.modelFilter.getFilters();
+      
     this.setAllToys();
   }
+  
 
   setAllToys() {
     fetch('../data/data.json')
@@ -28,6 +40,7 @@ export default class ModelToys{
       .then(res => {
         this.toys = res;
         this.allToys = res;
+        this.modelSort.setToys(res)
         this.onUpdate.emit(null);
       })
   }
@@ -40,17 +53,22 @@ export default class ModelToys{
     return this.filters;
   }
 
-  changeDate(name: string, filter: string) {
-    console.log(name, filter)
-    let newToys = []
+  changeData(name: string, filter:string, isChecked: boolean) {
+    let newToys = [];
+    console.log(1)
+    
+    //this.modelFilter.changeFilter(filter, name, isChecked)
+    //this.modelFilter.changeFilter(filter, name);
 
-    for (let key in this.allToys) {
-      if (this.allToys[key]['shape'] === name) {
-        newToys.push(this.allToys[key]);
-     }
-    }
-    this.toys = newToys;
+    // for (let key in this.allToys) {
+    //   if (this.allToys[key][filter as keyof IToy] === name) {
+    //     newToys.push(this.allToys[key]);
+    //   }else if (this.allToys[key][filter as keyof IToy] === true) {
+    //     newToys.push(this.allToys[key]);
+    //   }
+    // }
+    // this.toys = newToys;
    
-    this.onUpdate.emit(null);
+    //this.onUpdate.emit(null);
   };
 }

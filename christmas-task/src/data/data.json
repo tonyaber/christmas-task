@@ -5,8 +5,8 @@
     "count": "2",
     "year": "1960",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -15,8 +15,8 @@
     "count": "5",
     "year": "2000",
     "shape": "round",
-    "color": "зелёный",
-    "size": "большой",
+    "color": "green",
+    "size": "big",
     "favorite": false
   },
   {
@@ -25,8 +25,8 @@
     "count": "3",
     "year": "1990",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -35,8 +35,8 @@
     "count": "2",
     "year": "1980",
     "shape": "figurine",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -45,8 +45,8 @@
     "count": "4",
     "year": "1980",
     "shape": "figurine",
-    "color": "красный",
-    "size": "средний",
+    "color": "red",
+    "size": "middle",
     "favorite": true
   },
   {
@@ -55,8 +55,8 @@
     "count": "6",
     "year": "2010",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -65,8 +65,8 @@
     "count": "12",
     "year": "1960",
     "shape": "round",
-    "color": "белый",
-    "size": "средний",
+    "color": "white",
+    "size": "middle",
     "favorite": true
   },
   {
@@ -75,8 +75,8 @@
     "count": "10",
     "year": "2010",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -85,8 +85,8 @@
     "count": "2",
     "year": "1950",
     "shape": "bell",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -95,8 +95,8 @@
     "count": "7",
     "year": "1960",
     "shape": "round",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -105,8 +105,8 @@
     "count": "11",
     "year": "1960",
     "shape": "cone",
-    "color": "белый",
-    "size": "малый",
+    "color": "white",
+    "size": "small",
     "favorite": false
   },
   {
@@ -115,8 +115,8 @@
     "count": "5",
     "year": "1980",
     "shape": "round",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -125,8 +125,8 @@
     "count": "3",
     "year": "1970",
     "shape": "round",
-    "color": "синий",
-    "size": "большой",
+    "color": "blue",
+    "size": "big",
     "favorite": true
   },
   {
@@ -135,8 +135,8 @@
     "count": "4",
     "year": "1970",
     "shape": "round",
-    "color": "синий",
-    "size": "большой",
+    "color": "blue",
+    "size": "big",
     "favorite": true
   },
   {
@@ -145,8 +145,8 @@
     "count": "3",
     "year": "1970",
     "shape": "bell",
-    "color": "синий",
-    "size": "средний",
+    "color": "blue",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -155,8 +155,8 @@
     "count": "3",
     "year": "1970",
     "shape": "cone",
-    "color": "синий",
-    "size": "средний",
+    "color": "blue",
+    "size": "middle",
     "favorite": true
   },
   {
@@ -165,8 +165,8 @@
     "count": "7",
     "year": "1970",
     "shape": "cone",
-    "color": "красный",
-    "size": "средний",
+    "color": "red",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -175,8 +175,8 @@
     "count": "2",
     "year": "2010",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -185,8 +185,8 @@
     "count": "12",
     "year": "1980",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -195,8 +195,8 @@
     "count": "8",
     "year": "1950",
     "shape": "round",
-    "color": "красный",
-    "size": "средний",
+    "color": "red",
+    "size": "middle",
     "favorite": true
   },
   {
@@ -205,8 +205,8 @@
     "count": "4",
     "year": "1970",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": true
   },
   {
@@ -215,8 +215,8 @@
     "count": "11",
     "year": "1990",
     "shape": "cone",
-    "color": "желтый",
-    "size": "малый",
+    "color": "yellow",
+    "size": "small",
     "favorite": false
   },
   {
@@ -225,8 +225,8 @@
     "count": "9",
     "year": "1950",
     "shape": "bell",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -235,8 +235,8 @@
     "count": "1",
     "year": "1940",
     "shape": "snowflake",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -245,8 +245,8 @@
     "count": "12",
     "year": "2010",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -255,8 +255,8 @@
     "count": "8",
     "year": "1960",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -265,8 +265,8 @@
     "count": "4",
     "year": "2010",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -275,8 +275,8 @@
     "count": "10",
     "year": "2010",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -285,8 +285,8 @@
     "count": "5",
     "year": "1950",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": true
   },
   {
@@ -295,8 +295,8 @@
     "count": "8",
     "year": "1950",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": true
   },
   {
@@ -305,8 +305,8 @@
     "count": "8",
     "year": "2010",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -315,8 +315,8 @@
     "count": "11",
     "year": "1970",
     "shape": "round",
-    "color": "синий",
-    "size": "большой",
+    "color": "blue",
+    "size": "big",
     "favorite": false
   },
   {
@@ -325,8 +325,8 @@
     "count": "6",
     "year": "2010",
     "shape": "round",
-    "color": "синий",
-    "size": "средний",
+    "color": "blue",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -335,8 +335,8 @@
     "count": "8",
     "year": "2010",
     "shape": "round",
-    "color": "зелёный",
-    "size": "большой",
+    "color": "green",
+    "size": "big",
     "favorite": false
   },
   {
@@ -345,8 +345,8 @@
     "count": "8",
     "year": "1950",
     "shape": "figurine",
-    "color": "желтый",
-    "size": "средний",
+    "color": "yellow",
+    "size": "middle",
     "favorite": true
   },
   {
@@ -355,8 +355,8 @@
     "count": "1",
     "year": "2000",
     "shape": "round",
-    "color": "синий",
-    "size": "большой",
+    "color": "blue",
+    "size": "big",
     "favorite": false
   },
   {
@@ -365,8 +365,8 @@
     "count": "6",
     "year": "2000",
     "shape": "round",
-    "color": "зелёный",
-    "size": "большой",
+    "color": "green",
+    "size": "big",
     "favorite": false
   },
   {
@@ -375,8 +375,8 @@
     "count": "6",
     "year": "2000",
     "shape": "round",
-    "color": "синий",
-    "size": "большой",
+    "color": "blue",
+    "size": "big",
     "favorite": false
   },
   {
@@ -385,8 +385,8 @@
     "count": "6",
     "year": "1990",
     "shape": "snowflake",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -395,8 +395,8 @@
     "count": "12",
     "year": "2020",
     "shape": "snowflake",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -405,8 +405,8 @@
     "count": "11",
     "year": "2020",
     "shape": "snowflake",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -415,8 +415,8 @@
     "count": "10",
     "year": "1980",
     "shape": "round",
-    "color": "зелёный",
-    "size": "средний",
+    "color": "green",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -425,8 +425,8 @@
     "count": "6",
     "year": "1960",
     "shape": "snowflake",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -435,8 +435,8 @@
     "count": "11",
     "year": "1940",
     "shape": "figurine",
-    "color": "красный",
-    "size": "средний",
+    "color": "red",
+    "size": "middle",
     "favorite": true
   },
   {
@@ -445,8 +445,8 @@
     "count": "1",
     "year": "1980",
     "shape": "snowflake",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -455,8 +455,8 @@
     "count": "10",
     "year": "1950",
     "shape": "figurine",
-    "color": "красный",
-    "size": "малый",
+    "color": "red",
+    "size": "small",
     "favorite": false
   },
   {
@@ -465,8 +465,8 @@
     "count": "6",
     "year": "1950",
     "shape": "figurine",
-    "color": "красный",
-    "size": "малый",
+    "color": "red",
+    "size": "small",
     "favorite": false
   },
   {
@@ -475,8 +475,8 @@
     "count": "6",
     "year": "1960",
     "shape": "round",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -485,8 +485,8 @@
     "count": "4",
     "year": "1980",
     "shape": "snowflake",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -495,8 +495,8 @@
     "count": "3",
     "year": "2020",
     "shape": "bell",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": false
   },
   {
@@ -505,8 +505,8 @@
     "count": "12",
     "year": "1970",
     "shape": "cone",
-    "color": "красный",
-    "size": "малый",
+    "color": "red",
+    "size": "small",
     "favorite": false
   },
   {
@@ -515,8 +515,8 @@
     "count": "12",
     "year": "1990",
     "shape": "round",
-    "color": "красный",
-    "size": "большой",
+    "color": "red",
+    "size": "big",
     "favorite": true
   },
   {
@@ -525,8 +525,8 @@
     "count": "6",
     "year": "2020",
     "shape": "snowflake",
-    "color": "белый",
-    "size": "большой",
+    "color": "white",
+    "size": "big",
     "favorite": false
   },
   {
@@ -535,8 +535,8 @@
     "count": "6",
     "year": "2010",
     "shape": "round",
-    "color": "зелёный",
-    "size": "большой",
+    "color": "green",
+    "size": "big",
     "favorite": false
   },
   {
@@ -545,8 +545,8 @@
     "count": "1",
     "year": "1940",
     "shape": "figurine",
-    "color": "желтый",
-    "size": "большой",
+    "color": "yellow",
+    "size": "big",
     "favorite": false
   },
   {
@@ -555,8 +555,8 @@
     "count": "1",
     "year": "1940",
     "shape": "figurine",
-    "color": "желтый",
-    "size": "малый",
+    "color": "yellow",
+    "size": "small",
     "favorite": false
   },
   {
@@ -565,8 +565,8 @@
     "count": "1",
     "year": "1940",
     "shape": "figurine",
-    "color": "желтый",
-    "size": "средний",
+    "color": "yellow",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -575,8 +575,8 @@
     "count": "2",
     "year": "1980",
     "shape": "figurine",
-    "color": "белый",
-    "size": "средний",
+    "color": "white",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -585,8 +585,8 @@
     "count": "10",
     "year": "1990",
     "shape": "round",
-    "color": "желтый",
-    "size": "средний",
+    "color": "yellow",
+    "size": "middle",
     "favorite": false
   },
   {
@@ -595,8 +595,8 @@
     "count": "12",
     "year": "1940",
     "shape": "figurine",
-    "color": "белый",
-    "size": "средний",
+    "color": "white",
+    "size": "middle",
     "favorite": true
   }
 ]

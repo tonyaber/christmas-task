@@ -31,7 +31,9 @@
 }
 
 .shape,
-.color {
+.color,
+.size,
+.favorite-container{
   display: flex;
   align-items: center;
   justify-content: start;
@@ -39,32 +41,37 @@
 }
 
 .shape label,
-.color label {
+.color label,
+.size label,
+.favorite-container label {
   width: 40px;
   height: 40px;
   display: block;
   position: relative;
 }
 
-.shape span{
+.shape span {
   background-size: 40px 40px; 
 }
 
-.color span{
+.color span,
+.favorite-container span {
  margin: 5px;
  width: 30px;
  height: 30px;
 }
 
-.name{
+.name {
   text-transform: none;
 }
 
-.shape input[type="checkbox"]:checked + span{
+.shape input[type="checkbox"]:checked + span,
+.size input[type="checkbox"]:checked + span {
   filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
 }
 
-.color input[type="checkbox"]:checked + span::after{
+.color input[type="checkbox"]:checked + span::after,
+.favorite-container input[type="checkbox"]:checked + span::after{
     content: '';
     display: block;
     position: absolute;
@@ -72,7 +79,7 @@
     left: 9px;
     width: 6px;
     height: 10px;
-    border: solid #000;
+    border: solid #1e6f7e;
     border-width: 0 4px 4px 0;
     transform: rotate(45deg);
 }
@@ -114,20 +121,61 @@
   background-color: #08AA05;
 }
 
+.size span{
+  background-image: url('../../../assets/svg/ball.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.small {
+  background-size: 32px 32px;
+}
+.middle{
+      background-size: 36px 36px;
+}
+
+.big{
+      background-size: 40px 40px;
+}
+
+.favorite-container span{
+  border: 1px solid #278D9F;
+  border-radius: 5px;
+}
+
 .toys{
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  text-transform:none;
 }
+
 .toy-item{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 304px;
+  height: 280px;
+  padding: 10px;
   border: 1px solid #278D9F;
   border-radius: 5px;
   background-color:rgba(31, 112, 127, .3);
+}
+
+.toy-item p {
+  margin: 10px 0;
 }
 
 .toy-img{
   width: 90px;
   height: 112px;
   object-fit: contain;
+}
+
+.title{
+  width: 100%;
+  font-size: 20px;
+  font-stretch: condensed;
+  font-weight: bold;
 }

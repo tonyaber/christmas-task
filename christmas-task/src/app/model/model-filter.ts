@@ -1,5 +1,9 @@
+import Signal from "../../common/signal";
+import { IFilter } from "../../dto";
 export default class ModelFilter{
-  filters: { shape: { round: boolean; bell: boolean; cone: boolean; snowflake: boolean; figurine: boolean; }; color: { white: boolean; yellow: boolean; red: boolean; blue: boolean; green: boolean; }; size: { small: boolean; middle: boolean; big: boolean; }; favorite: boolean; };
+  onUpdate: Signal<void> = new Signal();
+  filters: Record<string, Record<string, boolean>>;
+
   constructor() {
     this.filters = {
       'shape': {
@@ -21,10 +25,25 @@ export default class ModelFilter{
         'middle': false,
         'big': false,
       },
-      'favorite': false
+      'favorite': {
+        'favorite': false,
+      }
     }
+    
   }
   getFilters() {
     return this.filters;
   }
+
+  changeData(name:string, filter: string, isChecked: boolean) {
+    this.filters = {
+      ...this.filters,
+      [filter]: {
+        ...this.filters[filter],
+        [name]: isChecked,
+      }
+    } 
+    this.onUpdate.emit();
+  }
+
 }

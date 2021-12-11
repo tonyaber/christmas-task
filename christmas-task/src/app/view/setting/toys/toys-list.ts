@@ -1,14 +1,14 @@
 import Control from '../../../../common/control';
 import { IToy } from '../../../../dto';
-import ModelToys from '../../../model/model-toys';
+import ModelSort from '../../../model/model-sort';
 import style from '../setting-style.css';
 import Toy from './toy';
 
 export default class ToysList extends Control {
-  model: ModelToys;
+  model: ModelSort;
   toys: Toy[] = [];
 
-  constructor(parentNode: HTMLElement, model: ModelToys) {
+  constructor(parentNode: HTMLElement, model: ModelSort) {
     super(parentNode, 'div', style['toys']);
     this.model = model;
     model.onUpdate.add(
@@ -20,8 +20,8 @@ export default class ToysList extends Control {
     this.update(this.model);
   }
 
-  update(model: ModelToys) {    
-    this.createToys(model.getAllToys());    
+  update(model: ModelSort) {    
+    this.createToys(model.getToys());    
   }
 
   createToys(data: IToy[]) {

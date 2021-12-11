@@ -15,3 +15,28 @@ export interface IToy{
 export interface IMainConstructor{
   new(parentNode: HTMLElement, model:ModelToys): Control;
 }
+
+export interface IFilter  {
+  shape: {
+    round: boolean;
+    bell: boolean; 
+    cone: boolean;
+    snowflake: boolean;
+    figurine: boolean;
+  }; 
+  color: {
+    white: boolean;
+    yellow: boolean;
+    red: boolean;
+    blue: boolean;
+    green: boolean;
+  }; 
+  size: {
+    small: boolean;
+    middle: boolean;
+    big: boolean;
+  };
+  favorite: {
+    favorite: boolean,
+  };
+};

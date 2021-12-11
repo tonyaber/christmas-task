@@ -11,10 +11,11 @@ export default class ToyItem extends Control{
   form: Control<HTMLElement>;
   color: Control<HTMLElement>;
   size: Control<HTMLElement>;
+  favorite: Control<HTMLElement>;
   
   constructor(parentNode: HTMLElement) {
     super(parentNode, 'div', style['toy-item']);
-    this.title = new Control<HTMLHeadingElement>(this.node, 'h4',);
+    this.title = new Control<HTMLHeadingElement>(this.node, 'h3', style.title);
     this.img = new Control<HTMLImageElement>(this.node, 'img', style['toy-img']);
     this.description = new Control(this.node, 'div');
     this.count = new Control(this.description.node, 'p')
@@ -22,6 +23,7 @@ export default class ToyItem extends Control{
     this.form = new Control(this.description.node, 'p');
     this.color = new Control(this.description.node, 'p');
     this.size = new Control(this.description.node, 'p');
+    this.favorite = new Control(this.description.node, 'p');
   }
 
   update(toy: IToy) {
@@ -32,5 +34,6 @@ export default class ToyItem extends Control{
     this.form.node.textContent = `Form: ${toy.shape}`
     this.color.node.textContent = `Color: ${toy.color}`
     this.size.node.textContent = `Size: ${toy.size}`
+    this.favorite.node.textContent = `Favorite: ${toy.favorite ? 'Yes' : 'No'}`;
   }
 }
