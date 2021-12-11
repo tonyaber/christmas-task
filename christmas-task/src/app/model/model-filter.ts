@@ -32,7 +32,7 @@ export default class ModelFilter{
     }
     this.range = {
       'count': {
-        'from': 0,
+        'from': 1,
         'to': 12
       },
       'year': {

@@ -8,8 +8,7 @@ export default class Form extends Control {
     super(parentNode, 'div', style['color']);
     const name = new Control(this.node, 'h4', style.name, 'Color:');
 
-    const filters = model.getFilters();
-    const values = Object.keys(filters.color);
+    const values = Object.keys(model.getFilters().color);
     
     values.forEach(item => {
       const checkbox = new Checkbox(this.node, style[item]);
@@ -17,11 +16,5 @@ export default class Form extends Control {
         model.changeData(item, 'color', isChecked)
       }
     })
-    // const name = new Control(this.node, 'h4', style.name, 'Color:');
-    // const white = new Checkbox(this.node, 'white');
-    // const yellow = new Checkbox(this.node, 'yellow');
-    // const red = new Checkbox(this.node, 'red');
-    // const blue = new Checkbox(this.node, 'blue');
-    // const green = new Checkbox(this.node, 'green');
   }
 }

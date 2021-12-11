@@ -8,6 +8,7 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class FilterValue extends Control {
   model: ModelFilter;
+  
   constructor(parentNode: HTMLElement, model: ModelFilter) {
     super(parentNode, 'div', style['filter-value']);
     this.model = model;

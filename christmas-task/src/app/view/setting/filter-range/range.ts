@@ -8,10 +8,12 @@ export default class Range extends Control{
     super(parentNode);
     const title = new Control(this.node, 'h4', '', name);
     const rangeContainer = new Control(this.node, 'div', style['range-container']);
+
     const span1 = new Control<HTMLSpanElement>(rangeContainer.node, 'span', '', value1);
     const rangeWrap = new Control(rangeContainer.node, 'div', style["range-wrap"]);
     const span2 = new Control<HTMLSpanElement>(rangeContainer.node, 'span', '', value2);
     const rangeBar = new Control(rangeWrap.node, 'div', style['range-bar']);
+    
     const range1 = new Control<HTMLInputElement>(rangeWrap.node, 'input');
     range1.node.type = 'range';
     range1.node.min = start;
@@ -32,6 +34,7 @@ export default class Range extends Control{
       span1.node.textContent = range1.node.value;
       this.onChangeRange(+range1.node.value , +range2.node.value);
     }
+
     range2.node.oninput = () => {
       if (+range2.node.value < +range1.node.value) {
         range2.node.value = range1.node.value;        
@@ -39,9 +42,5 @@ export default class Range extends Control{
       span2.node.textContent = range2.node.value;
       this.onChangeRange(+range1.node.value , +range2.node.value);
     }
-    // checkBox.node.onchange = () => {
-    //    this.onChangeFilter(checkBox.node.checked);
-    // }
-    //const span = new Control(this.node, 'span', className);
   }
 }
