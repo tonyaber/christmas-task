@@ -16,7 +16,7 @@ export default class ModelToys{
     this.modelFilter = new ModelFilter();
     this.modelFilter.onUpdate.add(
       () => {      
-        this.modelSort.changeSort( this.modelFilter.filters);
+        this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range);
       }
     );
 
@@ -43,32 +43,5 @@ export default class ModelToys{
         this.modelSort.setToys(res)
         this.onUpdate.emit(null);
       })
-  }
-
-  getAllToys() {
-    return this.toys;
-  }
-  
-  getFilters() {
-    return this.filters;
-  }
-
-  changeData(name: string, filter:string, isChecked: boolean) {
-    let newToys = [];
-    console.log(1)
-    
-    //this.modelFilter.changeFilter(filter, name, isChecked)
-    //this.modelFilter.changeFilter(filter, name);
-
-    // for (let key in this.allToys) {
-    //   if (this.allToys[key][filter as keyof IToy] === name) {
-    //     newToys.push(this.allToys[key]);
-    //   }else if (this.allToys[key][filter as keyof IToy] === true) {
-    //     newToys.push(this.allToys[key]);
-    //   }
-    // }
-    // this.toys = newToys;
-   
-    //this.onUpdate.emit(null);
-  };
+  }  
 }

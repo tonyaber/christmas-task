@@ -16,7 +16,7 @@ export default class SettingPage extends Control {
     const setting = new Control(this.node, 'div', style.setting);
 
     const filterValue = new FilterValue(setting.node, this.model.modelFilter);
-    const filterRange = new FilterRange(setting.node);
+    const filterRange = new FilterRange(setting.node, this.model.modelFilter);
 
     const sort = new Sort(setting.node);
 

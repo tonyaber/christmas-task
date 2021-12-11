@@ -12,8 +12,7 @@ export default class FilterValue extends Control {
     super(parentNode, 'div', style['filter-value']);
     this.model = model;
     const title = new Control(this.node, 'h3', '', 'FILTERS BY VALUE');
-    // const filters = Object.keys(model.getFilters());
-    // console.log(filters)
+   
     const shape = new Shape(this.node, this.model);
     const color = new Color(this.node, this.model);
     const size = new Size(this.node, this.model);

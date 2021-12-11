@@ -1,4 +1,4 @@
-import Control from "../../../common/control";
+import Control from "../../../../common/control";
 
 
 export default class CheckBox extends Control{

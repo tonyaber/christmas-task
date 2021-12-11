@@ -3,6 +3,7 @@ import { IFilter } from "../../dto";
 export default class ModelFilter{
   onUpdate: Signal<void> = new Signal();
   filters: Record<string, Record<string, boolean>>;
+  range: Record<string, Record<string, number>>;
 
   constructor() {
     this.filters = {
@@ -29,6 +30,16 @@ export default class ModelFilter{
         'favorite': false,
       }
     }
+    this.range = {
+      'count': {
+        main: 0,
+        max: 12
+      },
+      'year': {
+        from:1940,
+        to:2020
+      }
+    }
     
   }
   getFilters() {
@@ -44,6 +55,16 @@ export default class ModelFilter{
       }
     } 
     this.onUpdate.emit();
+  }
+
+  changeRange(value:string, from:number, to:number) {
+     this.range = {
+      ...this.range,
+      [value]: {
+        'from':from,
+        'to':to,
+      }
+    }
   }
 
 }

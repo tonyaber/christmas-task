@@ -20,30 +20,20 @@ export default class ModelSort{
     return this.filtersToys;
   }
   
-  filtersData(value: string|boolean, toys:IToy[]) {
+  filtersData(key: string, value: string | boolean, toys: IToy[]) {
+    let newToys: IToy[] = [];
     if (value === 'favorite') {
-      value = true;
-    }
-    const newToys :IToy[]= [];
-    for (let key in toys) {
-      for (let filter in toys[key]) {
-        //console.log(this.toys[key][filter as keyof IToy],value)
-        if (toys[key][filter as keyof IToy] === value) {
-          newToys.push(toys[key]);
-        }
-       // console.log(toys[key][filter as keyof IToy])
-      }
-    }
-    
+      newToys = toys.filter(item => item[key as keyof IToy]===true)
+    } else {
+      newToys = toys.filter(item => item[key as keyof IToy]===value)
+    }    
     return newToys;
-    //this.onUpdate.emit();
   }  
   
-  changeSort(filters:Record<string, Record<string, boolean>>) {
+  changeData(filters:Record<string, Record<string, boolean>>, range: Record<string, Record<string, number>>) {
     this.filtersToys =[];
     let arrayWithFilters:IToy[] = this.toys;
     
-    //console.log(filters)
     const checkedFilters = [];
     for (let key in filters) {
       let arrayArrayWithAllFilters: IToy[] = [];
@@ -51,7 +41,7 @@ export default class ModelSort{
       for (let value in filters[key]) {
         if (filters[key][value]) {
           isFilter = true;
-          arrayArrayWithAllFilters = arrayArrayWithAllFilters.concat(this.filtersData(value, arrayWithFilters));
+          arrayArrayWithAllFilters = arrayArrayWithAllFilters.concat(this.filtersData(key,value, arrayWithFilters));
         }
       }
       if (isFilter) {
@@ -60,6 +50,8 @@ export default class ModelSort{
       
     }   
     this.filtersToys = arrayWithFilters;
+
+
     this.onUpdate.emit();
   }
 }
