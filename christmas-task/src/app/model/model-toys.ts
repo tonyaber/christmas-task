@@ -16,7 +16,7 @@ export default class ModelToys{
     this.modelFilter = new ModelFilter();
     this.modelFilter.onUpdate.add(
       () => {      
-        this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range);
+        this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range, this.modelFilter.sort);
       }
     );
 
@@ -40,8 +40,8 @@ export default class ModelToys{
       .then(res => {
         this.toys = res;
         this.allToys = res;
-        this.modelSort.setToys(res)
-        this.onUpdate.emit(null);
+        this.modelSort.setToys(res);
+        this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range, this.modelFilter.sort);
       })
   }  
 }

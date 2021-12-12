@@ -7,7 +7,7 @@ export default class ModelSort{
   filtersToys: IToy[];
   constructor() {
     this.toys = []
-    this.filtersToys = [];    
+    this.filtersToys = [];   
   }
 
   setToys(toys:IToy[]) {
@@ -18,6 +18,23 @@ export default class ModelSort{
 
   getToys() {
     return this.filtersToys;
+  }
+
+  sortArray(toys: IToy[], sort:string) {
+    switch (sort) {
+      case 'a-z':
+        toys = toys.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case 'z-a':
+        toys = toys.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case 'ascending':
+        toys = toys.sort((a, b) => a.count - b.count);
+        break;
+      case 'descending':
+        toys = toys.sort((a, b) => b.count - a.count);
+        break;      
+    }
   }
   
   filtersDataByValue(key: string, value: string, toys: IToy[]) {
@@ -32,7 +49,7 @@ export default class ModelSort{
     return toys.filter(item => item[key as keyof IToy] >= from && item[key as keyof IToy] <= to);
   }
   
-  changeData(filters:Record<string, Record<string, boolean>>, range: Record<string, Record<string, number>>) {
+  changeData(filters:Record<string, Record<string, boolean>>, range: Record<string, Record<string, number>>, sort: string) {
     this.filtersToys =[];
     let arrayWithFilters:IToy[] = this.toys;
   
@@ -53,6 +70,8 @@ export default class ModelSort{
     for (let key in range) {
       arrayWithFilters = this.filtersDataByRange(key, range[key]['from'], range[key]['to'], arrayWithFilters);
     }
+
+    this.sortArray(arrayWithFilters, sort);
 
     this.filtersToys = arrayWithFilters;
     this.onUpdate.emit();
