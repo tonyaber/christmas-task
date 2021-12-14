@@ -1,0 +1,137 @@
+.filter-value {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  background-color: rgba(99,0,11, .3);
+  border: 1px solid #fff08e;
+  border-radius: 10px;
+}
+
+.filter-value > div {
+  padding: 10px;
+}
+
+.filter-value input[type="checkbox"]{
+  display: none;
+}
+
+.filter-value span {
+  position: absolute;
+  left: 0; 
+  top: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+}
+
+.shape,
+.color,
+.size,
+.favorite-container{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.shape label,
+.color label,
+.size label,
+.favorite-container label {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: relative;
+}
+
+.shape span {
+  background-size: 40px 40px; 
+}
+
+.color span,
+.favorite-container span {
+ margin: 5px;
+ width: 30px;
+ height: 30px;
+}
+
+.name {
+  text-transform: none;
+}
+
+.shape input[type="checkbox"]:checked + span,
+.size input[type="checkbox"]:checked + span {
+  filter: brightness(0) saturate(100%) invert(79%) sepia(54%) saturate(858%) hue-rotate(359deg) brightness(104%) contrast(104%);
+}
+
+.color input[type="checkbox"]:checked + span::after,
+.favorite-container input[type="checkbox"]:checked + span::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    width: 6px;
+    height: 10px;
+    border: solid #fff08e;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.round{
+  background-image: url('../../../../assets/svg/ball.svg');
+}
+
+.bell{
+  background-image: url('../../../../assets/svg/bell.svg');
+}
+
+.cone {
+  background-image: url('../../../../assets/svg/cone.svg');
+}
+
+.snowflake {
+  background-image: url('../../../../assets/svg/snowflake.svg');
+}
+
+.figurine{
+  background-image: url('../../../../assets/svg/toy.svg');
+}
+
+.white {
+  background-color: #fff;
+}
+.yellow{
+  background-color: #FDD700;
+}
+
+.red{
+  background-color: #FD0000;
+}
+.blue{
+  background-color: #2199EB;
+}
+.green{
+  background-color: #08AA05;
+}
+
+.size span{
+  background-image: url('../../../../assets/svg/ball.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.small {
+  background-size: 32px 32px;
+}
+.middle{
+      background-size: 36px 36px;
+}
+
+.big{
+      background-size: 40px 40px;
+}
+
+.favorite-container span{
+  border: 1px solid #fff08e;
+  border-radius: 5px;
+}

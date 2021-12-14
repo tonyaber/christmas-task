@@ -1,7 +1,7 @@
 import Control from '../../../../common/control';
 import Select from './select';
 import ResetFilters from './reset-filters';
-import style from '../setting-style.css';
+import style from './sort.css';
 import ModelFilter from '../../../model/model-filter';
 
 export default class Sort extends Control {

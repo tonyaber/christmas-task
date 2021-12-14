@@ -1,5 +1,5 @@
 import Control from "../../../../common/control";
-import style from '../setting-style.css'
+import style from './toys.css'
 
 export default class Popup extends Control{
   onDeletePopup: ()=>void;

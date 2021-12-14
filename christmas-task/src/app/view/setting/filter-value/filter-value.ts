@@ -1,5 +1,5 @@
 import Control from '../../../../common/control';
-import style from '../setting-style.css';
+import style from './filter-values.css';
 import Shape from './shape'; 
 import Color from './color';
 import Size from './size';

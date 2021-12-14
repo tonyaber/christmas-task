@@ -1,5 +1,5 @@
 import Control from '../../../../common/control';
-import style from '../setting-style.css';
+import style from './filter-range.css';
 import Range from './range';
 import ModelFilter from '../../../model/model-filter';
 

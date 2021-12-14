@@ -1,5 +1,5 @@
 import Control from "../../../../common/control";
-import style from '../setting-style.css';
+import style from './filter-range.css';
 
 export default class Range extends Control{
   onChangeRange: (from:number, to:number)=>void;

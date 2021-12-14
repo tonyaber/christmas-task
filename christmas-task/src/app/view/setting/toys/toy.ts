@@ -1,6 +1,6 @@
 import Control from '../../../../common/control';
 import { IToy } from '../../../../dto';
-import style from '../setting-style.css'
+import style from './toys.css'
 
 export default class ToyItem extends Control{
   title: Control<HTMLHeadingElement>;

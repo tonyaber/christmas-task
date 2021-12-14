@@ -1,6 +1,5 @@
 import Control from "../../../../common/control";
 
-
 export default class CheckBox extends Control{
   checkBox: Control<HTMLInputElement>;
   onChangeFilter: (isChecked: boolean)=>void;

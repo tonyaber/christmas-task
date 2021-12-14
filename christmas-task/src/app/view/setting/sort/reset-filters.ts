@@ -1,5 +1,5 @@
 import Control from "../../../../common/control";
-import style from '../setting-style.css';
+import style from './sort.css';
 
 export default class ResetFilters extends Control {
   onResetFilters: ()=>void;

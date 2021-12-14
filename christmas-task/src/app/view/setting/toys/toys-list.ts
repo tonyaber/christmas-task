@@ -1,7 +1,7 @@
 import Control from '../../../../common/control';
 import { IToy } from '../../../../dto';
 import ModelSort from '../../../model/model-sort';
-import style from '../setting-style.css';
+import style from './toys.css';
 import Toy from './toy';
 import Popup from './popup';
 
