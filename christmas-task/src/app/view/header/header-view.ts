@@ -1,10 +1,18 @@
 import Control from '../../../common/control';
 import style from './header-style.css';
 import logo from '../../../assets/svg/tree.svg'
+import ModelSort from '../../model/model-sort';
 
-export default class HeaderView extends Control{  
-  constructor(parentNode: HTMLElement) {
+export default class HeaderView extends Control{
+  favoriteCount: Control<HTMLSpanElement>;  
+  constructor(parentNode: HTMLElement, model: ModelSort) {
     super(parentNode, 'header', style.header);
+    model.onUpdate.add(
+      () => {
+        this.update(model);
+      }
+    );
+
     const navigation = new Control(this.node, 'nav', style.navigation);
     const logoContainer = new Control<HTMLAnchorElement>(navigation.node, 'a', 'logo-container');
     logoContainer.node.href = '#main';
@@ -23,7 +31,13 @@ export default class HeaderView extends Control{
     const searchInput = new Control<HTMLInputElement>(headerControl.node, 'input');
     searchInput.node.type = 'search';
     const favoriteContainer = new Control(headerControl.node, 'div', style['favorite-container']);
-    const favoriteCount = new Control(favoriteContainer.node, 'span', style['favorite-count'],'5');
+    this.favoriteCount = new Control<HTMLSpanElement>(favoriteContainer.node, 'span', style['favorite-count']);
+    this.update(model)
+  }
+
+  update(model:ModelSort) {
+    const countSelected = model.selectedToy.length;
+    this.favoriteCount.node.textContent = countSelected.toString();
   }
   
 }

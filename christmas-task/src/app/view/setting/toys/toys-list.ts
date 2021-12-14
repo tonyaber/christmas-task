@@ -3,8 +3,10 @@ import { IToy } from '../../../../dto';
 import ModelSort from '../../../model/model-sort';
 import style from '../setting-style.css';
 import Toy from './toy';
+import Popup from './popup';
 
 export default class ToysList extends Control {
+  model: ModelSort;
   toys: Toy[] = [];
 
   constructor(parentNode: HTMLElement, model: ModelSort) {
@@ -15,11 +17,20 @@ export default class ToysList extends Control {
       }
     );
     
+    this.model = model;
     this.update(model);
   }
 
-  update(model: ModelSort) {    
-    this.createToys(model.getToys());    
+  update(model: ModelSort) {   
+    if (model.isFullSelected) {
+      const popup = new Popup(this.node);
+      popup.onDeletePopup = () => {
+        popup.destroy()
+      }
+    } else {
+      this.createToys(model.getToys());  
+    }
+      
   }
 
   createToys(data: IToy[]) {
@@ -28,12 +39,16 @@ export default class ToysList extends Control {
       item.destroy();
     }
     while (data.length > this.toys.length) {
-      const toy = new Toy(this.node);     
+      const toy = new Toy(this.node); 
+      
       this.toys.push(toy);
     }
 
     data.forEach((element, index) => {
       this.toys[index].update(element);    
+      this.toys[index].onSelectToy = () => {
+        this.model.selectToy(element)
+      }
     });
   }
 }

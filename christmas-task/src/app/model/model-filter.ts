@@ -41,7 +41,8 @@ export default class ModelFilter{
         'to': 2020
       }
     };
-    this.sort = ''
+    this.sort = '';
+    
     
   }
   getFilters() {

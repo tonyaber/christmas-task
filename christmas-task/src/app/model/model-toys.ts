@@ -37,6 +37,7 @@ export default class ModelToys{
         for (const key in res) {
           res[key]['year'] = Number(res[key]['year']);
           res[key]['count'] = Number(res[key]['count']);
+          res[key]['isSelected'] = false;
         }
         return res;
       })

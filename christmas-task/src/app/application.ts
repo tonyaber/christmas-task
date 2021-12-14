@@ -15,7 +15,7 @@ export default class Application extends Control {
   constructor(parentNode: HTMLElement) {
     super(parentNode);
     this.model = new ModelToys();
-    const header = new Header(this.node);
+    const header = new Header(this.node, this.model.modelSort);
 
     this.pages = {
       '#main': MainPage,

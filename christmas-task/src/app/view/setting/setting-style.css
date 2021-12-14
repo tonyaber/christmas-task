@@ -2,20 +2,27 @@
   box-sizing: border-box;
   width: 100%;
   padding: 0 100px;
+  display: flex;
+  gap:20px;
 
 }
 .setting {
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   gap: 10px;
 }
 
 .filter-value,
 .filter-range ,
 .sort {
-  width: 33%;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
   background-color: rgba(31, 112, 127, .3);
-  border-radius: 10px;
+  border: 1px solid #278D9F;
+  border-radius: 5px;
 }
 
 .setting input[type="checkbox"]{
@@ -151,6 +158,16 @@
   text-transform:none;
 }
 
+
+.popup {
+  position: fixed;
+  width: 80%;
+  height: 200px;
+  top: 300px;
+  left: 10%;
+  background-color: red
+}
+
 .toy-item{
   display: flex;
   flex-wrap: wrap;
@@ -167,10 +184,26 @@
   margin: 10px 0;
 }
 
+.container-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.toy-star  {
+  width: 50px;
+  height: auto;
+}
+
 .toy-img{
   width: 90px;
   height: 112px;
   object-fit: contain;
+}
+
+.toy-star.selected{
+  filter:invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
 }
 
 .title{

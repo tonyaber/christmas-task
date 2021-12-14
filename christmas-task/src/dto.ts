@@ -10,6 +10,7 @@ export interface IToy{
   shape: string;
   size: string;
   year: number;
+  isSelected: boolean;
 }
 
 export interface IMainConstructor{

@@ -5,6 +5,8 @@ export default class ModelSort{
   onUpdate: Signal<void> = new Signal();
   toys: IToy[];
   filtersToys: IToy[];
+  selectedToy: IToy[] = [];
+  isFullSelected: boolean = false;
   constructor() {
     this.toys = []
     this.filtersToys = [];   
@@ -74,6 +76,26 @@ export default class ModelSort{
     this.sortArray(arrayWithFilters, sort);
 
     this.filtersToys = arrayWithFilters;
+    this.onUpdate.emit();
+  }
+
+  selectToy(toy: IToy) { 
+    
+    const isSelected = toy.isSelected;
+    if (!isSelected) {
+      if (this.selectedToy.length < 4) {
+        this.isFullSelected = false;
+        this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
+        this.selectedToy.push(toy); 
+      } else {
+        this.isFullSelected = true;
+      }             
+    } else {
+      this.isFullSelected = false;
+      this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
+      this.selectedToy= this.selectedToy.filter(item => item.num !== toy.num);
+    }  
+    
     this.onUpdate.emit();
   }
 }
