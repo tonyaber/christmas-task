@@ -1,4 +1,5 @@
 .main {
+  margin-top: 150px;
   box-sizing: border-box;
   width: 100%;
   padding: 0 100px;
@@ -13,22 +14,33 @@
   width: 600px;
   height: 300px;
   margin: 200px auto 0;
-  background-color: rgba(31, 112, 127, .3);
-  border:3px solid #278D9F;
-  border-radius: 20px;
+   background-color: rgba(99,0,11, .3);
+  border: 1px solid #fff08e;
+  border-radius: 10px;
   font-size: 40px;
   text-transform: none;
 }
 
+.btn-start:active,
 .btn-start{
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-start:hover{
+  color: #ffdf00;
+  cursor: pointer;
+}
+.btn-start{  
   display: block;
   margin: 50px auto 0;
   width: 320px;
-  height: 60px;
-  font: inherit;
-  color: inherit;
-  background-color: rgba(31, 112, 127, .3);
-  border:3px solid #278D9F;
-  border-radius: 20px;
-  text-transform: inherit;
+  padding: 30px 0;
+  background-color: rgba(99,0,11, .3);
+  border: 1px solid #fff08e;
+  border-radius: 10px;
+  text-align: center;
+  font-size:32px;
+  font-weight: bold;
 }
+

@@ -7,9 +7,9 @@ export default class ModelSort{
   filtersToys: IToy[];
   toys: IToy[] = [];
   selectedToy: IToy[] = [];
-  isFullSelected: boolean = false;
   isEmptyList: boolean = false;
   isEmptySearch: boolean = false;
+  onOverFlow: Signal<void> = new Signal();
   constructor() {
     this.allToys = []
     this.filtersToys = [];   
@@ -86,23 +86,22 @@ export default class ModelSort{
     this.onUpdate.emit();
   }
 
-  selectToy(toy: IToy) {     
+  selectToy(toy: IToy) {   
     const isSelected = toy.isSelected;
+    
     if (!isSelected) {
-      if (this.selectedToy.length < 4) {
-        this.isFullSelected = false;
+      if (this.selectedToy.length < 20) {  
         this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
         this.selectedToy.push(toy); 
-      } else {
-        this.isFullSelected = true;
-      }             
+         this.onUpdate.emit();
+      } else {        
+        this.onOverFlow.emit();
+      }      
     } else {
-      this.isFullSelected = false;
       this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
       this.selectedToy= this.selectedToy.filter(item => item.num !== toy.num);
-    }  
-    
-    this.onUpdate.emit();
+       this.onUpdate.emit();
+    }    
   }
 
   searchToy(value: string) {

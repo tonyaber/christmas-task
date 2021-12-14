@@ -7,15 +7,16 @@ import ModelFilter from '../../../model/model-filter';
 export default class Sort extends Control {
   select: Select;
   constructor(parentNode: HTMLElement, model: ModelFilter) {
-    super(parentNode, 'div', style['sort']);
+    super(parentNode);
     model.onUpdate.add(
       () => {
         this.update(model);
       }
     );
+    const sortContainer = new Control(this.node, 'div', style['sort'])
 
-    const title = new Control(this.node, 'h3', '', 'Sort');
-    this.select = new Select(this.node);
+    const title = new Control(sortContainer.node, 'h3', '', 'Sort');
+    this.select = new Select(sortContainer.node);
     this.select.onChangeSort = (value) => {
       model.changeSort(value);
     }
