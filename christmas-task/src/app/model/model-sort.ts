@@ -33,7 +33,7 @@ export default class ModelSort{
         break;
       case 'descending':
         toys = toys.sort((a, b) => b.count - a.count);
-        break;      
+        break;  
     }
   }
   

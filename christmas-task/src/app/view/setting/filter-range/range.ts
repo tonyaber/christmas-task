@@ -3,44 +3,52 @@ import style from '../setting-style.css';
 
 export default class Range extends Control{
   onChangeRange: (from:number, to:number)=>void;
+  range1: Control<HTMLInputElement>;
+  range2: Control<HTMLInputElement>;
+  span1: Control<HTMLSpanElement>;
+  span2: Control<HTMLSpanElement>;
   
-  constructor(parentNode: HTMLElement, name: string, start:string, finish:string, step:string, value1:string, value2:string) {
+  constructor(parentNode: HTMLElement, name: string, start:string, finish:string, step:string) {
     super(parentNode);
     const title = new Control(this.node, 'h4', '', name);
     const rangeContainer = new Control(this.node, 'div', style['range-container']);
 
-    const span1 = new Control<HTMLSpanElement>(rangeContainer.node, 'span', '', value1);
+    this.span1 = new Control<HTMLSpanElement>(rangeContainer.node, 'span', '');
     const rangeWrap = new Control(rangeContainer.node, 'div', style["range-wrap"]);
-    const span2 = new Control<HTMLSpanElement>(rangeContainer.node, 'span', '', value2);
+    this.span2 = new Control<HTMLSpanElement>(rangeContainer.node, 'span', '');
     const rangeBar = new Control(rangeWrap.node, 'div', style['range-bar']);
     
-    const range1 = new Control<HTMLInputElement>(rangeWrap.node, 'input');
-    range1.node.type = 'range';
-    range1.node.min = start;
-    range1.node.max = finish;
-    range1.node.value = value1;
-    range1.node.step = step;
+    this.range1 = new Control<HTMLInputElement>(rangeWrap.node, 'input');
+    this.range1.node.type = 'range';
+    this.range1.node.min = start;
+    this.range1.node.max = finish;
+    this.range1.node.step = step;
     
-    const range2 = new Control<HTMLInputElement>(rangeWrap.node, 'input');
-    range2.node.type = 'range';
-    range2.node.min = start;
-    range2.node.max = finish;
-    range2.node.value =value2;
-    range2.node.step = step;
-    range1.node.oninput = () => {
-      if (+range1.node.value > +range2.node.value) {
-        range1.node.value = range2.node.value;        
+    this.range2 = new Control<HTMLInputElement>(rangeWrap.node, 'input');
+    this.range2.node.type = 'range';
+    this.range2.node.min = start;
+    this.range2.node.max = finish;
+    this.range2.node.step = step;
+    this.range1.node.oninput = () => {
+      if (+this.range1.node.value > +this.range2.node.value) {
+        this.range1.node.value = this.range2.node.value;        
       }
-      span1.node.textContent = range1.node.value;
-      this.onChangeRange(+range1.node.value , +range2.node.value);
+      this.span1.node.textContent = this.range1.node.value;
+      this.onChangeRange(+this.range1.node.value , +this.range2.node.value);
     }
 
-    range2.node.oninput = () => {
-      if (+range2.node.value < +range1.node.value) {
-        range2.node.value = range1.node.value;        
+    this.range2.node.oninput = () => {
+      if (+this.range2.node.value < +this.range1.node.value) {
+        this.range2.node.value = this.range1.node.value;        
       }
-      span2.node.textContent = range2.node.value;
-      this.onChangeRange(+range1.node.value , +range2.node.value);
+      this.span2.node.textContent = this.range2.node.value;
+      this.onChangeRange(+this.range1.node.value , +this.range2.node.value);
     }
+  }
+  update(values:Array<number>) {
+    this.range1.node.value = values[0].toString();
+    this.span1.node.textContent = values[0].toString();
+    this.range2.node.value = values[1].toString();
+    this.span2.node.textContent = values[1].toString();
   }
 }

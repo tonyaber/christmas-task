@@ -5,19 +5,17 @@ import style from '../setting-style.css';
 import Toy from './toy';
 
 export default class ToysList extends Control {
-  model: ModelSort;
   toys: Toy[] = [];
 
   constructor(parentNode: HTMLElement, model: ModelSort) {
     super(parentNode, 'div', style['toys']);
-    this.model = model;
-    model.onUpdate.add(
+        model.onUpdate.add(
       () => {
         this.update(model);
       }
     );
     
-    this.update(this.model);
+    this.update(model);
   }
 
   update(model: ModelSort) {    

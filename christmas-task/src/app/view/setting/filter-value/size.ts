@@ -4,20 +4,36 @@ import Checkbox from './checkbox';
 import ModelFilter from '../../../model/model-filter';
 
 export default class Size extends Control {
-  model: ModelFilter;
+  data: Record<string, Checkbox>[] =[];
   
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['size']);
-    this.model = model;
+    model.onUpdate.add(
+      () => {
+        this.update(model);
+      }
+    );
     const name = new Control(this.node, 'h4', style.name, 'Size:');
     
-    const values = Object.keys( model.getFilters().size);
+    const values = model.getFilters().size;
     
-    values.forEach(item => {
-      const checkbox = new Checkbox(this.node, style[item]);
-      checkbox.onChangeFilter = (isChecked)=> {
-        this.model.changeData(item, 'size', isChecked)
+    Object.keys(values).map(item => {
+     const checkbox = new Checkbox(this.node, style[item]);
+      checkbox.onChangeFilter = (isChecked) => {
+        model.changeData(item, 'size', isChecked)
       }
+      this.data.push({[item]: checkbox});
+    }) 
+    
+    this.update(model);
+  }
+
+  update(model: ModelFilter) {
+    const values = model.getFilters().size;
+    this.data.forEach((item) => {
+      Object.keys(item).map(it => [
+        item[it].update(values[it])
+      ]);      
     })
   }
 }

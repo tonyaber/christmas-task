@@ -19,6 +19,9 @@ export default class ModelToys{
         this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range, this.modelFilter.sort);
       }
     );
+    this.onUpdate.add(() => {
+      this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range, this.modelFilter.sort);
+    })
 
     this.modelSort = new ModelSort();
     this.filters = this.modelFilter.getFilters();
@@ -41,7 +44,7 @@ export default class ModelToys{
         this.toys = res;
         this.allToys = res;
         this.modelSort.setToys(res);
-        this.modelSort.changeData( this.modelFilter.filters, this.modelFilter.range, this.modelFilter.sort);
+         this.onUpdate.emit();
       })
   }  
 }

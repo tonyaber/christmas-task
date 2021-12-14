@@ -41,7 +41,7 @@ export default class ModelFilter{
         'to': 2020
       }
     };
-    this.sort = 'a-z'
+    this.sort = ''
     
   }
   getFilters() {
@@ -72,6 +72,26 @@ export default class ModelFilter{
 
   changeSort(value:string) {
     this.sort = value; 
+    this.onUpdate.emit();
+  }
+
+  resetFilters() {
+    for (let key in this.filters) {
+      for (let filter in this.filters[key]) {
+        this.filters[key][filter] = false;
+      }
+    }
+    this.sort = '';
+    this.range = {
+      'count': {
+        'from': 1,
+        'to': 12
+      },
+      'year': {
+        'from': 1940,
+        'to': 2020
+      }
+    };
     this.onUpdate.emit();
   }
 

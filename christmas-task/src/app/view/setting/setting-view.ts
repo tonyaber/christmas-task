@@ -7,18 +7,16 @@ import ModelToys from '../../model/model-toys';
 import ToysList from './toys/toys-list';
 
 export default class SettingPage extends Control {
-  model: ModelToys;
-
-  constructor(parentNode: HTMLElement, model:ModelToys) {
+   constructor(parentNode: HTMLElement, model:ModelToys) {
     super(parentNode, 'main', style.main);
-    this.model = model;
-
+   
     const setting = new Control(this.node, 'div', style.setting);
 
-    const filterValue = new FilterValue(setting.node, this.model.modelFilter);
-    const filterRange = new FilterRange(setting.node, this.model.modelFilter);
-    const sort = new Sort(setting.node, this.model.modelFilter);
+    const filterValue = new FilterValue(setting.node, model.modelFilter);
+    const filterRange = new FilterRange(setting.node, model.modelFilter);
+    const sort = new Sort(setting.node, model.modelFilter);
 
-    const toys = new ToysList(this.node, this.model.modelSort);
+    const toys = new ToysList(this.node, model.modelSort);
   }
 }
+
