@@ -82,7 +82,6 @@ export default class ModelFilter{
         this.filters[key][filter] = false;
       }
     }
-    this.sort = '';
     this.range = {
       'count': {
         'from': 1,

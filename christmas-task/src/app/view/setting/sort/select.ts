@@ -19,10 +19,10 @@ export default class Select extends Control{
     const optionFromZtoA = new Control<HTMLOptionElement>(this.select.node, 'option', '', 'By name from "Z" to "A"');
     optionFromZtoA.node.value = 'z-a';
 
-    const optionAscending = new Control<HTMLOptionElement>(this.select.node, 'option', '', 'By quantity ascending');
+    const optionAscending = new Control<HTMLOptionElement>(this.select.node, 'option', '', 'By year of purchase ascending');
     optionAscending.node.value = 'ascending';
 
-    const optionDescending = new Control<HTMLOptionElement>(this.select.node, 'option', '', 'By quantity descending');
+    const optionDescending = new Control<HTMLOptionElement>(this.select.node, 'option', '', 'By year of purchase descending');
     optionDescending.node.value = 'descending';
 
     this.select.node.onchange = () => {

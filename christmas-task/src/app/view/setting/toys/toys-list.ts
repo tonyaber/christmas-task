@@ -23,14 +23,19 @@ export default class ToysList extends Control {
 
   update(model: ModelSort) {   
     if (model.isFullSelected) {
-      const popup = new Popup(this.node);
+      const popup = new Popup(this.node, 'Sorry, all slots are full');
       popup.onDeletePopup = () => {
         popup.destroy()
       }
     } else {
+      if (model.isEmptyList) {
+        const popup = new Popup(this.node, 'Sorry, no matches found');
+        popup.onDeletePopup = () => {
+          popup.destroy()
+        }
+      }
       this.createToys(model.getToys());  
-    }
-      
+    } 
   }
 
   createToys(data: IToy[]) {

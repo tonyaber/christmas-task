@@ -45,7 +45,7 @@ export default class ToyItem extends Control{
     this.favorite.node.textContent = `Favorite: ${toy.favorite ? 'Yes' : 'No'}`;
     
     if (toy.isSelected) {
-      this.star.node.classList.add(style.selected);console.log(toy)
+      this.star.node.classList.add(style.selected);
     } else {
       this.star.node.classList.remove(style.selected);
     }

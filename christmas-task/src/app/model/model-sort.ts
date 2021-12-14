@@ -7,6 +7,7 @@ export default class ModelSort{
   filtersToys: IToy[];
   selectedToy: IToy[] = [];
   isFullSelected: boolean = false;
+  isEmptyList: boolean = false;
   constructor() {
     this.toys = []
     this.filtersToys = [];   
@@ -31,10 +32,10 @@ export default class ModelSort{
         toys = toys.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case 'ascending':
-        toys = toys.sort((a, b) => a.count - b.count);
+        toys = toys.sort((a, b) => a.year - b.year);
         break;
       case 'descending':
-        toys = toys.sort((a, b) => b.count - a.count);
+        toys = toys.sort((a, b) => b.year - a.year);
         break;  
     }
   }
@@ -76,6 +77,8 @@ export default class ModelSort{
     this.sortArray(arrayWithFilters, sort);
 
     this.filtersToys = arrayWithFilters;
+    this.isEmptyList = !arrayWithFilters.length ? true : false;
+    
     this.onUpdate.emit();
   }
 
