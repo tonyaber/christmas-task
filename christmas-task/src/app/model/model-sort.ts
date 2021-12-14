@@ -3,24 +3,26 @@ import { IToy } from '../../dto';
 
 export default class ModelSort{
   onUpdate: Signal<void> = new Signal();
-  toys: IToy[];
+  allToys: IToy[];
   filtersToys: IToy[];
+  toys: IToy[] = [];
   selectedToy: IToy[] = [];
   isFullSelected: boolean = false;
   isEmptyList: boolean = false;
   constructor() {
-    this.toys = []
+    this.allToys = []
     this.filtersToys = [];   
   }
 
   setToys(toys:IToy[]) {
-    this.toys = toys;
+    this.allToys = toys;
     this.filtersToys = toys;
+    this.toys = toys;
     this.onUpdate.emit();
   }
 
   getToys() {
-    return this.filtersToys;
+    return this.toys;
   }
 
   sortArray(toys: IToy[], sort:string) {
@@ -54,7 +56,7 @@ export default class ModelSort{
   
   changeData(filters:Record<string, Record<string, boolean>>, range: Record<string, Record<string, number>>, sort: string) {
     this.filtersToys =[];
-    let arrayWithFilters:IToy[] = this.toys;
+    let arrayWithFilters:IToy[] = this.allToys;
   
     for (let key in filters) {
       let arrayArrayWithAllFilters: IToy[] = [];
@@ -77,13 +79,13 @@ export default class ModelSort{
     this.sortArray(arrayWithFilters, sort);
 
     this.filtersToys = arrayWithFilters;
+    this.toys = this.filtersToys;
     this.isEmptyList = !arrayWithFilters.length ? true : false;
     
     this.onUpdate.emit();
   }
 
-  selectToy(toy: IToy) { 
-    
+  selectToy(toy: IToy) {     
     const isSelected = toy.isSelected;
     if (!isSelected) {
       if (this.selectedToy.length < 4) {
@@ -100,5 +102,24 @@ export default class ModelSort{
     }  
     
     this.onUpdate.emit();
+  }
+
+  searchToy(value: string) {
+    let searchToy:IToy[] = []
+    if (!value.length) {
+      searchToy =this.filtersToys;
+      return
+    }
+    searchToy = this.filtersToys.filter(item => this.searchToyFilter(item, value));
+    this.toys = searchToy;
+    this.onUpdate.emit();
+  }
+  
+  searchToyFilter(item:IToy, value: string) {
+    const index = item.name.toLowerCase().indexOf(value.toLowerCase());
+    if (index >= 0) {
+      return true;
+    }
+    return false;
   }
 }

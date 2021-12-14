@@ -2,7 +2,7 @@ import Control from '../../../common/control';
 import style from './header-style.css';
 import logo from '../../../assets/svg/tree.svg'
 import ModelSort from '../../model/model-sort';
-
+import Search from './search';
 export default class HeaderView extends Control{
   favoriteCount: Control<HTMLSpanElement>;  
   constructor(parentNode: HTMLElement, model: ModelSort) {
@@ -28,8 +28,10 @@ export default class HeaderView extends Control{
     tree.node.href = '#tree';
 
     const headerControl = new Control(this.node, 'div', style['header-control']);
-    const searchInput = new Control<HTMLInputElement>(headerControl.node, 'input');
-    searchInput.node.type = 'search';
+    const search = new Search(headerControl.node);
+    search.onSearch = (value) => {
+      model.searchToy(value);
+    }
     const favoriteContainer = new Control(headerControl.node, 'div', style['favorite-container']);
     this.favoriteCount = new Control<HTMLSpanElement>(favoriteContainer.node, 'span', style['favorite-count']);
     this.update(model)
