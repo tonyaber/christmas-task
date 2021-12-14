@@ -9,6 +9,7 @@ export default class ModelSort{
   selectedToy: IToy[] = [];
   isFullSelected: boolean = false;
   isEmptyList: boolean = false;
+  isEmptySearch: boolean = false;
   constructor() {
     this.allToys = []
     this.filtersToys = [];   
@@ -108,9 +109,11 @@ export default class ModelSort{
     let searchToy:IToy[] = []
     if (!value.length) {
       searchToy =this.filtersToys;
-      return
+    } else {
+      searchToy = this.filtersToys.filter(item => this.searchToyFilter(item, value));
     }
-    searchToy = this.filtersToys.filter(item => this.searchToyFilter(item, value));
+
+    this.isEmptySearch = !searchToy.length ? true : false;
     this.toys = searchToy;
     this.onUpdate.emit();
   }
