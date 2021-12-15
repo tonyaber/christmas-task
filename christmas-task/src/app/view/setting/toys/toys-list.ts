@@ -12,9 +12,17 @@ export default class ToysList extends Control {
   isFullSelected: boolean;
   overFlowHandler: () => void;
   updateHandler: () => void;
+  onSelectToyHandler: () => void;
 
   constructor(parentNode: HTMLElement, model: ModelSort) {
     super(parentNode, 'div', style['toys']);
+    
+    this.onSelectToyHandler = () => {
+      const toysData = model.getToys();
+      this.toys.map((item, index) => {
+        item.updateSelect(toysData[index]);
+      })
+    }
     this.overFlowHandler = () => {
         const popup = new Popup(this.node, 'Sorry, no matches found');
         popup.onDeletePopup = () => {
@@ -27,6 +35,7 @@ export default class ToysList extends Control {
     model.onUpdate.add(this.updateHandler);
         
     model.onOverFlow.add(this.overFlowHandler);
+    model.onSelectToy.add(this.onSelectToyHandler);
     
     this.model = model;
     this.update(model);
@@ -46,30 +55,39 @@ export default class ToysList extends Control {
     this.createToys(model.getToys());  
   }
 
-  createToys(data: IToy[]) {
-    while (data.length < this.toys.length) {
-      const item = this.toys.pop();
-      item.animateOut().then(()=>item.destroy())
-      
-     
-    }
-    while (data.length > this.toys.length) {
-      const toy = new Toy(this.node);
-      toy.animateOut();
-      toy.animateIn();
-      this.toys.push(toy);
-    }
-
-    data.forEach((element, index) => { 
-      this.toys[index].update(element);
+  showToys(data:IToy[]):Promise<void> {
+    const toysData = data.map((element, index) => {
+      this.toys[index].update(element);          
       this.toys[index].onSelectToy = () => {
-        this.model.selectToy(element)  
+      this.model.selectToy(element)
       }
+      return this.toys[index].animateIn();
     });
+    return Promise.all(toysData).then(()=>null);
+  }
+
+  hideToys():Promise<void> {
+    const toysAnimation = this.toys.map(item => item.animateOut())
+    return Promise.all(toysAnimation).then(() => null);
+  }
+
+  createToys(data: IToy[]) {
+    return this.hideToys().then(() => {
+      while (data.length < this.toys.length) {
+        const item = this.toys.pop();
+        item.destroy();      
+      }
+      while (data.length > this.toys.length) {
+        const toy = new Toy(this.node);
+        this.toys.push(toy);
+      }
+      return this.showToys(data);
+    });    
   }
   destroy() {
     this.model.onOverFlow.remove(this.overFlowHandler);
     this.model.onUpdate.remove(this.updateHandler);
+    this.model.onSelectToy.remove(this.onSelectToyHandler);
     super.destroy();
   }
 }

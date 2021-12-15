@@ -1,0 +1,27 @@
+.hide {
+  opacity: 0; 
+  transition: 0.5s;
+  /*animation-name: page-delete; */
+
+}
+.show {
+  opacity: 1; 
+  transition: 0.5s;
+}
+@keyframes page-show {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes page-delete {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; 
+  }
+}

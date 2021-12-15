@@ -10,6 +10,7 @@ export default class ModelSort{
   isEmptyList: boolean = false;
   isEmptySearch: boolean = false;
   onOverFlow: Signal<void> = new Signal();
+  onSelectToy: Signal<void> = new Signal();
   constructor() {
     this.allToys = []
     this.filtersToys = [];   
@@ -93,14 +94,14 @@ export default class ModelSort{
       if (this.selectedToy.length < 20) {  
         this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
         this.selectedToy.push(toy); 
-         this.onUpdate.emit();
+         this.onSelectToy.emit();
       } else {        
         this.onOverFlow.emit();
       }      
     } else {
       this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
       this.selectedToy= this.selectedToy.filter(item => item.num !== toy.num);
-       this.onUpdate.emit();
+       this.onSelectToy.emit();
     }    
   }
 

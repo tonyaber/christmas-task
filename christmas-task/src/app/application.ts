@@ -6,12 +6,14 @@ import ModelToys from './model/model-toys';
 import TreePage from './view/tree/tree-view';
 import { IMainConstructor } from '../dto';
 
+import Page from './page';
+
 export default class Application extends Control {
   model: ModelToys;
-  currentPage: Control<HTMLElement>;
+  currentPage: Page;
   pages: Record<string, IMainConstructor>;
   oldHash: string;
-
+ 
   constructor(parentNode: HTMLElement) {
     super(parentNode);
     this.model = new ModelToys();
@@ -29,10 +31,14 @@ export default class Application extends Control {
         this.oldHash = window.location.hash;
         if (this.currentPage) {
           let currentPage = this.currentPage;
+          this.currentPage.animateOut().then(()=>{
           currentPage.destroy();
-          this.createPage();
+          this.createPage()
+          })
         } else {
-          this.createPage();
+          this.createPage().then(() => {
+            console.log(1)
+          })
         }
       }
     }
@@ -43,5 +49,8 @@ export default class Application extends Control {
   createPage() {
     const newPage = new (this.pages[window.location.hash] || MainPage)(this.node, this.model);
     this.currentPage = newPage;
+    return newPage.animateIn();
   }
+
 }
+

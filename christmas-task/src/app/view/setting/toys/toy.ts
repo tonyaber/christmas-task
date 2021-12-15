@@ -18,6 +18,7 @@ export default class ToyItem extends Control{
   
   constructor(parentNode: HTMLElement) {
     super(parentNode, 'div', style['toy-item']);
+    this.node.classList.add(style.hide);
     this.title = new Control(this.node, 'h3', style.title);
     const containerImg = new Control(this.node, 'div', style['container-image']);
     this.img = new Control(containerImg.node, 'img', style['toy-img']);
@@ -65,7 +66,19 @@ export default class ToyItem extends Control{
       this.star.node.classList.remove(style.selected);
     }
   }
-  animateIn() {
+
+  updateSelect(toy: IToy) {
+    this.favoriteWrap.node.removeAttribute('class');
+    this.favoriteWrap.node.classList.add(style['favorite-wrap'],
+            toy.favorite ? style['favorite-true'] : style['favorite-false']);
+    if (toy.isSelected) {
+      this.star.node.classList.add(style.selected);
+    } else {
+      this.star.node.classList.remove(style.selected);
+    }
+  }
+
+  animateIn() {    
     return new Promise(resolve => {
       this.node.ontransitionend = () => {
         resolve(null);
@@ -79,27 +92,18 @@ export default class ToyItem extends Control{
     });     
   }
 
-  animateOut() {
+  animateOut() {    
     return new Promise(resolve => {
       this.node.classList.remove(style.show)
+      if (this.node.classList.contains(style.hide)) {
+        resolve(null);
+        return;
+      }
       this.node.classList.add(style.hide);
       this.node.ontransitionend = () => {
         resolve(null);
       }
     });  
   }
-
-  animateUpdate() {
-    return new Promise(resolve => {
-      this.node.classList.remove(style.show)
-      this.node.classList.add(style.hide);
-      this.node.ontransitionend = () => {
-        resolve(null);
-        this.node.classList.remove(style.hide)
-        this.node.classList.add(style.show);
-      }
-    });
-  }
-
   
 }

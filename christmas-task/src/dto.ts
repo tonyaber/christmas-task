@@ -1,6 +1,6 @@
 import ModelToys from "./app/model/model-toys";
 import Control from "./common/control";
-
+import Page from './app/page';
 export interface IToy{
   color: string;
   count: number;
@@ -14,7 +14,7 @@ export interface IToy{
 }
 
 export interface IMainConstructor{
-  new(parentNode: HTMLElement, model:ModelToys): Control;
+  new(parentNode: HTMLElement, model:ModelToys): Page;
 }
 
 export interface IFilter  {

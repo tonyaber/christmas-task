@@ -12,7 +12,7 @@ export default class HeaderView extends Control{
      this.updateHandler = () => {
         this.update(model);
     }
-    model.onUpdate.add(this.updateHandler);
+    model.onSelectToy.add(this.updateHandler);
 
     const navigation = new Control(this.node, 'nav', style.navigation);
     const logoContainer = new Control<HTMLAnchorElement>(navigation.node, 'a', 'logo-container');
@@ -34,6 +34,7 @@ export default class HeaderView extends Control{
       model.searchToy(value);
     }
     const favoriteContainer = new Control(headerControl.node, 'div', style['favorite-container']);
+    this.model = model;
     this.favoriteCount = new Control<HTMLSpanElement>(favoriteContainer.node, 'span', style['favorite-count']);
     this.update(model)
   }

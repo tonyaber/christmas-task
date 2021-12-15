@@ -5,11 +5,12 @@ import FilterRange from './filter-range/filter-range';
 import Sort from './sort/sort';
 import ModelToys from '../../model/model-toys';
 import ToysList from './toys/toys-list';
+import  Page  from '../../page';
 
-export default class SettingPage extends Control {
+export default class SettingPage extends Page {
    constructor(parentNode: HTMLElement, model:ModelToys) {
-    super(parentNode, 'main', style.main);
-   
+     super(parentNode, style.main);
+    
     const setting = new Control(this.node, 'div', style.setting);
 
     const filterValue = new FilterValue(setting.node, model.modelFilter);
@@ -18,5 +19,7 @@ export default class SettingPage extends Control {
 
     const toys = new ToysList(this.node, model.modelSort);
   }
+  
+  
 }
 
