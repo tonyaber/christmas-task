@@ -5,13 +5,13 @@ import ModelSort from '../../model/model-sort';
 import Search from './search';
 export default class HeaderView extends Control{
   favoriteCount: Control<HTMLSpanElement>;  
+  updateHandler: () => void;
+  model: ModelSort;
+  
   constructor(parentNode: HTMLElement, model: ModelSort) {
     super(parentNode, 'header', style.header);
-    model.onUpdate.add(
-      () => {
-        this.update(model);
-      }
-    );
+    this.updateHandler = () => this.update(model);
+    this.model.onUpdate.add(this.updateHandler);
 
     const navigation = new Control(this.node, 'nav', style.navigation);
     const logoContainer = new Control<HTMLAnchorElement>(navigation.node, 'a', 'logo-container');
@@ -40,6 +40,10 @@ export default class HeaderView extends Control{
   update(model:ModelSort) {
     const countSelected = model.selectedToy.length;
     this.favoriteCount.node.textContent = countSelected.toString();
+  }
+  destroy() {
+    this.model.onUpdate.remove(this.updateHandler);
+    super.destroy();
   }
   
 }

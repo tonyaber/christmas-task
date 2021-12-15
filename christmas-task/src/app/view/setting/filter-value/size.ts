@@ -5,14 +5,14 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class Size extends Control {
   data: Record<string, Checkbox>[] =[];
+  model: ModelFilter;
+  updateHandler: () => void;
   
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['size']);
-    model.onUpdate.add(
-      () => {
-        this.update(model);
-      }
-    );
+    this.updateHandler = () => this.update(model);
+    this.model.onUpdate.add(this.updateHandler);
+  
     const name = new Control(this.node, 'h4', style.name, 'Size:');
     
     const values = model.getFilters().size;
@@ -35,5 +35,9 @@ export default class Size extends Control {
         item[it].update(values[it])
       ]);      
     })
+  }
+   destroy() {
+    this.model.onUpdate.remove(this.updateHandler);
+    super.destroy();
   }
 }

@@ -5,13 +5,13 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class Favorite extends Control {
   checkbox: Checkbox;
+  updateHandler: () => void;
+  model: ModelFilter;
+
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['favorite-container']);
-    model.onUpdate.add(
-      () => {
-        this.update(model);
-      }
-    );
+    this.updateHandler = () => this.update(model);
+    this.model.onUpdate.add(this.updateHandler);
     const name = new Control(this.node, 'h4', style.name, 'Favorite:');
     const value = model.getFilters().favorite.favorite
     this.checkbox = new Checkbox(this.node, style.favorite);
@@ -23,6 +23,9 @@ export default class Favorite extends Control {
   update(model: ModelFilter) {
     const isChecked = model.getFilters().favorite.favorite;
     this.checkbox.update(isChecked);
-    
+  }
+  destroy() {
+    this.model.onUpdate.remove(this.updateHandler);
+    super.destroy();
   }
 }

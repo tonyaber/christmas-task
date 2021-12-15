@@ -6,13 +6,12 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class Sort extends Control {
   select: Select;
+  model: ModelFilter;
+  updateHandler: () => void;
   constructor(parentNode: HTMLElement, model: ModelFilter) {
     super(parentNode);
-    model.onUpdate.add(
-      () => {
-        this.update(model);
-      }
-    );
+    this.updateHandler = () => this.update(model);
+    this.model.onUpdate.add(this.updateHandler);
     const sortContainer = new Control(this.node, 'div', style['sort'])
 
     const title = new Control(sortContainer.node, 'h3', '', 'Sort');
@@ -31,5 +30,9 @@ export default class Sort extends Control {
   update(model: ModelFilter) {
     const value = model.sort;
     this.select.update(value);
+  }
+   destroy() {
+    this.model.onUpdate.remove(this.updateHandler);
+    super.destroy();
   }
 }

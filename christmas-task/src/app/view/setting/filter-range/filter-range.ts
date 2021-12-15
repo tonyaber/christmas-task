@@ -5,13 +5,14 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class FilterRange extends Control {
   data: Record<string, Range>[] =[];
+  updateHandler: () => void;
+  model: ModelFilter;
+
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['filter-range']);
-    model.onUpdate.add(
-      () => {
-        this.update(model);
-      }
-    );
+    this.updateHandler = () => this.update(model);
+    this.model.onUpdate.add(this.updateHandler);
+    
     const title = new Control(this.node, 'h3', '', 'FILTERS BY RANGE');
 
     const rangeCount = new Range(this.node, 'Count of copies:', '1', '12', '1');
@@ -35,5 +36,9 @@ export default class FilterRange extends Control {
         item[it].update(Object.values(range[it]))
       })
     })
+  }
+  destroy() {
+    this.model.onUpdate.remove(this.updateHandler);
+    super.destroy();
   }
 }

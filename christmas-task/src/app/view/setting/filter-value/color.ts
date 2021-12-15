@@ -5,13 +5,14 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class Form extends Control {
   data: Record<string, Checkbox>[] =[];
+  updateHandler: () => void;
+  model: ModelFilter;
+  
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['color']);
-    model.onUpdate.add(
-      () => {
-        this.update(model);
-      }
-    );
+   this.updateHandler = () => this.update(model);
+    this.model.onUpdate.add(this.updateHandler);
+    
     const name = new Control(this.node, 'h4', style.name, 'Color:');
     const values = model.getFilters().color;
     
@@ -32,5 +33,9 @@ export default class Form extends Control {
       ]);
       
     })
+  }
+  destroy() {
+    this.model.onUpdate.remove(this.updateHandler);
+    super.destroy();
   }
 }

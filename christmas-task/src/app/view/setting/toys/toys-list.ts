@@ -22,9 +22,7 @@ export default class ToysList extends Control {
         }
         this.popups.push(popup);
     }
-    this.updateHandler = () => {
-        this.update(model);
-    }
+    this.updateHandler = () => this.update(model);
 
     model.onUpdate.add(this.updateHandler);
         
@@ -73,7 +71,6 @@ export default class ToysList extends Control {
     this.model.onOverFlow.remove(this.overFlowHandler);
     this.model.onUpdate.remove(this.updateHandler);
     super.destroy();
-
   }
 }
 
