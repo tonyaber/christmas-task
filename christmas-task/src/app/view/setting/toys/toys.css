@@ -2,6 +2,7 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: 20px;
   text-transform:none;
 }
@@ -42,7 +43,15 @@
   padding: 10px;
   background-color: rgba(99,0,11, .3);
   border: 1px solid #fff08e;
-  border-radius: 10px;
+  border-radius: 10px;  
+   transition: all 1s;
+}
+.hide{
+  transform:rotateY(90deg);
+}
+
+.show{
+   transform:rotateY(0);
 }
 
 .toy-item p {
@@ -77,4 +86,100 @@
   font-size: 20px;
   font-stretch: condensed;
   font-weight: bold;
+}
+
+
+
+.form-wrap {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  filter: brightness(0) saturate(100%) invert(79%) sepia(54%) saturate(858%) hue-rotate(359deg) brightness(104%) contrast(104%);
+}
+
+.color-wrap{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.size-wrap{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('../../../../assets/svg/ball.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+   filter: brightness(0) saturate(100%) invert(79%) sepia(54%) saturate(858%) hue-rotate(359deg) brightness(104%) contrast(104%);
+}
+
+.favorite-wrap{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  filter: invert(24%) sepia(85%) saturate(7483%) hue-rotate(357deg) brightness(99%) contrast(117%);
+}
+
+.round{
+  background-image: url('../../../../assets/svg/ball.svg');
+}
+
+.bell{
+  background-image: url('../../../../assets/svg/bell.svg');
+}
+
+.cone {
+  background-image: url('../../../../assets/svg/cone.svg');
+}
+
+.snowflake {
+  background-image: url('../../../../assets/svg/snowflake.svg');
+}
+
+.figurine{
+  background-image: url('../../../../assets/svg/toy.svg');
+}
+.white {
+  background-color: #fff;
+}
+.yellow{
+  background-color: #FDD700;
+}
+
+.red{
+  background-color: #FD0000;
+}
+.blue{
+  background-color: #2199EB;
+}
+.green{
+  background-color: #08AA05;
+}
+
+.small {
+  background-size: 20px 20px;
+}
+.middle{
+      background-size: 25px 25px;
+}
+
+.big{
+      background-size: 30px 30px;
+}
+
+.favorite-true{
+  background-image: url('../../../../assets/svg/heart.svg');
+}
+
+.favorite-false{
+  background-image: url('../../../../assets/svg/disable_heart.svg');
+}
+
+span {
+  margin-top: 10px;
 }

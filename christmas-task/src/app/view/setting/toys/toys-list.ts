@@ -51,15 +51,19 @@ export default class ToysList extends Control {
   createToys(data: IToy[]) {
     while (data.length < this.toys.length) {
       const item = this.toys.pop();
-      item.destroy();
+      item.animateOut().then(()=>item.destroy())
+      
+     
     }
     while (data.length > this.toys.length) {
-      const toy = new Toy(this.node);       
+      const toy = new Toy(this.node);
+      toy.animateOut();
+      toy.animateIn();
       this.toys.push(toy);
     }
 
-    data.forEach((element, index) => {
-      this.toys[index].update(element);    
+    data.forEach((element, index) => { 
+      this.toys[index].update(element);
       this.toys[index].onSelectToy = () => {
         this.model.selectToy(element)  
       }
