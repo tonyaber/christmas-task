@@ -10,14 +10,16 @@ export default class Favorite extends Control {
 
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['favorite-container']);
-    this.updateHandler = () => this.update(model);
-    this.model.onUpdate.add(this.updateHandler);
+    this.updateHandler = () => this.update(model);    
+    model.onUpdate.add(this.updateHandler);
+    
     const name = new Control(this.node, 'h4', style.name, 'Favorite:');
     const value = model.getFilters().favorite.favorite
     this.checkbox = new Checkbox(this.node, style.favorite);
     this.checkbox.onChangeFilter = (isChecked)=> {
       model.changeData('favorite', 'favorite', isChecked)
     }
+    this.model = model
     this.update(model);
   }
   update(model: ModelFilter) {

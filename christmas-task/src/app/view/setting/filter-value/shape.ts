@@ -10,8 +10,9 @@ export default class Shape extends Control {
   
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['shape']);
-    this.updateHandler = () => this.update(model);
-    this.model.onUpdate.add(this.updateHandler);
+    
+    this.updateHandler = () => this.update(model);    
+    model.onUpdate.add(this.updateHandler);
     
     const name = new Control(this.node, 'h4', style.name, 'Form:');    
     const values = model.getFilters().shape;
@@ -23,7 +24,7 @@ export default class Shape extends Control {
       }
       this.data.push({[item]: checkbox});
     }) 
-
+    this.model = model;
     this.update(model);
   }
   update(model: ModelFilter) {
@@ -34,7 +35,7 @@ export default class Shape extends Control {
       ]);      
     })
   }
-   destroy() {
+  destroy() {
     this.model.onUpdate.remove(this.updateHandler);
     super.destroy();
   }

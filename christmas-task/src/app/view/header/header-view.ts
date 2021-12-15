@@ -7,11 +7,12 @@ export default class HeaderView extends Control{
   favoriteCount: Control<HTMLSpanElement>;  
   updateHandler: () => void;
   model: ModelSort;
-  
   constructor(parentNode: HTMLElement, model: ModelSort) {
     super(parentNode, 'header', style.header);
-    this.updateHandler = () => this.update(model);
-    this.model.onUpdate.add(this.updateHandler);
+     this.updateHandler = () => {
+        this.update(model);
+    }
+    model.onUpdate.add(this.updateHandler);
 
     const navigation = new Control(this.node, 'nav', style.navigation);
     const logoContainer = new Control<HTMLAnchorElement>(navigation.node, 'a', 'logo-container');
@@ -44,6 +45,7 @@ export default class HeaderView extends Control{
   destroy() {
     this.model.onUpdate.remove(this.updateHandler);
     super.destroy();
+
   }
   
 }

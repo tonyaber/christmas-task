@@ -7,11 +7,11 @@ export default class FilterRange extends Control {
   data: Record<string, Range>[] =[];
   updateHandler: () => void;
   model: ModelFilter;
-
+  
   constructor(parentNode: HTMLElement, model:ModelFilter) {
     super(parentNode, 'div', style['filter-range']);
-    this.updateHandler = () => this.update(model);
-    this.model.onUpdate.add(this.updateHandler);
+   this.updateHandler = () => this.update(model);    
+    model.onUpdate.add(this.updateHandler);
     
     const title = new Control(this.node, 'h3', '', 'FILTERS BY RANGE');
 
@@ -26,6 +26,7 @@ export default class FilterRange extends Control {
         model.changeRange('year', from,to)
     }
     this.data.push({ 'year': rangeYear });
+    this.model = model;
     this.update(model);
   }
 

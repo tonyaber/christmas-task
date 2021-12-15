@@ -6,12 +6,13 @@ import ModelFilter from '../../../model/model-filter';
 
 export default class Sort extends Control {
   select: Select;
-  model: ModelFilter;
   updateHandler: () => void;
+  model: ModelFilter;
   constructor(parentNode: HTMLElement, model: ModelFilter) {
     super(parentNode);
     this.updateHandler = () => this.update(model);
-    this.model.onUpdate.add(this.updateHandler);
+
+    model.onUpdate.add(this.updateHandler);
     const sortContainer = new Control(this.node, 'div', style['sort'])
 
     const title = new Control(sortContainer.node, 'h3', '', 'Sort');
@@ -24,6 +25,7 @@ export default class Sort extends Control {
     resetBtn.onResetFilters = () => {
       model.resetFilters();
     }
+    this.model = model;
     this.update(model);
   }
 
@@ -31,7 +33,7 @@ export default class Sort extends Control {
     const value = model.sort;
     this.select.update(value);
   }
-   destroy() {
+  destroy() {
     this.model.onUpdate.remove(this.updateHandler);
     super.destroy();
   }

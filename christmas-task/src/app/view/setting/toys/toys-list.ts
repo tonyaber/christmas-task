@@ -23,7 +23,7 @@ export default class ToysList extends Control {
         this.popups.push(popup);
     }
     this.updateHandler = () => this.update(model);
-
+    
     model.onUpdate.add(this.updateHandler);
         
     model.onOverFlow.add(this.overFlowHandler);
