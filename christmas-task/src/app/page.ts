@@ -16,8 +16,7 @@ constructor(parentNode: HTMLElement, mainStyle:string) {
       }
       
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-        
+        requestAnimationFrame(() => {        
           this.node.classList.remove(style.hide);
           this.node.classList.add(style.show)
         })

@@ -14,7 +14,7 @@ export default class ModelSort{
   constructor() {
     this.allToys = []
     this.filtersToys = []; 
-    this.getSelectedToyInLocalStorage()
+   // this.getSelectedToyInLocalStorage()
   }
 
   setToys(toys:IToy[]) {
@@ -106,7 +106,7 @@ export default class ModelSort{
       this.selectedToy= this.selectedToy.filter(item => item.num !== toy.num);
       this.onSelectToy.emit();
     } 
-    this.setToysInLocalStorage();
+   // this.setToysInLocalStorage();
   }
 
   searchToy(value: string) {

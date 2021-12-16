@@ -49,15 +49,17 @@ export default class ToyItem extends Control{
     this.count.node.textContent = `Count: ${toy.count}`
     this.year.node.textContent = `Year: ${toy.year}`
 
-    this.formWrap.node.removeAttribute('class');
+    this.formWrap.node.className = '';
     this.formWrap.node.classList.add(style['form-wrap'],style[toy.shape]);
    
-    this.colorWrap.node.removeAttribute('class');
+    this.colorWrap.node.className = '';
     this.colorWrap.node.classList.add(style['color-wrap'],style[toy.color]);
     
-    this.sizeWrap.node.removeAttribute('class');
+    this.sizeWrap.node.className = '';
+
     this.sizeWrap.node.classList.add(style['size-wrap'], style[toy.size]);
-    this.favoriteWrap.node.removeAttribute('class');
+    this.favoriteWrap.node.className = '';
+
     this.favoriteWrap.node.classList.add(style['favorite-wrap'],
           toy.favorite ? style['favorite-true'] : style['favorite-false']);
     if (toy.isSelected) {
@@ -68,7 +70,7 @@ export default class ToyItem extends Control{
   }
 
   updateSelect(toy: IToy) {
-    this.favoriteWrap.node.removeAttribute('class');
+    this.favoriteWrap.node.className = '';
     this.favoriteWrap.node.classList.add(style['favorite-wrap'],
             toy.favorite ? style['favorite-true'] : style['favorite-false']);
     if (toy.isSelected) {

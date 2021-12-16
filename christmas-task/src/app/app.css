@@ -62,7 +62,6 @@
   position: fixed;
   top:0;
   left:0;
-  transition: 1s;
   overflow: hidden;
 }
 .background-tree1{

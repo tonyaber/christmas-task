@@ -25,17 +25,18 @@ export default class ModelToys{
 
     this.modelSort = new ModelSort();
     this.filters = this.modelFilter.getFilters();
-      
-    this.getToysInLocalStorage();
+    this.setAllToys();
   }
 
   setAllToys() {
     fetch('data/data.json')
       .then(json => json.json())
       .then(res => {
+        ////функция загрузки данных с локалстроридж
         for (const key in res) {
           res[key]['year'] = Number(res[key]['year']);
           res[key]['count'] = Number(res[key]['count']);
+          
           res[key]['isSelected'] = false;
         }
         return res;
@@ -46,16 +47,5 @@ export default class ModelToys{
         this.modelSort.setToys(res);
          this.onUpdate.emit();
       })
-  }  
-
-  getToysInLocalStorage() {
-    if (localStorage.getItem('tonyaber-toys')) {
-      this.toys = JSON.parse(localStorage.getItem('tonyaber-toys'));
-      this.allToys = this.toys;
-      this.modelSort.setToys(this.toys);
-         this.onUpdate.emit();
-    } else {
-      this.setAllToys();
-    }
-  }
+  } 
 }
