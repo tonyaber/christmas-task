@@ -8,6 +8,7 @@ import { IMainConstructor } from '../dto';
 
 import Page from './page';
 import PageSnow from './page-snow';
+import Background from './background';
 
 export default class Application extends Control {
   model: ModelToys;
@@ -19,7 +20,8 @@ export default class Application extends Control {
   constructor(parentNode: HTMLElement) {
     super(parentNode);
     this.model = new ModelToys();
-    const header = new Header(this.node, this.model.modelSort);
+    const header = new Header(this.node, this.model.modelSort);    
+    const background = new Background(this.node);
     this.pageSnow = new PageSnow(this.node);
     this.pages = {
       '#main': MainPage,
