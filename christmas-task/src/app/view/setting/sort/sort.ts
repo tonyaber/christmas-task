@@ -21,9 +21,14 @@ export default class Sort extends Control {
       model.changeSort(value);
     }
 
-    const resetBtn = new ResetFilters(this.node);
-    resetBtn.onResetFilters = () => {
+    const resetBtn = new ResetFilters(this.node,'Reset filters');
+    resetBtn.onReset = () => {
       model.resetFilters();
+    }
+
+    const resetLocalStorageBtn = new ResetFilters(this.node, 'Reset Local Storage');
+    resetLocalStorageBtn.onReset = () => {
+      model.resetLocalStorage();
     }
     this.model = model;
     this.update(model);

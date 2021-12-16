@@ -26,9 +26,8 @@ export default class ModelToys{
     this.modelSort = new ModelSort();
     this.filters = this.modelFilter.getFilters();
       
-    this.setAllToys();
+    this.getToysInLocalStorage();
   }
-  
 
   setAllToys() {
     fetch('../data/data.json')
@@ -48,4 +47,15 @@ export default class ModelToys{
          this.onUpdate.emit();
       })
   }  
+
+  getToysInLocalStorage() {
+    if (localStorage.getItem('tonyaber-toys')) {
+      this.toys = JSON.parse(localStorage.getItem('tonyaber-toys'));
+      this.allToys = this.toys;
+      this.modelSort.setToys(this.toys);
+         this.onUpdate.emit();
+    } else {
+      this.setAllToys();
+    }
+  }
 }

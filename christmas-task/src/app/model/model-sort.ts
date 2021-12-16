@@ -13,7 +13,8 @@ export default class ModelSort{
   onSelectToy: Signal<void> = new Signal();
   constructor() {
     this.allToys = []
-    this.filtersToys = [];   
+    this.filtersToys = []; 
+    this.getSelectedToyInLocalStorage()
   }
 
   setToys(toys:IToy[]) {
@@ -92,6 +93,7 @@ export default class ModelSort{
     
     if (!isSelected) {
       if (this.selectedToy.length < 20) {  
+        this.allToys.find(item => item.num === toy.num).isSelected = !isSelected;
         this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
         this.selectedToy.push(toy); 
          this.onSelectToy.emit();
@@ -99,10 +101,12 @@ export default class ModelSort{
         this.onOverFlow.emit();
       }      
     } else {
+      this.allToys.find(item => item.num === toy.num).isSelected = !isSelected;
       this.filtersToys.find(item => item.num === toy.num).isSelected = !isSelected;
       this.selectedToy= this.selectedToy.filter(item => item.num !== toy.num);
-       this.onSelectToy.emit();
-    }    
+      this.onSelectToy.emit();
+    } 
+    this.setToysInLocalStorage();
   }
 
   searchToy(value: string) {
@@ -125,4 +129,15 @@ export default class ModelSort{
     }
     return false;
   }
+   setToysInLocalStorage() {
+     localStorage.setItem('tonyaber-toys', JSON.stringify(this.allToys));
+     localStorage.setItem('tonyaber-selected-toy', JSON.stringify(this.selectedToy))
+  }
+
+  getSelectedToyInLocalStorage() {
+    if (localStorage.getItem('tonyaber-selected-toy')) {
+      this.selectedToy = JSON.parse(localStorage.getItem('tonyaber-selected-toy'));
+    }
+  }
+  
 }

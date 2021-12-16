@@ -2,13 +2,13 @@ import Control from "../../../../common/control";
 import style from './sort.css';
 
 export default class ResetFilters extends Control {
-  onResetFilters: ()=>void;
+  onReset: ()=>void;
   
-  constructor(parentNode: HTMLElement) {
+  constructor(parentNode: HTMLElement, name:string) {
     super(parentNode);
-    const btn = new Control(this.node, 'button', style['resetBtn'],'Reset filters');
+    const btn = new Control(this.node, 'button', style['resetBtn'],name);
     btn.node.onclick = ()=>{
-      this.onResetFilters();
+      this.onReset();
     }
   }
 }

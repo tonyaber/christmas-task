@@ -55,11 +55,12 @@ export default class ToysList extends Control {
     this.createToys(model.getToys());  
   }
 
-  showToys(data:IToy[]):Promise<void> {
+  showToys(data: IToy[]): Promise<void> {
     const toysData = data.map((element, index) => {
-      this.toys[index].update(element);          
+      this.toys[index].update(element); 
+
       this.toys[index].onSelectToy = () => {
-      this.model.selectToy(element)
+        this.model.selectToy(element)
       }
       return this.toys[index].animateIn();
     });
