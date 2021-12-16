@@ -30,7 +30,7 @@ export default class ModelToys{
   }
 
   setAllToys() {
-    fetch('../data/data.json')
+    fetch('data/data.json')
       .then(json => json.json())
       .then(res => {
         for (const key in res) {
