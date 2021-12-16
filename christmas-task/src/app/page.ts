@@ -9,11 +9,6 @@ constructor(parentNode: HTMLElement, mainStyle:string) {
 
   animateIn() {
     return new Promise(resolve => {
-      // this.node.onanimationend = (e) => {
-      //   if (e.target === this.node) {
-      //     resolve(null);
-      //   }        
-      // }
       this.node.ontransitionend = (e) => {
         if (e.target === this.node) {
           resolve(null);

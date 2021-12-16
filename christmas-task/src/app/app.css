@@ -1,27 +1,67 @@
 .hide {
   opacity: 0; 
-  transition: 0.5s;
-  /*animation-name: page-delete; */
-
+  transition: 1s;
 }
 .show {
   opacity: 1; 
-  transition: 0.5s;
-}
-@keyframes page-show {
-  0% {
-    opacity: 0; 
-  }
-  100% {
-    opacity: 1;
-  }
+  transition: 1s;
 }
 
-@keyframes page-delete {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0; 
-  }
+.hide-snow{
+  opacity: 0;
+  transition: 0.5s;
+}
+.page-show{
+  position: absolute;
+  top:0;
+  left:0;
+}
+@keyframes snow {
+ 0% {background-position: 0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px, 200px 500px, 99% 99%, 50% 55%, 80% 80%, 10% 10%, 70% 90%, 60% 80%;}
+}
+ 
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px, 200px 500px, 99% 99%, 50% 55%, 80% 80%, 10% 10%, 70% 90%, 60% 80%;}
+}
+ 
+@-webkit-keyframes snow {
+ 0% {background-position: 0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px, 200px 500px, 99% 99%, 50% 55%, 80% 80%, 10% 10%, 70% 90%, 60% 80%;}
+}
+ 
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px, 200px 500px, 99% 99%, 50% 55%, 80% 80%, 10% 10%, 70% 90%, 60% 80%;}
+}
+
+.snow{
+  width: 100%;
+  height: 100vh;
+   background-image: url('../assets/png/snowflake1.png'),
+   url('../assets/png/snowflake2.png'), 
+   url('../assets/png/snowflake3.png'),
+    url('../assets/png/snowflake1.png'),
+   url('../assets/png/snowflake2.png'), 
+   url('../assets/png/snowflake3.png'),
+   url('../assets/png/snowflake1.png'),
+   url('../assets/png/snowflake2.png'), 
+   url('../assets/png/snowflake3.png'),
+    url('../assets/png/snowflake1.png'),
+    url('../assets/png/snowflake1.png'),
+   url('../assets/png/snowflake2.png'), 
+   url('../assets/png/snowflake3.png'),
+    url('../assets/png/snowflake1.png'),
+   url('../assets/png/snowflake2.png'), 
+   url('../assets/png/snowflake3.png'),
+   url('../assets/png/snowflake1.png'),
+   url('../assets/png/snowflake2.png'), 
+   url('../assets/png/snowflake3.png'),
+    url('../assets/png/snowflake1.png');
+
+ -webkit-animation: snow 2s linear infinite;
+ -moz-animation: snow 2s linear infinite;
+ -ms-animation: snow 2s linear infinite;
+ animation: snow 2s linear infinite;
 }

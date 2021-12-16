@@ -9,7 +9,7 @@ export default class MainPage extends Page {
   constructor(parentNode: HTMLElement, model: ModelToys) {    
     super(parentNode, style.main);    
     
-    this.node.classList.add(style.snow)
+    //this.node.classList.add(style.snow)
     
     const title = new Control(this.node, 'div', style.title);
     const titleContent = new Control(title.node, 'h2', '', 'New Years game \n "Dress up the tree"');

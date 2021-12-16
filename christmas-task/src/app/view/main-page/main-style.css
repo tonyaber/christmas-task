@@ -1,6 +1,9 @@
 .main {
+  position: absolute;
+  top:0;
+  left:0;
   box-sizing: border-box;
-  height: 100%; 
+  height: 100vh; 
   
   width: 100%;
   padding: 150px;
@@ -46,43 +49,3 @@
   font-weight: bold;
 }
 
-
-@keyframes snow {
- 0% {background-position: 0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px, 0px 0px, 0px 0px,0px 0px;}
- 100% {background-position: 500px 1000px, 400px 400px, 300px 300px, 200px 500px, 99% 99%, 50% 55%, 80% 80%, 10% 10%, 70% 90%, 60% 80%;}
-}
- 
-@-moz-keyframes snow {
- 0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
- 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
-}
- 
-@-webkit-keyframes snow {
-0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
- 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
-}
- 
-@-ms-keyframes snow {
- 0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
- 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
-}
-
-.snow{
-  width: 100%;
-  height: 100%;
-   background-image: url('../../../assets/png/snowflake1.png'),
-   url('../../../assets/png/snowflake2.png'), 
-   url('../../../assets/png/snowflake3.png'),
-    url('../../../assets/png/snowflake1.png'),
-   url('../../../assets/png/snowflake2.png'), 
-   url('../../../assets/png/snowflake3.png'),
-   url('../../../assets/png/snowflake1.png'),
-   url('../../../assets/png/snowflake2.png'), 
-   url('../../../assets/png/snowflake3.png'),
-    url('../../../assets/png/snowflake1.png');
-
- -webkit-animation: snow 3s linear infinite;
- -moz-animation: snow 3s linear infinite;
- -ms-animation: snow 3s linear infinite;
- animation: snow 3s linear infinite;
-}
