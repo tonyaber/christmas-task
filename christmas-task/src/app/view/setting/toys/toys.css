@@ -15,10 +15,10 @@
 
 .popup {
   position: fixed;
-  width: 60%;
+  width: 30%;
   padding: 50px 0;
   top: 300px;
-  left: 20%;
+  left: 35%;
   text-align: center;
   color: rgba(99,0,11);
   background-color: #fff08e

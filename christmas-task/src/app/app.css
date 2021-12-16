@@ -48,16 +48,6 @@
    url('../assets/png/snowflake1.png'),
    url('../assets/png/snowflake2.png'), 
    url('../assets/png/snowflake3.png'),
-    url('../assets/png/snowflake1.png'),
-    url('../assets/png/snowflake1.png'),
-   url('../assets/png/snowflake2.png'), 
-   url('../assets/png/snowflake3.png'),
-    url('../assets/png/snowflake1.png'),
-   url('../assets/png/snowflake2.png'), 
-   url('../assets/png/snowflake3.png'),
-   url('../assets/png/snowflake1.png'),
-   url('../assets/png/snowflake2.png'), 
-   url('../assets/png/snowflake3.png'),
     url('../assets/png/snowflake1.png');
 
  -webkit-animation: snow 2s linear infinite;
