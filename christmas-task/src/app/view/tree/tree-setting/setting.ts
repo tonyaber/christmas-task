@@ -1,8 +1,9 @@
 import Control from '../../../../common/control';
-import Sound from './sound';
-import SnowIcon from './snow';
 import style from './tree-setting.css';
 import CheckBox from '../../setting/filter-value/checkbox'
+import ChoosingBg from './choosing-bg';
+import ChoosingTree from './choosing-tree';
+import ChoosingGarland from './choosing-garland';
 
 export default class Setting extends Control{
   constructor(parentNode: HTMLElement) {
@@ -16,6 +17,10 @@ export default class Setting extends Control{
     snow.onChangeFilter = () => {
       console.log('snow');
     }
+    const choosingBg = new ChoosingBg(this.node);
+    const choosingTree = new ChoosingTree(this.node);
+    const choosingGarland = new ChoosingGarland(this.node);
+
   }
 
 }

@@ -56,3 +56,12 @@
 .snow{
   background-image: url('../../../../assets/svg/snowflake.svg');
 }
+
+.choosing-bg,
+.choosing-tree,
+.choosing-garland{
+    padding: 20px;
+  background-color: rgba(99,0,11, .3);
+  border: 1px solid #fff08e;
+  border-radius: 10px;
+}
