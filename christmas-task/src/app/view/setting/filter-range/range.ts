@@ -1,8 +1,10 @@
 import Control from "../../../../common/control";
 import style from './filter-range.css';
 
+interface IRangeController {
+  onChangeRange: (value1: number, value2: number)=> void;
+}
 export default class Range extends Control{
-  onChangeRange: (from:number, to:number)=>void;
   range1: Control<HTMLInputElement>;
   range2: Control<HTMLInputElement>;
   span1: Control<HTMLSpanElement>;
@@ -10,7 +12,7 @@ export default class Range extends Control{
   rangeWrap: Control<HTMLElement>;
   rangeBar: Control<HTMLElement>;
   
-  constructor(parentNode: HTMLElement, name: string, start:string, finish:string, step:string) {
+  constructor(parentNode: HTMLElement, name: string, start:string, finish:string, step:string, controller: IRangeController) {
     super(parentNode);
     const title = new Control(this.node, 'h4', style['range-title'], name);
     const rangeContainer = new Control(this.node, 'div', style['range-container']);
@@ -35,14 +37,14 @@ export default class Range extends Control{
       if (+this.range1.node.value > +this.range2.node.value) {
         this.range1.node.value = this.range2.node.value;        
       }
-      this.onChangeRange(+this.range1.node.value , +this.range2.node.value);
+      controller.onChangeRange(+this.range1.node.value , +this.range2.node.value);
     }
 
     this.range2.node.oninput = () => {
       if (+this.range2.node.value < +this.range1.node.value) {
         this.range2.node.value = this.range1.node.value;        
       }
-      this.onChangeRange(+this.range1.node.value , +this.range2.node.value);
+      controller.onChangeRange(+this.range1.node.value , +this.range2.node.value);
     }
   }
   update(values:Array<number>) {

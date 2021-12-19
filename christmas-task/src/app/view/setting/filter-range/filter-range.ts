@@ -15,16 +15,18 @@ export default class FilterRange extends Control {
     
     const title = new Control(this.node, 'h3', '', 'FILTERS BY RANGE');
 
-    const rangeCount = new Range(this.node, 'Count of copies:', '1', '12', '1');
-    rangeCount.onChangeRange = (from, to)=> {
-        model.changeRange('count', from,to)
-    }
+    const rangeCount = new Range(this.node, 'Count of copies:', '1', '12', '1',{
+      onChangeRange:(from, to)=> {
+         model.changeRange('count', from,to)
+      }
+    });
     this.data.push({ 'count': rangeCount });
     
-    const rangeYear = new Range(this.node, 'Year of purchase: ', '1940', '2020', '10');
-    rangeYear.onChangeRange = (from, to)=> {
+    const rangeYear = new Range(this.node, 'Year of purchase: ', '1940', '2020', '10', {
+      onChangeRange: (from, to)=> {
         model.changeRange('year', from,to)
-    }
+      }
+    });
     this.data.push({ 'year': rangeYear });
     this.model = model;
     this.update(model);

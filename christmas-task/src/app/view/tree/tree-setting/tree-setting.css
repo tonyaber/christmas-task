@@ -1,0 +1,58 @@
+.setting{
+  width: 30%;
+}
+
+.sound-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 100px;
+   padding: 20px;
+  background-color: rgba(99,0,11, .3);
+  border: 1px solid #fff08e;
+  border-radius: 10px;
+ 
+}
+/* 
+.sound,
+.snow {
+  width: 30px;
+  height: 30px;
+} */
+
+.sound-container [type="checkbox"]{
+  display: none;
+}
+
+.sound-container span {
+  position: absolute;
+  left: 0; 
+  top: 0;
+  width: 100%; 
+  height:100%;
+  cursor: pointer;
+}
+
+.sound-container label {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: relative;
+}
+
+.sound-container span{
+  margin:0;
+  background-size: 40px 40px; 
+  background-repeat: no-repeat;
+}
+
+.sound-container input[type="checkbox"]:checked + span {
+  filter: brightness(0) saturate(100%) invert(79%) sepia(54%) saturate(858%) hue-rotate(359deg) brightness(104%) contrast(104%);
+}
+
+.sound{
+  background-image: url('../../../../assets/svg/audio.svg');
+}
+
+.snow{
+  background-image: url('../../../../assets/svg/snowflake.svg');
+}
