@@ -65,3 +65,22 @@
   border: 1px solid #fff08e;
   border-radius: 10px;
 }
+.background-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.background{
+  width: calc(20% - 10px);
+ height: 65px;
+ background-size: 100% 65px;
+ background-repeat: no-repeat;
+ border-radius: 5px;
+ border: 1px solid white;
+}
+
+.background-image{
+  width: 100%;
+  height: auto;
+}
