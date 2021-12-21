@@ -5,7 +5,7 @@ import ModelSort from './model-sort';
 import ModelTree from './model-tree';
 export default class ModelToys{
   toys: IToy[];
-  allToys: IToy[]
+  allToys: IToy[] = [];
   onUpdate: Signal<void> = new Signal();
   filters: Record<string, Record<string, boolean>>;
   modelFilter: ModelFilter;
@@ -57,7 +57,7 @@ export default class ModelToys{
         this.allToys = res;
         this.modelSort.setToys(res);
         this.modelTree.setAllToys(res);
-         this.onUpdate.emit();
+        this.onUpdate.emit();
       })
   } 
 }

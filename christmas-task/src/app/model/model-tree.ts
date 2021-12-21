@@ -25,10 +25,12 @@ export default class ModelTree{
 
   setBg(value: number) {
     this.background = value;
+    this.onUpdate.emit();
   }
 
   setTree(value: number) {
     this.tree = value;
+    this.onUpdate.emit();
   }
 
 

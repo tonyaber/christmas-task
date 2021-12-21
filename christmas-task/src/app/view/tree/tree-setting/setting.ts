@@ -4,9 +4,10 @@ import CheckBox from '../../setting/filter-value/checkbox'
 import ChoosingBg from './choosing-bg';
 import ChoosingTree from './choosing-tree';
 import ChoosingGarland from './choosing-garland';
+import ModelTree from '../../../model/model-tree';
 
 export default class Setting extends Control{
-  constructor(parentNode: HTMLElement) {
+  constructor(parentNode: HTMLElement, model: ModelTree) {
     super(parentNode,'div', style.setting);
     const soundContainer = new Control(this.node, 'div', style['sound-container']);
     const sound = new CheckBox(soundContainer.node, style.sound);
@@ -17,8 +18,8 @@ export default class Setting extends Control{
     snow.onChangeFilter = () => {
       console.log('snow');
     }
-    const choosingBg = new ChoosingBg(this.node);
-    const choosingTree = new ChoosingTree(this.node);
+    const choosingBg = new ChoosingBg(this.node, model);
+    const choosingTree = new ChoosingTree(this.node, model);
     const choosingGarland = new ChoosingGarland(this.node);
 
   }
