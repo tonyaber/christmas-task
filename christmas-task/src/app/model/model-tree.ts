@@ -7,6 +7,8 @@ export default class ModelTree{
   background: number = 1;
   tree: number = 1;
   onUpdate: Signal<void> = new Signal();
+  onDrop: Signal<void> = new Signal();
+  isDropSuccess = false;
 
   setSelectedToy(value:IToy[]) {
     this.selectedToy = value;
@@ -16,11 +18,19 @@ export default class ModelTree{
     this.allToys = toys;
   }
 
+  setDrop(id: string, value: boolean) {
+    if (value) {
+      this.selectedToy.find(toy => toy.num == id).count--;
+    }   
+    this.onDrop.emit();
+  }
+
   getToys() {
     if (this.selectedToy.length) {
       return this.selectedToy
     }
-    return this.allToys.slice(0, 20);
+    this.selectedToy = this.allToys.slice(0, 20);
+    return this.selectedToy;
   }
 
   setBg(value: number) {
