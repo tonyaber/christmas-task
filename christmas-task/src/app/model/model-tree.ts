@@ -8,7 +8,8 @@ export default class ModelTree{
   tree: number = 1;
   onUpdate: Signal<void> = new Signal();
   onDrop: Signal<void> = new Signal();
-  isDropSuccess = false;
+  onUpdateToy: Signal<void> = new Signal();
+  onUpdateTree:  Signal<void> = new Signal();
 
   setSelectedToy(value:IToy[]) {
     this.selectedToy = value;
@@ -16,6 +17,7 @@ export default class ModelTree{
 
   setAllToys(toys: IToy[]) {
     this.allToys = toys;
+    this.onUpdateToy.emit();
   }
 
   setDrop(id: string, value: boolean) {
@@ -39,8 +41,9 @@ export default class ModelTree{
   }
 
   setTree(value: number) {
-    this.tree = value;
+    this.tree = value;    
     this.onUpdate.emit();
+    this.onUpdateTree.emit();
   }
 
 

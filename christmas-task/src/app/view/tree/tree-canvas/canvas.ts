@@ -1,6 +1,7 @@
 import Control from '../../../../common/control';
 import ModelTree from '../../../model/model-tree';
 import style from './canvas.css';
+import ToyCanvas from './toy-canvas';
 interface IMap {
   x: number;
   y: number;
@@ -11,25 +12,30 @@ export default class Canvas extends Control {
   height: number = 1000;
   context: CanvasRenderingContext2D;
   updateHandler: () => void;
+  updateHandlerTree: () => void;
   model: ModelTree;
-  mapTree:IMap[]= [];
+  mapTree: IMap[] = [];
+  toys:ToyCanvas[] = [];
   
   constructor(parentNode: HTMLElement, model:ModelTree) {
     super(parentNode);
     this.model = model;
+    this.createMap(model.tree);
     this.updateHandler = () => {
-      this.setBg(model.background);
-      this.setTree(model.tree);
+      this.render();
     }
     model.onUpdate.add(this.updateHandler);
-    const toys = model.getToys();
-    
+        
+    this.updateHandlerTree = () => {
+      this.createMap(model.tree);
+    }
+    model.onUpdateTree.add(this.updateHandlerTree);
+
     const canvas = new Control<HTMLCanvasElement>(this.node, 'canvas', style.canvas);
     canvas.node.width = this.width;
     canvas.node.height = this.height;
     this.context = canvas.node.getContext('2d');
-    this.setBg(model.background)
-    this.setTree(model.tree);
+    this.render()
 
     canvas.node.ondragover = (e) => {
       e.preventDefault();
@@ -38,20 +44,30 @@ export default class Canvas extends Control {
     canvas.node.ondrop = (e) => {
       const x = e.offsetX;
       const y = e.offsetY;
-      const sizeToy = 60;
+      
       e.preventDefault();
-      if (this.mapTree.find(item => item.x == x && item.y == y)) {
-        this.model.setDrop(e.dataTransfer.getData('id'), true);
-        const toy = new Image();    
-        toy.src = `../../../assets/toys/${e.dataTransfer.getData('id')}.png`;
-        toy.classList.add(style['toy-img'])
-        toy.onload =()=> {
-          this.context.drawImage(toy, x-sizeToy/2, y, sizeToy,sizeToy);
-        }
-
+      if (this.mapTree.find(item => item.x == x && item.y == y)) {     
+        const id = e.dataTransfer.getData('id')
+        this.model.setDrop(id, true);
+        const toy = new ToyCanvas(this.node,this.context, id, x,y);
+        toy.render()
+        this.toys.push(toy)
       }
     }
-      
+
+    canvas.node.onmousedown = (e) => {
+      this.toys.forEach(item => {
+        item.handleMove(e);
+        this.render();
+      })
+    }
+  }
+
+  render() {
+    this.context.clearRect(0, 0, this.width, this.height);
+    this.setBg(this.model.background)
+    this.setTree(this.model.tree);
+    this.toys.forEach(item => item.render());
   }
 
   setTree(value: number) {
@@ -60,7 +76,6 @@ export default class Canvas extends Control {
     imgTree.onload = () => {
       imgTree.width = this.width * 0.7;
       imgTree.height = this.height * 0.7;
-      this.createMap(imgTree);
       this.context.drawImage(imgTree, this.width*0.15, this.height*0.25, imgTree.width, imgTree.height)
     }
   }
@@ -75,34 +90,40 @@ export default class Canvas extends Control {
     }
   }
 
-  createMap(image: HTMLImageElement) {
-    this.mapTree = [];   
-    const newCanvas = new Control<HTMLCanvasElement>(this.node, 'canvas');
-    newCanvas.node.width = this.width;
-    newCanvas.node.height = this.height;
-    const newContext = newCanvas.node.getContext('2d');
-    newContext.drawImage(image, this.width * 0.15, this.height * 0.25, image.width, image.height);
-    const allPixels = newContext.getImageData(0, 0, this.width, this.height).data;
+  createMap(value: number) {
+    const image = new Image();
+    image.src = `../../../assets/tree/${value}.png`;  
+    image.onload = () => {
+      this.mapTree = [];   
+      const newCanvas = new Control<HTMLCanvasElement>(this.node, 'canvas');
+      newCanvas.node.width = this.width;
+      newCanvas.node.height = this.height;
+      const newContext = newCanvas.node.getContext('2d');
+      newContext.drawImage(image, this.width * 0.15, this.height * 0.25, image.width, image.height);
+      const allPixels = newContext.getImageData(0, 0, this.width, this.height).data;
+      
+      let x = 0,
+        y = 0;
+      for (let i=0; i < allPixels.length; i+=4) {
+        if (x >= this.width) {
+          x = 0;
+          y++;
+        }
+        if (allPixels[i]) {
+          this.mapTree.push({'x':x, 'y':y});
+          
+        }
+        x++;
+      }  
+      newCanvas.destroy();
+    }
     
-    let x = 0,
-      y = 0;
-    for (let i=0; i < allPixels.length; i+=4) {
-      if (x >= this.width) {
-        x = 0;
-        y++;
-      }
-      if (allPixels[i]) {
-        this.mapTree.push({'x':x, 'y':y});
-        
-      }
-      x++;
-    }  
-    newCanvas.destroy();
     
   }
 
   destroy() {
     this.model.onUpdate.remove(this.updateHandler);
+    this.model.onUpdateTree.remove(this.updateHandlerTree);
     super.destroy();
   }
 }

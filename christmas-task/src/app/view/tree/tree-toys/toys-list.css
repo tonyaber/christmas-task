@@ -24,6 +24,9 @@
 }
 
 .toy-img{
+  position: absolute;
+  top:10px;
+  left: 10px;
    width: 60px;
   height: 60px;
 }
