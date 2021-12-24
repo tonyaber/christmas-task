@@ -23,7 +23,9 @@ export default class ModelTree{
   setDrop(id: string, value: boolean) {
     if (value) {
       this.selectedToy.find(toy => toy.num == id).count--;
-    }   
+    } else {
+      this.selectedToy.find(toy => toy.num == id).count++;
+    }
     this.onDrop.emit();
   }
 
