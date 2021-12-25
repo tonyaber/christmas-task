@@ -7,30 +7,59 @@ interface IMap {
   y: number;
 }
 
+
+interface IImages {
+  name: string,
+  num?: string;
+  src: string,
+  startX: number,
+  startY: number,
+  width: number,
+  height: number,
+  isMove?:boolean
+}
 export default class Canvas extends Control {
-  width: number = 800;
-  height: number = 1000;
+  width: number = 700;
+  height: number = 900;
   context: CanvasRenderingContext2D;
   updateHandler: () => void;
   updateHandlerTree: () => void;
   model: ModelTree;
   mapTree: IMap[] = [];
-  toys: ToyCanvas[] = [];
   tree: number;
   background: number;
   id: number = 0;
+  images:IImages[]=[];
   
   constructor(parentNode: HTMLElement, model:ModelTree) {
     super(parentNode);
     this.model = model;
     this.tree = this.model.tree;
-    this.background = this.model.background;
+    this.images.push({
+      name: 'background',
+      src: `../../../assets/bg/${this.model.background}.jpg`,
+      startX: 0,
+      startY: 0,
+      width: this.width,
+      height: this.height,
+    });
+      this.images.push({
+      name: 'tree',
+      src: `../../../assets/tree/${this.model.tree}.png`,
+      startX: this.width*0.15,
+      startY: this.height*0.25,
+      width: this.width*0.7,
+      height: this.height*0.7,
+    });
     this.createMap();
     this.updateHandler = () => {
       this.tree = this.model.tree;
+      this.images.find(item => item.name == 'tree').src = `../../../assets/tree/${this.tree}.png`;
       this.background = this.model.background;
+      this.images.find(item => item.name == 'background').src = `../../../assets/bg/${this.background}.jpg`;
       this.render();
     }
+
     model.onUpdate.add(this.updateHandler);
         
     this.updateHandlerTree = () => {
@@ -43,7 +72,7 @@ export default class Canvas extends Control {
     canvas.node.width = this.width;
     canvas.node.height = this.height;
     this.context = canvas.node.getContext('2d');
-    this.render()
+    this.render();
 
     canvas.node.ondragover = (e) => {
       e.preventDefault();
@@ -58,9 +87,16 @@ export default class Canvas extends Control {
       if (this.mapTree.find(item => item.x == x && item.y == y)) {     
         const num = e.dataTransfer.getData('id')
         this.model.setDrop(num, true);
-        const toy = new ToyCanvas(this.node,this.context, num, x,y, this.id);
-        toy.render()
-        this.toys.push(toy)
+        this.images.push({
+          name: this.id.toString(),
+          num: num,
+          src: `../../../assets/toys/${num}.png`,
+          startX:x-30,
+          startY: y-30,
+          width: 60,
+          height: 60,          
+        })
+        this.render();
         this.id++;
       }
     }
@@ -68,52 +104,63 @@ export default class Canvas extends Control {
     let isMove = false;
 
     canvas.node.onmousedown = (e) => {
-      this.toys.forEach(item => {
-        if (item.isShape(e)) {
-           item.handleEnter(e);
-          isMove = true;
-         }
-         
-  
+      this.images.forEach(item => {
+        if (item.name!='tree'&&item.name!='background'&&this.isShape(e, item)) {
+          item.isMove = true;
+        }      
       })
     }
 
     canvas.node.onmousemove = (e) => {
-      if (isMove) {
-        this.toys.forEach(item => {
-          if (item.isShape(e)) {
-            item.handleMove(e);
-            this.render();
-          }
-          
-      })
-      }
-      
+      this.images.forEach(item => {
+        if (item.isMove) {
+          item.startX = e.offsetX - 30;
+          item.startY = e.offsetY - 30;
+          this.render();
+        }
+      })      
     }
 
     canvas.node.onmouseup = (e) => {
-      this.toys.forEach(item => {
-        if (item.isShape(e)) {
-          item.handleLeave(e);          
-          isMove = false;
-          if (!this.mapTree.find(item => item.x == e.offsetX && item.y == e.offsetY)) {
-            this.toys = this.toys.filter(elem => elem.id != item.id);
-            item.destroy();
-            this.render();
+      this.images.forEach(item => {
+        if (item.isMove) {
+          item.isMove = false;
+          if (!this.mapTree.find(item => item.x == e.offsetX && item.y == e.offsetY)) { 
+            this.images = this.images.filter(elem => elem.name != item.name);
             this.model.setDrop(item.num, false);
-            
+            this.render();
           }
-         }
-         
+        }
       })
     }
   }
 
+  isShape(e: MouseEvent, toy: IImages) {
+    console.log(e.offsetY,toy.startY,  toy.startY+60)
+    return (e.offsetX > toy.startX
+      && e.offsetX < toy.startX+60
+      && e.offsetY > toy.startY
+      && e.offsetY < toy.startY + 60)
+  }
+
   render() {
-    //this.context.clearRect(0, 0, this.width, this.height);
-    this.setBg();
-    this.setTree();
-    this.toys.forEach(item => item.render());
+    const url = this.images.map(item => this.loadImage(item.src))   
+
+    Promise.all(url).then((img) => {
+      this.images.forEach((item, index) => {
+        this.context.drawImage(img[index], item.startX, item.startY, item.width, item.height)
+      });      
+    })
+  }
+
+  loadImage(src:string):Promise<HTMLImageElement> {
+    return new Promise((resolve) => {
+      let image = new Image();
+      image.onload = () => {
+        resolve(image);
+      }
+      image.src = src;
+    })
   }
 
   setTree() {
@@ -132,6 +179,7 @@ export default class Canvas extends Control {
     imgBg.onload = () => {  
       const cx = imgBg.width > this.width ? (imgBg.width - this.width) / 2 : 0;      
       const cy = imgBg.height > this.height ? (imgBg.height - this.height) / 2 : 0;
+      
       this.context.drawImage(imgBg, cx, cy, (imgBg.width - cx), (imgBg.height - cy), 0, 0, this.width, this.height );
     }
   }
