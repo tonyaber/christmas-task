@@ -9,7 +9,10 @@ export default class ModelTree{
   onUpdate: Signal<void> = new Signal();
   onDrop: Signal<void> = new Signal();
   onUpdateToy: Signal<void> = new Signal();
-  onUpdateTree:  Signal<void> = new Signal();
+  onUpdateTree: Signal<void> = new Signal();
+  onUpdateGarland: Signal<void> = new Signal();
+  garland: string = 'yellow';
+ 
 
   setSelectedToy(value:IToy[]) {
     this.selectedToy = value;
@@ -46,6 +49,11 @@ export default class ModelTree{
     this.tree = value;    
     this.onUpdate.emit();
     this.onUpdateTree.emit();
+  }
+
+  setGarland(value: string) {
+    this.garland = value;
+    this.onUpdateGarland.emit();
   }
 
 

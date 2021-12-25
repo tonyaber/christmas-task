@@ -1,7 +1,8 @@
 import Control from '../../../../common/control';
 import ModelTree from '../../../model/model-tree';
+
 import style from './canvas.css';
-import ToyCanvas from './toy-canvas';
+
 interface IMap {
   x: number;
   y: number;
@@ -24,12 +25,16 @@ export default class Canvas extends Control {
   context: CanvasRenderingContext2D;
   updateHandler: () => void;
   updateHandlerTree: () => void;
+  updateHandlerGarland: () => void;
   model: ModelTree;
   mapTree: IMap[] = [];
   tree: number;
   background: number;
   id: number = 0;
   images:IImages[]=[];
+  garland: { start: number; finish: number; y: number; radius: number; }[];
+  colorGarland: string;
+  isGarlandLight: boolean = true;
   
   constructor(parentNode: HTMLElement, model:ModelTree) {
     super(parentNode);
@@ -50,8 +55,34 @@ export default class Canvas extends Control {
       startY: this.height*0.25,
       width: this.width*0.7,
       height: this.height*0.7,
-    });
+      });
+    this.garland = [{
+      start: 1.1,
+      finish: 2.2,
+      y: 300,
+      radius: 100,
+    },
+      {
+      start: 0.8,
+      finish: 2.5,
+      y: 400,
+      radius: 130,
+      },
+      {
+      start: 0.8,
+      finish: 2.5,
+      y: 500,
+      radius: 160,
+      },
+      {
+      start: 0.5,
+      finish: 2.8,
+      y: 600,
+      radius: 190,
+    },
+    ]
     this.createMap();
+
     this.updateHandler = () => {
       this.tree = this.model.tree;
       this.images.find(item => item.name == 'tree').src = `../../../assets/tree/${this.tree}.png`;
@@ -59,7 +90,6 @@ export default class Canvas extends Control {
       this.images.find(item => item.name == 'background').src = `../../../assets/bg/${this.background}.jpg`;
       this.render();
     }
-
     model.onUpdate.add(this.updateHandler);
         
     this.updateHandlerTree = () => {
@@ -67,13 +97,24 @@ export default class Canvas extends Control {
       this.createMap();
     }
     model.onUpdateTree.add(this.updateHandlerTree);
+    this.updateHandlerGarland = () => {
+      this.colorGarland = model.garland;
+      this.render();
+    }
+
+    setInterval(() => {
+      this.isGarlandLight = !this.isGarlandLight;
+      this.render();
+    }, 500)
+
+    model.onUpdateGarland.add(this.updateHandlerGarland);
 
     const canvas = new Control<HTMLCanvasElement>(this.node, 'canvas', style.canvas);
     canvas.node.width = this.width;
     canvas.node.height = this.height;
     this.context = canvas.node.getContext('2d');
+    this.colorGarland = model.garland;
     this.render();
-
     canvas.node.ondragover = (e) => {
       e.preventDefault();
       e.dataTransfer.dropEffect = "move"
@@ -101,14 +142,13 @@ export default class Canvas extends Control {
       }
     }
 
-    let isMove = false;
-
     canvas.node.onmousedown = (e) => {
-      this.images.forEach(item => {
-        if (item.name!='tree'&&item.name!='background'&&this.isShape(e, item)) {
-          item.isMove = true;
-        }      
-      })
+      for (let i =this.images.length-1; i >=0; i--){
+        if (this.images[i].name != 'tree' && this.images[i].name != 'background' && this.isShape(e, this.images[i])) {
+          this.images[i].isMove = true;
+          break;
+        }
+      }
     }
 
     canvas.node.onmousemove = (e) => {
@@ -136,7 +176,6 @@ export default class Canvas extends Control {
   }
 
   isShape(e: MouseEvent, toy: IImages) {
-    console.log(e.offsetY,toy.startY,  toy.startY+60)
     return (e.offsetX > toy.startX
       && e.offsetX < toy.startX+60
       && e.offsetY > toy.startY
@@ -144,11 +183,15 @@ export default class Canvas extends Control {
   }
 
   render() {
-    const url = this.images.map(item => this.loadImage(item.src))   
-
+    const url = this.images.map(item => this.loadImage(item.src));
     Promise.all(url).then((img) => {
       this.images.forEach((item, index) => {
-        this.context.drawImage(img[index], item.startX, item.startY, item.width, item.height)
+        this.context.filter = 'none'
+        this.context.drawImage(img[index], item.startX, item.startY, item.width, item.height);
+        if (item.name == 'tree') {
+          this.context.filter = this.isGarlandLight ? 'blur(1px) opacity(0.4)' : 'blur(3px)';       
+          this.createGarland(this.colorGarland)
+        }
       });      
     })
   }
@@ -163,27 +206,31 @@ export default class Canvas extends Control {
     })
   }
 
-  setTree() {
-    const imgTree = new Image();
-    imgTree.src = `../../../assets/tree/${this.tree}.png`;    
-    imgTree.onload = () => {
-      imgTree.width = this.width * 0.7;
-      imgTree.height = this.height * 0.7;
-      this.context.drawImage(imgTree, this.width*0.15, this.height*0.25, imgTree.width, imgTree.height)
-    }
-  }
+  createGarland(value: string) {
+    const color = ['red', 'blue', 'yellow', 'white', 'violet','green', 'pink'];
+    if (value == 'off') {
+      return;
+    } else {
+      this.garland.forEach(item => {
+      for (let i = item.start; i <= item.finish; i += 0.3){
+        const x = item.radius * Math.cos(i) + 350;
+        const y = item.radius * Math.sin(i) + item.y;
+        this.context.beginPath();
+        this.context.arc(x, y, 5, 0, 2 * Math.PI);
 
-  setBg() {
-    const imgBg = new Image();
-    imgBg.src = `../../../assets/bg/${this.background}.jpg`;    
-    imgBg.onload = () => {  
-      const cx = imgBg.width > this.width ? (imgBg.width - this.width) / 2 : 0;      
-      const cy = imgBg.height > this.height ? (imgBg.height - this.height) / 2 : 0;
-      
-      this.context.drawImage(imgBg, cx, cy, (imgBg.width - cx), (imgBg.height - cy), 0, 0, this.width, this.height );
+        if (value == 'multicolored') {
+          this.context.fillStyle = color[Math.floor(Math.random() * 7)];
+        } else {
+          this.context.fillStyle = value;        }
+        
+        this.context.fill();
+      }
+      })
+   
     }
-  }
 
+    
+  }
   createMap() {
     const image = new Image();
     image.src = `../../../assets/tree/${this.tree}.png`;  
@@ -218,6 +265,7 @@ export default class Canvas extends Control {
   destroy() {
     this.model.onUpdate.remove(this.updateHandler);
     this.model.onUpdateTree.remove(this.updateHandlerTree);
+    this.model.onUpdateGarland.remove(this.updateHandlerGarland);
     super.destroy();
   }
 }

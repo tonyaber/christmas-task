@@ -17,7 +17,6 @@ export default class ToysList extends Control{
 
     this.onUpdateHandler = () => {
       const toys = model.getToys();
-       console.log(toys)
        for (let i = 0; i < toys.length; i++){
           const toy = new Toy(this.node, toys[i])
           this.toysView.push(toy);
