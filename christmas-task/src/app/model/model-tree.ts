@@ -1,5 +1,5 @@
 import Signal from "../../common/signal";
-import { IToy } from '../../dto';
+import { IImages, IToy } from '../../dto';
 
 export default class ModelTree{
   selectedToy: IToy[] = [];
@@ -13,10 +13,12 @@ export default class ModelTree{
   onUpdateGarland: Signal<void> = new Signal();
   onUpdateSnow:  Signal<void> = new Signal();
   onUpdateMusic: Signal<void> = new Signal();
+  onSaveTree: Signal<void> = new Signal();
+  onUpdateSaveTree: Signal<void> = new Signal();
   garland: string = 'yellow';
   isSnow: boolean = false;
   isMusic: boolean = false;
- 
+  canvasImage: IImages[][] = [];
 
   setSelectedToy(value:IToy[]) {
     this.selectedToy = JSON.parse(JSON.stringify(value));
@@ -73,6 +75,17 @@ export default class ModelTree{
   setSnow(isChecked: boolean) {
     this.isSnow = isChecked;
     this.onUpdateSnow.emit();
+  }
+
+  onSaveButtonClick() {
+    this.onSaveTree.emit();
+  }
+
+  saveTree(value:IImages[]) {
+    this.canvasImage.push(JSON.parse(JSON.stringify(value)));
+    this.tree = 1;
+    this.background = 1;
+    this.onUpdateSaveTree.emit();
   }
 
 

@@ -24,4 +24,8 @@ const GARLANDS = [{
     },
 ]
 
-export {GARLANDS}
+
+const WIDTH = 700,
+  HEIGHT = 900;
+
+export {GARLANDS, WIDTH, HEIGHT}

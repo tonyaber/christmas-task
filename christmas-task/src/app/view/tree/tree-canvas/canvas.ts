@@ -1,19 +1,20 @@
 import Control from '../../../../common/control';
 import { IImages, IMap, IGarland } from '../../../../dto';
 import ModelTree from '../../../model/model-tree';
-import { GARLANDS } from './const';
+import { GARLANDS, WIDTH, HEIGHT } from './const';
 
 import style from './canvas.css';
 
 
 export default class Canvas extends Control {
-  width: number = 700;
-  height: number = 900;
+  width: number = WIDTH;
+  height: number = HEIGHT;
   context: CanvasRenderingContext2D;
   updateHandler: () => void;
   updateHandlerTree: () => void;
   updateHandlerGarland: () => void;
   updateHandlerSnow: () => void;
+  saveHandlerTree: () => void;
   model: ModelTree;
   mapTree: IMap[] = [];
   tree: number;
@@ -63,27 +64,18 @@ export default class Canvas extends Control {
     }
     model.onUpdateSnow.add(this.updateHandlerSnow);
 
+    this.saveHandlerTree = () => {
+      this.model.saveTree(this.images);
+      this.createFirstState();
+    }
+    model.onSaveTree.add(this.saveHandlerTree);
+
     setInterval(() => {
       this.isGarlandLight = !this.isGarlandLight;
       this.render();
     }, 500)
 
-    this.images.push({
-      name: 'background',
-      src: `../../../assets/bg/${this.model.background}.jpg`,
-      startX: 0,
-      startY: 0,
-      width: this.width,
-      height: this.height,
-    });
-    this.images.push({
-      name: 'tree',
-      src: `../../../assets/tree/${this.model.tree}.png`,
-      startX: this.width*0.15,
-      startY: this.height*0.25,
-      width: this.width*0.7,
-      height: this.height*0.7,
-    });
+    this.createFirstState();
 
     const canvas = new Control<HTMLCanvasElement>(this.node, 'canvas', style.canvas);
     canvas.node.width = this.width;
@@ -159,6 +151,25 @@ export default class Canvas extends Control {
       && e.offsetY < toy.startY + 60)
   }
 
+  createFirstState() {
+    this.images = [{
+      name: 'background',
+      src: `../../../assets/bg/${this.model.background}.jpg`,
+      startX: 0,
+      startY: 0,
+      width: this.width,
+      height: this.height,
+    },
+    {
+      name: 'tree',
+      src: `../../../assets/tree/${this.model.tree}.png`,
+      startX: this.width * 0.15,
+      startY: this.height * 0.25,
+      width: this.width * 0.7,
+      height: this.height * 0.7,
+    }];
+  }
+
   render() {
     const url = this.images.map(item => this.loadImage(item.src));
     Promise.all(url).then((img) => {
@@ -169,7 +180,7 @@ export default class Canvas extends Control {
           this.context.filter = this.isGarlandLight ? 'blur(1px) opacity(0.4)' : 'blur(3px)';       
           this.createGarland(this.colorGarland)
         }
-      });      
+      });    
     })
   }
 
@@ -247,6 +258,7 @@ export default class Canvas extends Control {
     this.model.onUpdateTree.remove(this.updateHandlerTree);
     this.model.onUpdateGarland.remove(this.updateHandlerGarland);
     this.model.onUpdateSnow.remove(this.updateHandlerSnow);
+    this.model.onSaveTree.remove(this.saveHandlerTree);
     super.destroy();
   }
 }
