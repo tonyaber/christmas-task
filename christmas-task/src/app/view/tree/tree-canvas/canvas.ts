@@ -1,24 +1,11 @@
 import Control from '../../../../common/control';
+import { IImages, IMap, IGarland } from '../../../../dto';
 import ModelTree from '../../../model/model-tree';
+import { GARLANDS } from './const';
 
 import style from './canvas.css';
 
-interface IMap {
-  x: number;
-  y: number;
-}
 
-
-interface IImages {
-  name: string,
-  num?: string;
-  src: string,
-  startX: number,
-  startY: number,
-  width: number,
-  height: number,
-  isMove?:boolean
-}
 export default class Canvas extends Control {
   width: number = 700;
   height: number = 900;
@@ -33,7 +20,7 @@ export default class Canvas extends Control {
   background: number;
   id: number = 0;
   images:IImages[]=[];
-  garland: { start: number; finish: number; y: number; radius: number; }[];
+  garland:IGarland[]=GARLANDS;
   colorGarland: string;
   isGarlandLight: boolean = true;
   snowContainer: Control<HTMLElement>;
@@ -43,48 +30,12 @@ export default class Canvas extends Control {
     super(parentNode, 'div', style['canvas-container']);
     this.model = model;
     this.tree = this.model.tree;
-    this.images.push({
-      name: 'background',
-      src: `../../../assets/bg/${this.model.background}.jpg`,
-      startX: 0,
-      startY: 0,
-      width: this.width,
-      height: this.height,
-    });
-      this.images.push({
-      name: 'tree',
-      src: `../../../assets/tree/${this.model.tree}.png`,
-      startX: this.width*0.15,
-      startY: this.height*0.25,
-      width: this.width*0.7,
-      height: this.height*0.7,
-      });
-    this.garland = [{
-      start: 1.1,
-      finish: 2.2,
-      y: 300,
-      radius: 100,
-    },
-      {
-      start: 0.8,
-      finish: 2.5,
-      y: 400,
-      radius: 130,
-      },
-      {
-      start: 0.8,
-      finish: 2.5,
-      y: 500,
-      radius: 160,
-      },
-      {
-      start: 0.5,
-      finish: 2.8,
-      y: 600,
-      radius: 190,
-    },
-    ]
+    this.garland = GARLANDS;
+    this.colorGarland = model.garland;
     this.createMap();
+
+    this.snowContainer = new Control(this.node, 'div', style['snow-container']);
+    this.createSnow(model);
 
     this.updateHandler = () => {
       this.tree = this.model.tree;
@@ -100,33 +51,47 @@ export default class Canvas extends Control {
       this.createMap();
     }
     model.onUpdateTree.add(this.updateHandlerTree);
+
     this.updateHandlerGarland = () => {
       this.colorGarland = model.garland;
       this.render();
     }
-
     model.onUpdateGarland.add(this.updateHandlerGarland);
- 
 
     this.updateHandlerSnow = () => {
       this.createSnow(model);
     }
-
     model.onUpdateSnow.add(this.updateHandlerSnow);
+
     setInterval(() => {
       this.isGarlandLight = !this.isGarlandLight;
       this.render();
     }, 500)
-    
+
+    this.images.push({
+      name: 'background',
+      src: `../../../assets/bg/${this.model.background}.jpg`,
+      startX: 0,
+      startY: 0,
+      width: this.width,
+      height: this.height,
+    });
+    this.images.push({
+      name: 'tree',
+      src: `../../../assets/tree/${this.model.tree}.png`,
+      startX: this.width*0.15,
+      startY: this.height*0.25,
+      width: this.width*0.7,
+      height: this.height*0.7,
+    });
+
     const canvas = new Control<HTMLCanvasElement>(this.node, 'canvas', style.canvas);
     canvas.node.width = this.width;
     canvas.node.height = this.height;
     this.context = canvas.node.getContext('2d');
-    this.colorGarland = model.garland;
+    
     this.render();
-
-    this.snowContainer = new Control(this.node, 'div', style['snow-container']);
-    this.createSnow(model);
+    
     canvas.node.ondragover = (e) => {
       e.preventDefault();
       e.dataTransfer.dropEffect = "move"
@@ -237,20 +202,18 @@ export default class Canvas extends Control {
         
         this.context.fill();
       }
-      })
-   
-    }
-
-    
+    })   
+    }    
   }
 
   createSnow(model:ModelTree) {
     if (model.isSnow) {
-        this.snowContainer.node.classList.add(style.snow);
-      } else {
-        this.snowContainer.node.classList.remove(style.snow);
-      }
+      this.snowContainer.node.classList.add(style.snow);
+    } else {
+      this.snowContainer.node.classList.remove(style.snow);
+    }
   }
+
   createMap() {
     const image = new Image();
     image.src = `../../../assets/tree/${this.tree}.png`;  
@@ -271,15 +234,12 @@ export default class Canvas extends Control {
           y++;
         }
         if (allPixels[i]) {
-          this.mapTree.push({'x':x, 'y':y});
-          
+          this.mapTree.push({'x':x, 'y':y});          
         }
         x++;
       }  
       newCanvas.destroy();
     }
-    
-    
   }
 
   destroy() {

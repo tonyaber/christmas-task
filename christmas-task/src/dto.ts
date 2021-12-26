@@ -41,3 +41,27 @@ export interface IFilter  {
     favorite: boolean,
   };
 };
+
+export interface IMap {
+  x: number;
+  y: number;
+}
+
+
+export interface IImages {
+  name: string;
+  num?: string;
+  src: string;
+  startX: number;
+  startY: number;
+  width: number;
+  height: number;
+  isMove?: boolean;
+}
+
+export interface IGarland {
+  start: number;
+  finish: number;
+  y: number;
+  radius: number;
+}
