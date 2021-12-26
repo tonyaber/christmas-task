@@ -109,12 +109,7 @@ export default class Canvas extends Control {
  
 
     this.updateHandlerSnow = () => {
-      console.log(model.isSnow)
-      if (model.isSnow) {
-        this.snowContainer.node.classList.add(style.snow);
-      } else {
-        this.snowContainer.node.classList.remove(style.snow);
-      }
+      this.createSnow(model);
     }
 
     model.onUpdateSnow.add(this.updateHandlerSnow);
@@ -122,7 +117,7 @@ export default class Canvas extends Control {
       this.isGarlandLight = !this.isGarlandLight;
       this.render();
     }, 500)
-
+    
     const canvas = new Control<HTMLCanvasElement>(this.node, 'canvas', style.canvas);
     canvas.node.width = this.width;
     canvas.node.height = this.height;
@@ -131,6 +126,7 @@ export default class Canvas extends Control {
     this.render();
 
     this.snowContainer = new Control(this.node, 'div', style['snow-container']);
+    this.createSnow(model);
     canvas.node.ondragover = (e) => {
       e.preventDefault();
       e.dataTransfer.dropEffect = "move"
@@ -246,6 +242,14 @@ export default class Canvas extends Control {
     }
 
     
+  }
+
+  createSnow(model:ModelTree) {
+    if (model.isSnow) {
+        this.snowContainer.node.classList.add(style.snow);
+      } else {
+        this.snowContainer.node.classList.remove(style.snow);
+      }
   }
   createMap() {
     const image = new Image();

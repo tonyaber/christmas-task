@@ -12,6 +12,7 @@ export default class ModelTree{
   onUpdateTree: Signal<void> = new Signal();
   onUpdateGarland: Signal<void> = new Signal();
   onUpdateSnow:  Signal<void> = new Signal();
+  onUpdateMusic: Signal<void> = new Signal();
   garland: string = 'yellow';
   isSnow: boolean = false;
   isMusic: boolean = false;
@@ -65,6 +66,7 @@ export default class ModelTree{
 
   setMusic(isChecked: boolean) {
     this.isMusic = isChecked;
+    this.onUpdateMusic.emit();
 
   }
 
