@@ -1,4 +1,6 @@
-
+.canvas-container{
+  position: relative;
+}
 
 .canvas {
   position: relative;
@@ -9,4 +11,46 @@
   box-shadow: 0px 2px 12px 2px rgb(255 255 0);
 }
 
+.snow-container{
+  width: 700px;
+  height: 900px;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@keyframes snow {
+ 0% {background-position: 0px 0px, 0px 0px, 0px 0px}
+ 100% {background-position: 100px 200px, 200px 200px, 300px 300px}
+}
+ 
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px}
+ 100% {background-position: 100px 200px, 200px 200px, 300px 300px}
+}
+ 
+@-webkit-keyframes snow { 
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px}
+ 100% {background-position: 100px 200px, 200px 200px, 300px 300px}
+}
+ 
+@-ms-keyframes snow {
+   0% {background-position: 0px 0px, 0px 0px, 0px 0px}
+ 100% {background-position: 100px 200px, 200px 200px, 300px 300px}
+}
+
+.snow{
+  width: 100%;
+   background-image: url('../../../../assets/png/snowflake1.png'),
+   url('../../../../assets/png/snowflake2.png'), 
+   url('../../../../assets/png/snowflake3.png');
+
+ -webkit-animation: snow 3s linear infinite;
+ -moz-animation: snow 3s linear infinite;
+ -ms-animation: snow 3s linear infinite;
+ animation: snow 3s linear infinite;
+}
 

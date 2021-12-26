@@ -14,7 +14,6 @@ export default class Toy extends Control {
     this.toy.node.src = `../../../assets/toys/${data.num}.png`;
     this.toy.node.ondragstart = (e) => {
       e.dataTransfer.effectAllowed = "move";
-      //this.toy.node.style.left = e.offsetX - this.toy.node.offsetWidth / 2 + 'px';
       e.dataTransfer.setData('id', data.num);
     }
     this.countContainer = new Control(this.node, 'div', style.count, count.toString());

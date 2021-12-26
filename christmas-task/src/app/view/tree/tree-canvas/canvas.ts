@@ -26,6 +26,7 @@ export default class Canvas extends Control {
   updateHandler: () => void;
   updateHandlerTree: () => void;
   updateHandlerGarland: () => void;
+  updateHandlerSnow: () => void;
   model: ModelTree;
   mapTree: IMap[] = [];
   tree: number;
@@ -35,9 +36,11 @@ export default class Canvas extends Control {
   garland: { start: number; finish: number; y: number; radius: number; }[];
   colorGarland: string;
   isGarlandLight: boolean = true;
+  snowContainer: Control<HTMLElement>;
+
   
   constructor(parentNode: HTMLElement, model:ModelTree) {
-    super(parentNode);
+    super(parentNode, 'div', style['canvas-container']);
     this.model = model;
     this.tree = this.model.tree;
     this.images.push({
@@ -102,12 +105,23 @@ export default class Canvas extends Control {
       this.render();
     }
 
+    model.onUpdateGarland.add(this.updateHandlerGarland);
+ 
+
+    this.updateHandlerSnow = () => {
+      console.log(model.isSnow)
+      if (model.isSnow) {
+        this.snowContainer.node.classList.add(style.snow);
+      } else {
+        this.snowContainer.node.classList.remove(style.snow);
+      }
+    }
+
+    model.onUpdateSnow.add(this.updateHandlerSnow);
     setInterval(() => {
       this.isGarlandLight = !this.isGarlandLight;
       this.render();
     }, 500)
-
-    model.onUpdateGarland.add(this.updateHandlerGarland);
 
     const canvas = new Control<HTMLCanvasElement>(this.node, 'canvas', style.canvas);
     canvas.node.width = this.width;
@@ -115,6 +129,8 @@ export default class Canvas extends Control {
     this.context = canvas.node.getContext('2d');
     this.colorGarland = model.garland;
     this.render();
+
+    this.snowContainer = new Control(this.node, 'div', style['snow-container']);
     canvas.node.ondragover = (e) => {
       e.preventDefault();
       e.dataTransfer.dropEffect = "move"
@@ -266,6 +282,7 @@ export default class Canvas extends Control {
     this.model.onUpdate.remove(this.updateHandler);
     this.model.onUpdateTree.remove(this.updateHandlerTree);
     this.model.onUpdateGarland.remove(this.updateHandlerGarland);
+    this.model.onUpdateSnow.remove(this.updateHandlerSnow);
     super.destroy();
   }
 }

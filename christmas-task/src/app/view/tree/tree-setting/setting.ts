@@ -11,12 +11,12 @@ export default class Setting extends Control{
     super(parentNode,'div', style.setting);
     const soundContainer = new Control(this.node, 'div', style['sound-container']);
     const sound = new CheckBox(soundContainer.node, style.sound);
-    sound.onChangeFilter =()=> {
-      console.log('sound')
+    sound.onChangeFilter =(isChecked)=> {
+      model.setMusic(isChecked);
     }
     const snow = new CheckBox(soundContainer.node, style.snow);
-    snow.onChangeFilter = () => {
-      console.log('snow');
+    snow.onChangeFilter = (isChecked) => {
+      model.setSnow(isChecked);
     }
     const choosingBg = new ChoosingBg(this.node, model);
     const choosingTree = new ChoosingTree(this.node, model);

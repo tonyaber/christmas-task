@@ -11,11 +11,15 @@ export default class ModelTree{
   onUpdateToy: Signal<void> = new Signal();
   onUpdateTree: Signal<void> = new Signal();
   onUpdateGarland: Signal<void> = new Signal();
+  onUpdateSnow:  Signal<void> = new Signal();
   garland: string = 'yellow';
+  isSnow: boolean = false;
+  isMusic: boolean = false;
  
 
   setSelectedToy(value:IToy[]) {
-    this.selectedToy = value;
+    this.selectedToy = JSON.parse(JSON.stringify(value));
+    this.onUpdateToy.emit();
   }
 
   setAllToys(toys: IToy[]) {
@@ -33,10 +37,13 @@ export default class ModelTree{
   }
 
   getToys() {
-    if (this.selectedToy.length) {
-      return this.selectedToy
+    if (!this.allToys) {
+      return [];
     }
-    this.selectedToy = this.allToys.slice(0, 20);
+    if (this.selectedToy.length) {
+      return this.selectedToy;
+    }
+    this.selectedToy = JSON.parse(JSON.stringify(this.allToys.slice(0, 20)));
     return this.selectedToy;
   }
 
@@ -54,6 +61,16 @@ export default class ModelTree{
   setGarland(value: string) {
     this.garland = value;
     this.onUpdateGarland.emit();
+  }
+
+  setMusic(isChecked: boolean) {
+    this.isMusic = isChecked;
+
+  }
+
+  setSnow(isChecked: boolean) {
+    this.isSnow = isChecked;
+    this.onUpdateSnow.emit();
   }
 
 

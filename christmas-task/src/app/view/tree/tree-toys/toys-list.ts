@@ -16,11 +16,7 @@ export default class ToysList extends Control{
     this.model = model;
 
     this.onUpdateHandler = () => {
-      const toys = model.getToys();
-       for (let i = 0; i < toys.length; i++){
-          const toy = new Toy(this.node, toys[i])
-          this.toysView.push(toy);
-       }
+      this.createToys();
     }
 
     this.model.onUpdateToy.add(this.onUpdateHandler);
@@ -28,8 +24,21 @@ export default class ToysList extends Control{
     this.onDropHandler = () => {
       this.update(model)
     }
-   this.model.onDrop.add(this.onDropHandler)
+    this.model.onDrop.add(this.onDropHandler)
+    
+    this.createToys();
+    
 
+  }
+
+  createToys() {
+    this.toysView = [];
+    const toys = this.model.getToys();
+       for (let i = 0; i < toys.length; i++){
+          const toy = new Toy(this.node, toys[i])
+         this.toysView.push(toy);
+
+    }
   }
 
   update(model: ModelTree) {
