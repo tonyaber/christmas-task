@@ -14,14 +14,12 @@ class Music {
     if (!this.isMusicPlay) {
       this._music.pause();
     } else {
-       this._music.play();
-    this._music.onended = () => {
-      this._music.currentTime = 0;
       this._music.play();
-    };
-    }
-
-   
+      this._music.onended = () => {
+        this._music.currentTime = 0;
+        this._music.play();
+      };
+    }   
   }
 }
 

@@ -67,6 +67,7 @@ export default class Canvas extends Control {
     model.onUpdateSnow.add(this.updateHandlerSnow);
 
     this.saveHandlerTree = () => {
+      console.log(this.images)
       this.model.saveTree(this.images);
       this.createFirstState();
     }
@@ -269,6 +270,7 @@ export default class Canvas extends Control {
     this.model.onUpdateGarland.remove(this.updateHandlerGarland);
     this.model.onUpdateSnow.remove(this.updateHandlerSnow);
     this.model.onSaveTree.remove(this.saveHandlerTree);
+    this.model.onUpdateCanvas.remove(this.updateCanvas);
     super.destroy();
   }
 }

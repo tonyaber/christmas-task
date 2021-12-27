@@ -85,11 +85,12 @@ export default class ModelTree{
     localStorage.setItem('tonyaber-snow', JSON.stringify(isChecked));
   }
 
-  onSaveButtonClick() {
+  onSaveButtonClick() {    
     this.onSaveTree.emit();
   }
 
-  saveTree(value:IImages[]) {
+  saveTree(value: IImages[]) {
+    this.actualTree = value;
     this.canvasImage.push(JSON.parse(JSON.stringify(value)));
     this.tree = 1;
     this.background = 1;

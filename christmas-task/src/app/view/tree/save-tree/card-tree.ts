@@ -11,13 +11,11 @@ export default class CardTree extends Control {
   onChangeCanvas: (card: IImages[], garland: string)=>void;
   constructor(parentNode: HTMLElement) {
     super(parentNode, 'div', style.card);
-    this.garland = GARLANDS;
-   
+    this.garland = GARLANDS;   
     this.canvas = document.createElement('canvas');
     this.canvas.width = WIDTH;
     this.canvas.height = HEIGHT;
     this.context = this.canvas.getContext('2d');
-  
   }
 
   update(card: IImages[], garland: string) {
@@ -34,18 +32,38 @@ export default class CardTree extends Control {
       });    
     })
       .then(() => {
-      const image = new Control<HTMLImageElement>(this.node, 'img', style['card-img']);
-      image.node.src = this.canvas.toDataURL();
-        image.node.onclick = () => {
-        this.onChangeCanvas(card, garland)
-      }
-      const downloadBtn = new Control(this.node, 'button', style.download, 'Download');
-      downloadBtn.node.onclick = () => {
-        const link = document.createElement("a");    
-        link.setAttribute("href", image.node.src);
-        link.setAttribute("download", 'tree');
-        link.click();
-      }
+        // const marryChristmas = new Image();
+        // marryChristmas.src = '../../../../assets/png/merry.png';
+        // marryChristmas.onload = () => {
+        //   this.context.filter = 'none';
+        //   this.context.drawImage(marryChristmas, 100, 20 ,500,300);
+        //   const image = new Control<HTMLImageElement>(this.node, 'img', style['card-img']);
+        //   image.node.src = this.canvas.toDataURL();
+        //   image.node.onclick = () => {
+        //     this.onChangeCanvas(card, garland);
+        //   }
+        //    const downloadBtn = new Control(this.node, 'button', style.download, 'Download');
+        // downloadBtn.node.onclick = () => {
+        //   const link = document.createElement("a");    
+        //   link.setAttribute("href", image.node.src);
+        //   link.setAttribute("download", 'tree');
+        //   link.click();
+        // }
+        // }
+          const image = new Control<HTMLImageElement>(this.node, 'img', style['card-img']);
+          image.node.src = this.canvas.toDataURL();
+          image.node.onclick = () => {
+            this.onChangeCanvas(card, garland);
+          }
+           const downloadBtn = new Control(this.node, 'button', style.download, 'Download');
+        downloadBtn.node.onclick = () => {
+          const link = document.createElement("a");    
+          link.setAttribute("href", image.node.src);
+          link.setAttribute("download", 'tree');
+          link.click();
+        }
+        
+        
     })
   }
   

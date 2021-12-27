@@ -4,20 +4,19 @@ import ModelTree from '../../../model/model-tree';
 import CardTree from './card-tree';
 import style from './card.css';
 
-export default class SaveTree extends Control{
-  cards: CardTree[] = [];
-
-  
-  updateHandler: ()=>void;
+export default class SaveTreeContainer extends Control{
+  cards: CardTree[] = [];  
+  updateHandlerCard: ()=>void;
   model: ModelTree;
+
   constructor(parentNode: HTMLElement, model: ModelTree) {
     super(parentNode,'div',style['cards-container']);
     this.model = model;
-    this.updateHandler = () => {
-      this.addNewCard(model.canvasImage, model.garland);
+    this.updateHandlerCard = () => {      
+      this.addNewCard(model.actualTree, model.garland);
     }
 
-    model.onUpdateSaveTree.add(this.updateHandler);
+    model.onUpdateSaveTree.add(this.updateHandlerCard);
     this.createCard(model.canvasImage, model.garland);
   }
 
@@ -35,17 +34,18 @@ export default class SaveTree extends Control{
     });    
   }
 
-  addNewCard(data: IImages[][], garland: string) {
+  addNewCard(data: IImages[], garland: string) {
     this.node.classList.add(style['hide-card'])
     const card = new CardTree(this.node);
     card.onChangeCanvas = (dataCard, dataGarland) => {
         this.model.changeCanvas(dataCard, dataGarland)
       }
     this.cards.push(card);
-    card.update(data[data.length - 1], garland);
+    card.update(data, garland);
   }
+
   destroy(){
-    this.model.onUpdateSaveTree.remove(this.updateHandler);
+    this.model.onUpdateSaveTree.remove(this.updateHandlerCard);
     super.destroy();
   }
   

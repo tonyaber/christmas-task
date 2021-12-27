@@ -26,9 +26,7 @@ export default class ToysList extends Control{
     }
     this.model.onDrop.add(this.onDropHandler)
     
-    this.createToys();
-    
-
+    this.createToys();  
   }
 
   createToys() {
@@ -37,7 +35,6 @@ export default class ToysList extends Control{
        for (let i = 0; i < toys.length; i++){
           const toy = new Toy(this.node, toys[i])
          this.toysView.push(toy);
-
     }
   }
 
@@ -47,6 +44,7 @@ export default class ToysList extends Control{
       item.update(toys[index].count)
     })
   }
+  
   destroy() {
     this.model.onDrop.remove(this.onDropHandler);
     this.model.onUpdateToy.remove(this.onUpdateHandler);
