@@ -33,7 +33,7 @@ export default class CardTree extends Control {
     })
       .then(() => {
         const marryChristmas = new Image();
-        marryChristmas.src = '../../../../assets/png/merry.png';
+        marryChristmas.src = 'assets/png/merry.png';
         marryChristmas.onload = () => {
           this.context.filter = 'none';
           this.context.drawImage(marryChristmas, 100, 20 ,500,300);

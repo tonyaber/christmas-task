@@ -4,7 +4,7 @@ class Music {
 
   constructor() {
     this._music = new Audio();
-    this._music.src = '../../assets/audio/audio.mp3';
+    this._music.src = 'assets/audio/audio.mp3';
     this.isMusicPlay = true;
     this._music.currentTime = 0;
     this._music.volume = 1;

@@ -42,9 +42,9 @@ export default class Canvas extends Control {
 
     this.updateHandler = () => {
       this.tree = this.model.tree;
-      this.images.find(item => item.name == 'tree').src = `../../../assets/tree/${this.tree}.png`;
+      this.images.find(item => item.name == 'tree').src = `assets/tree/${this.tree}.png`;
       this.background = this.model.background;
-      this.images.find(item => item.name == 'background').src = `../../../assets/bg/${this.background}.jpg`;
+      this.images.find(item => item.name == 'background').src = `assets/bg/${this.background}.jpg`;
       this.render();
     }
     model.onUpdate.add(this.updateHandler);
@@ -110,7 +110,7 @@ export default class Canvas extends Control {
         this.images.push({
           name: this.id.toString(),
           num: num,
-          src: `../../../assets/toys/${num}.png`,
+          src: `assets/toys/${num}.png`,
           startX:x-30,
           startY: y-30,
           width: 60,
@@ -164,7 +164,7 @@ export default class Canvas extends Control {
   createFirstState() {
     this.images = [{
       name: 'background',
-      src: `../../../assets/bg/${this.model.background}.jpg`,
+      src: `assets/bg/${this.model.background}.jpg`,
       startX: 0,
       startY: 0,
       width: this.width,
@@ -172,7 +172,7 @@ export default class Canvas extends Control {
     },
     {
       name: 'tree',
-      src: `../../../assets/tree/${this.model.tree}.png`,
+      src: `assets/tree/${this.model.tree}.png`,
       startX: this.width * 0.15,
       startY: this.height * 0.25,
       width: this.width * 0.7,
@@ -237,7 +237,7 @@ export default class Canvas extends Control {
 
   createMap() {
     const image = new Image();
-    image.src = `../../../assets/tree/${this.tree}.png`;  
+    image.src = `assets/tree/${this.tree}.png`;  
     image.onload = () => {
       this.mapTree = [];   
       const newCanvas = new Control<HTMLCanvasElement>(this.node, 'canvas');

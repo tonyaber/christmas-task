@@ -11,7 +11,7 @@ export default class Toy extends Control {
     let count = data.count;
     
     this.toy = new Control<HTMLImageElement>(this.node, 'img', style['toy-img']);
-    this.toy.node.src = `../../../assets/toys/${data.num}.png`;
+    this.toy.node.src = `assets/toys/${data.num}.png`;
     this.toy.node.ondragstart = (e) => {
       e.dataTransfer.effectAllowed = "move";
       e.dataTransfer.setData('id', data.num);
