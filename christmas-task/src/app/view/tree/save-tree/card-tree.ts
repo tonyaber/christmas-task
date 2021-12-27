@@ -32,24 +32,11 @@ export default class CardTree extends Control {
       });    
     })
       .then(() => {
-        // const marryChristmas = new Image();
-        // marryChristmas.src = '../../../../assets/png/merry.png';
-        // marryChristmas.onload = () => {
-        //   this.context.filter = 'none';
-        //   this.context.drawImage(marryChristmas, 100, 20 ,500,300);
-        //   const image = new Control<HTMLImageElement>(this.node, 'img', style['card-img']);
-        //   image.node.src = this.canvas.toDataURL();
-        //   image.node.onclick = () => {
-        //     this.onChangeCanvas(card, garland);
-        //   }
-        //    const downloadBtn = new Control(this.node, 'button', style.download, 'Download');
-        // downloadBtn.node.onclick = () => {
-        //   const link = document.createElement("a");    
-        //   link.setAttribute("href", image.node.src);
-        //   link.setAttribute("download", 'tree');
-        //   link.click();
-        // }
-        // }
+        const marryChristmas = new Image();
+        marryChristmas.src = '../../../../assets/png/merry.png';
+        marryChristmas.onload = () => {
+          this.context.filter = 'none';
+          this.context.drawImage(marryChristmas, 100, 20 ,500,300);
           const image = new Control<HTMLImageElement>(this.node, 'img', style['card-img']);
           image.node.src = this.canvas.toDataURL();
           image.node.onclick = () => {
@@ -62,8 +49,7 @@ export default class CardTree extends Control {
           link.setAttribute("download", 'tree');
           link.click();
         }
-        
-        
+        }       
     })
   }
   
@@ -82,7 +68,8 @@ export default class CardTree extends Control {
         if (value == 'multicolored') {
           this.context.fillStyle = color[Math.floor(Math.random() * 7)];
         } else {
-          this.context.fillStyle = value;        }
+          this.context.fillStyle = value;
+        }
         
         this.context.fill();
       }

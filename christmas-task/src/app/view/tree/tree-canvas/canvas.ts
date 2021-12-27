@@ -67,7 +67,6 @@ export default class Canvas extends Control {
     model.onUpdateSnow.add(this.updateHandlerSnow);
 
     this.saveHandlerTree = () => {
-      console.log(this.images)
       this.model.saveTree(this.images);
       this.createFirstState();
     }

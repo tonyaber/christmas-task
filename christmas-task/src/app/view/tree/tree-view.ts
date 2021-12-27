@@ -10,6 +10,7 @@ import SaveTreeContainer from './save-tree/save-tree';
 import Control from '../../../common/control';
 export default class TreePage extends Page {
   model: ModelToys;
+  canvas: Canvas;
 
   constructor(parentNode: HTMLElement, model: ModelToys) {
     super(parentNode, style.tree);
@@ -25,7 +26,7 @@ export default class TreePage extends Page {
     }    
 
     const setting = new Setting(this.node, model.modelTree);
-    const canvas = new Canvas(this.node, model.modelTree);
+    this.canvas = new Canvas(this.node, model.modelTree);
     const toysContainer = new Control(this.node, 'div', style['toys-container']);
     const toys = new ToysList(toysContainer.node, model.modelTree);
     const saveBtn = new SaveButton(toysContainer.node);
@@ -33,5 +34,10 @@ export default class TreePage extends Page {
       this.model.modelTree.onSaveButtonClick();
     }
     const saveTreeContainer = new SaveTreeContainer(toysContainer.node, model.modelTree);
+  }
+
+  destroy() {
+    this.canvas.destroy()
+    super.destroy();
   }
 }
