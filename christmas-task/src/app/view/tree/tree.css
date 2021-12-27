@@ -7,6 +7,26 @@
   padding: 0 100px;
   margin-top: 150px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   gap:20px;
+}
+
+.toys-container{
+  width: 500px;
+  height: 100%;
+}
+
+@media (max-width: 1800px){
+  
+  .toys-container{
+    width: 300px;
+  }
+}
+
+@media (max-width: 1800px){
+  .toys-container{
+    width: 700px;
+  }
+
 }

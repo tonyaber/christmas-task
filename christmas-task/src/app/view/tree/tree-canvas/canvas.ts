@@ -14,6 +14,7 @@ export default class Canvas extends Control {
   updateHandlerTree: () => void;
   updateHandlerGarland: () => void;
   updateHandlerSnow: () => void;
+  updateCanvas: () => void;
   saveHandlerTree: () => void;
   model: ModelTree;
   mapTree: IMap[] = [];
@@ -25,6 +26,7 @@ export default class Canvas extends Control {
   colorGarland: string;
   isGarlandLight: boolean = true;
   snowContainer: Control<HTMLElement>;
+
 
   
   constructor(parentNode: HTMLElement, model:ModelTree) {
@@ -69,6 +71,14 @@ export default class Canvas extends Control {
       this.createFirstState();
     }
     model.onSaveTree.add(this.saveHandlerTree);
+
+    this.updateCanvas = () => {
+      this.images = this.model.actualTree;
+      this.colorGarland = this.model.garland;
+      this.render();
+    }
+
+    model.onUpdateCanvas.add(this.updateCanvas);
 
     setInterval(() => {
       this.isGarlandLight = !this.isGarlandLight;

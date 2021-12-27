@@ -1,5 +1,5 @@
 .setting{
-  width: 30%;
+  width: 350px;
 }
 
 .sound-container {
@@ -61,6 +61,7 @@
 .choosing-bg,
 .choosing-tree,
 .choosing-garland{
+  margin: 10px 0;
     padding: 20px;
   background-color: rgba(99,0,11, .3);
   border: 1px solid #fff08e;
@@ -137,4 +138,10 @@
 
 .off {
   background-color: black;
+}
+
+@media (max-width: 1300px){
+  .setting{
+    width: 700px;
+  }
 }
