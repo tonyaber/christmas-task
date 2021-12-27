@@ -5,7 +5,7 @@ export default class TreeIcon extends Control {
   onChangeTree: () => void;
   constructor(parentNode: HTMLElement, index:number) {
     super(parentNode,'div', style['tree-icon']);
-    this.node.style.backgroundImage = `url(../../../assets/tree/${index}.png)`;
+    this.node.style.backgroundImage = `url(assets/tree/${index}.png)`;
     this.node.onclick = () => {
       this.onChangeTree();
     }
