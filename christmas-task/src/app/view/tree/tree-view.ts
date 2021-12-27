@@ -16,8 +16,12 @@ export default class TreePage extends Page {
     model.modelTree.onUpdateMusic.add(() => {
       Music.isMusicPlay = model.modelTree.isMusic;
       Music.playMusic();
-      
     })
+    document.body.onclick = () => {
+      if (model.modelTree.isMusic) {
+        Music.playMusic();
+      }
+    }    
 
     const setting = new Setting(this.node, model.modelTree);
     const canvas = new Canvas(this.node, model.modelTree);

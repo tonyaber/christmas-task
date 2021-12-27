@@ -4,8 +4,7 @@
 
 .sound-container {
   display: flex;
-  justify-content: flex-start;
-  gap: 100px;
+  justify-content: space-around;
    padding: 20px;
   background-color: rgba(99,0,11, .3);
   border: 1px solid #fff08e;
@@ -136,12 +135,33 @@
    box-shadow: rgb(0 0 0 / 20%) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgb(255 0 0 / 50%) 0 2px 12px;
 }
 
-.off {
-  background-color: black;
+.off{
+  background-color: black;;
 }
+
+.choosing-garland .span-off{
+  display: block;
+  width: 40px;
+  position: relative;
+  padding: 5px;
+  font-weight: bold;
+}
+
 
 @media (max-width: 1300px){
   .setting{
     width: 700px;
   }
+}
+
+.clear-btn{
+  padding: 5px 10px;
+  background-color: rgba(99,0,11);
+  border: 1px solid #fff08e;
+  border-radius: 10px;
+  color:#fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
 }

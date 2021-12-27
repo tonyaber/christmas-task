@@ -11,6 +11,9 @@ export default class ChoosingGarland extends Control {
 
     const garlandContainer = new Control(this.node, 'div', style['garland-container']);
     garlands.map(item => {
+      if (item == 'off') {
+        const title = new Control(garlandContainer.node, 'span', style['span-off'], 'OFF:');
+      }
       const garland = new CheckBox(garlandContainer.node, style[item]);
       garland.onChangeFilter = () => {
         model.setGarland(item)

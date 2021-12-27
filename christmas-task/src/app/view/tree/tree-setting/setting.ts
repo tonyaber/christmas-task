@@ -21,6 +21,11 @@ export default class Setting extends Control{
     this.snow.onChangeFilter = (isChecked) => {
       model.setSnow(isChecked);
     }
+
+    const clearBtn = new Control(soundContainer.node, 'button', style['clear-btn'], 'Clear LS');
+    clearBtn.node.onclick = () => {
+      model.clearLocalStorage();
+    }
     const choosingBg = new ChoosingBg(this.node, model);
     const choosingTree = new ChoosingTree(this.node, model);
     const choosingGarland = new ChoosingGarland(this.node, model);

@@ -1,5 +1,5 @@
 import Signal from "../../common/signal";
-import { IGarland, IImages, IToy } from '../../dto';
+import { IImages, IToy } from '../../dto';
 
 export default class ModelTree{
   selectedToy: IToy[] = [];
@@ -21,6 +21,10 @@ export default class ModelTree{
   isMusic: boolean = false;
   canvasImage: IImages[][] = [];
   actualTree: IImages[];
+
+  constructor() {
+    this.getLocalStorage();
+  }
 
   setSelectedToy(value:IToy[]) {
     this.selectedToy = JSON.parse(JSON.stringify(value));
@@ -71,12 +75,14 @@ export default class ModelTree{
   setMusic(isChecked: boolean) {
     this.isMusic = isChecked;
     this.onUpdateMusic.emit();
+    localStorage.setItem('tonyaber-music', JSON.stringify(isChecked));
 
   }
 
   setSnow(isChecked: boolean) {
     this.isSnow = isChecked;
     this.onUpdateSnow.emit();
+    localStorage.setItem('tonyaber-snow', JSON.stringify(isChecked));
   }
 
   onSaveButtonClick() {
@@ -88,6 +94,7 @@ export default class ModelTree{
     this.tree = 1;
     this.background = 1;
     this.onUpdateSaveTree.emit();
+    localStorage.setItem('tonyaber-tree', JSON.stringify(this.canvasImage))
   }
 
   changeCanvas(data: IImages[], garland: string) {
@@ -96,5 +103,20 @@ export default class ModelTree{
     this.onUpdateCanvas.emit();
   }
 
+  clearLocalStorage() {
+    localStorage.clear();    
+  }
+
+  getLocalStorage() {
+    if (localStorage.getItem('tonyaber-snow')) {
+      this.isSnow = JSON.parse(localStorage.getItem('tonyaber-snow'));
+    }
+    if (localStorage.getItem('tonyaber-music')) {
+      this.isMusic = JSON.parse(localStorage.getItem('tonyaber-music'));
+    }
+    if (localStorage.getItem('tonyaber-tree')){
+      this.canvasImage = JSON.parse(localStorage.getItem('tonyaber-tree'));
+    }
+  }
 
 }
