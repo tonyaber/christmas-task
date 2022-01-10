@@ -7,8 +7,8 @@ export default class ModelSort{
   filtersToys: IToy[];
   toys: IToy[] = [];
   selectedToy: IToy[] = [];
-  isEmptyList: boolean = false;
-  isEmptySearch: boolean = false;
+  isEmptyList = false;
+  isEmptySearch = false;
   onOverFlow: Signal<void> = new Signal();
   onSelectToy: Signal<void> = new Signal();
   constructor() {
@@ -61,10 +61,10 @@ export default class ModelSort{
     this.filtersToys =[];
     let arrayWithFilters:IToy[] = this.allToys;
   
-    for (let key in filters) {
+    for (const key in filters) {
       let arrayArrayWithAllFilters: IToy[] = [];
       let isFilter = false;
-      for (let value in filters[key]) {
+      for (const value in filters[key]) {
         if (filters[key][value]) {
           isFilter = true;
           arrayArrayWithAllFilters = arrayArrayWithAllFilters.concat(this.filtersDataByValue(key,value, arrayWithFilters));
@@ -75,7 +75,7 @@ export default class ModelSort{
       }
       
     }   
-    for (let key in range) {
+    for (const key in range) {
       arrayWithFilters = this.filtersDataByRange(key, range[key]['from'], range[key]['to'], arrayWithFilters);
     }
 

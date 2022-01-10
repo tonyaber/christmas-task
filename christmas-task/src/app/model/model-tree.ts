@@ -4,8 +4,8 @@ import { IImages, IToy } from '../../dto';
 export default class ModelTree{
   selectedToy: IToy[] = [];
   allToys: IToy[];
-  background: number = 1;
-  tree: number = 1;
+  background = 1;
+  tree = 1;
   onUpdate: Signal<void> = new Signal();
   onDrop: Signal<void> = new Signal();
   onUpdateToy: Signal<void> = new Signal();
@@ -16,9 +16,9 @@ export default class ModelTree{
   onSaveTree: Signal<void> = new Signal();
   onUpdateSaveTree: Signal<void> = new Signal();
   onUpdateCanvas: Signal<void> = new Signal();
-  garland: string = 'yellow';
-  isSnow: boolean = false;
-  isMusic: boolean = false;
+  garland = 'yellow';
+  isSnow = false;
+  isMusic = false;
   canvasImage: IImages[][] = [];
   actualTree: IImages[];
 

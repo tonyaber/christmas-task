@@ -20,11 +20,11 @@ export default class Canvas extends Control {
   mapTree: IMap[] = [];
   tree: number;
   background: number;
-  id: number = 0;
+  id = 0;
   images:IImages[]=[];
   garland:IGarland[]=GARLANDS;
   colorGarland: string;
-  isGarlandLight: boolean = true;
+  isGarlandLight = true;
   snowContainer: Control<HTMLElement>;
 
 
@@ -196,7 +196,7 @@ export default class Canvas extends Control {
 
   loadImage(src:string):Promise<HTMLImageElement> {
     return new Promise((resolve) => {
-      let image = new Image();
+      const image = new Image();
       image.onload = () => {
         resolve(image);
       }

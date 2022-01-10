@@ -79,7 +79,7 @@ export default class CardTree extends Control {
 
   loadImage(src:string):Promise<HTMLImageElement> {
     return new Promise((resolve) => {
-      let image = new Image();
+      const image = new Image();
       image.onload = () => {
         resolve(image);
       }

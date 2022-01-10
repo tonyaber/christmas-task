@@ -5,10 +5,10 @@ import style from './toys-list.css';
 export default class Toy extends Control {
   countContainer: Control<HTMLElement>;
   toy: Control<HTMLImageElement>;
-  isEmpty: boolean = false;
+  isEmpty = false;
   constructor(parentNode: HTMLElement, data: IToy) { 
     super(parentNode, 'div', style.toy);
-    let count = data.count;
+    const count = data.count;
     
     this.toy = new Control<HTMLImageElement>(this.node, 'img', style['toy-img']);
     this.toy.node.src = `assets/toys/${data.num}.png`;

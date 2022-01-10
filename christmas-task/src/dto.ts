@@ -40,7 +40,7 @@ export interface IFilter  {
   favorite: {
     favorite: boolean,
   };
-};
+}
 
 export interface IMap {
   x: number;

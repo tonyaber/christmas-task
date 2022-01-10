@@ -34,7 +34,7 @@ export default class Application extends Control {
      if (this.oldHash !== window.location.hash) {
         this.oldHash = window.location.hash;
         if (this.currentPage) {
-          let currentPage = this.currentPage;
+          const currentPage = this.currentPage;
           this.pageSnow.showSnow();
           this.currentPage.animateOut().then(()=>{
           currentPage.destroy();

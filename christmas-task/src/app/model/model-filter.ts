@@ -47,8 +47,8 @@ export default class ModelFilter{
   }
 
   resetFilters() {
-    for (let key in this.filters) {
-      for (let filter in this.filters[key]) {
+    for (const key in this.filters) {
+      for (const filter in this.filters[key]) {
         this.filters[key][filter] = false;
       }
     }
