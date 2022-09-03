@@ -8,4 +8,5 @@
  - filtering and search (similar to an online store)
  - canvas
  - drag and drop
-[Deploy](https://rolling-scopes-school.github.io/tonyaber-JSFE2021Q3/christmas-task/task/)
+ 
+## [Deploy](https://rolling-scopes-school.github.io/tonyaber-JSFE2021Q3/christmas-task/task/)
